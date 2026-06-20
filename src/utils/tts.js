@@ -89,11 +89,11 @@ export async function speakHumanGerman(text, voiceName, rate) {
 }
 
 // ---- Browser speech synthesis fallback --------------------------
-export function speakBrowserFallback(text, rate) {
+export function speakBrowserFallback(text, rate, lang = 'de-DE') {
   if (!window.speechSynthesis) return;
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'de-DE';
+  u.lang = lang;
   u.rate = rate || 0.92;
   window.speechSynthesis.speak(u);
 }

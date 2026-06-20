@@ -1,96 +1,177 @@
 /* ============================================================
-   DEUTSCH WERKSTATT — Global Styles
+   DEUTSCH WERKSTATT — Global Styles (Soft Neumorphic)
    ============================================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Space+Grotesk:wght@300..700&family=JetBrains+Mono&display=swap');
+
 :root {
-  --app-bg: #292827;
-  --nav-bg: #222120;
-  --ink: #FFFFFF;
-  --ink-soft: #A3A3A3;
-  --gold: #C8932B;
-  --rust: #A8402B;
-  --teal: #27645F;
-  --line: #3A3837;
-  --card: #323130;
-  --good: #34B889;
-  --bad: #E55039;
+  --app-bg: #EDEAE3;
+  --card-bg: #F3F1EB;
+  
+  --ink: #2B2A28;
+  --ink-soft: #8A8678;
+  
+  --grad-teal: linear-gradient(145deg, #11978C, #0C6E66);
+  --grad-copper: linear-gradient(145deg, #C97B4A, #A55E33);
+  --color-error: #C97B4A;
+  --color-teal: #11978C;
+  --color-copper: #C97B4A;
+  
+  --shadow-light: #FFFFFF;
+  --shadow-dark: #c2bfb5;
 
-  --node-green: #2C6953;
-  --node-purple: #41328C;
-  --node-brown: #5C3221;
-  --node-red: #662232;
-  --node-gray: #525252;
+  --node-green: var(--grad-teal);
+  --node-purple: var(--grad-teal);
+  --node-brown: var(--grad-copper);
+  --node-red: var(--grad-copper);
+  --node-gray: var(--card-bg);
 
-  --topic-purple: #E8E8FA;
-  --topic-blue: #E8F2FA;
-  --topic-orange: #FAEAE8;
-  --topic-yellow: #FAF3E5;
+  --line: transparent; /* Removing hard lines */
 }
 
-* { box-sizing: border-box; }
+[data-theme="dark"] {
+  --app-bg: #1E1D1B;
+  --card-bg: #242321;
+  
+  --ink: #EDEAE3;
+  --ink-soft: #8A8678;
+  
+  --shadow-light: #32302D;
+  --shadow-dark: #11100F;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
 
 body {
-  background: #1A1A1A; /* Outer background for desktop */
+  background: var(--app-bg); 
   color: var(--ink);
   font-family: 'Space Grotesk', sans-serif;
 }
 
-h1, h2, h3, .display { font-family: 'Fraunces', serif; }
+h1, h2, h3, .display { font-family: 'Fraunces', serif; color: var(--ink); }
 .mono { font-family: 'JetBrains Mono', monospace; }
 
-::selection { background: var(--gold); color: #fff; }
+::selection { background: var(--color-teal); color: #fff; }
 
-button { font-family: inherit; cursor: pointer; }
-textarea, input, select { font-family: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; }
+textarea, input, select { font-family: inherit; border: none; }
+input:focus, textarea:focus, select:focus { outline: none; }
 
 /* Scrollbar */
 .scrollbar::-webkit-scrollbar { width: 8px; }
-.scrollbar::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+.scrollbar::-webkit-scrollbar-thumb { background: #d0cec5; border-radius: 4px; }
 
-/* Button variants */
-.btn {
-  border: 2px solid var(--ink);
-  background: var(--ink);
-  color: #1A1A1A;
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: transform .12s ease, background .12s ease;
+/* ============================================================
+   Neumorphic Utility Classes
+   ============================================================ */
+
+.neu-raised {
+  background: var(--card-bg);
+  box-shadow: 10px 10px 24px var(--shadow-dark), -10px -10px 24px var(--shadow-light);
+  border-radius: 24px;
 }
-.btn:hover { transform: translateY(-1px); background: #E2E2E2; border-color: #E2E2E2; }
-.btn:disabled { opacity: .45; transform: none; cursor: default; }
 
-.btn-outline {
-  border: 2px solid var(--ink);
-  background: transparent;
-  color: var(--ink);
-  padding: 9px 16px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 13px;
-}
-.btn-outline:hover { background: var(--ink); color: #1A1A1A; }
-
-/* Card */
-.card {
-  background: var(--card);
-  border: 1px solid var(--line);
+.neu-inset {
+  background: var(--card-bg);
+  box-shadow: inset 5px 5px 12px var(--shadow-dark), inset -5px -5px 12px var(--shadow-light);
   border-radius: 14px;
 }
 
-/* Tag pill */
-.tag {
-  display: inline-block;
-  border: 1px solid var(--ink);
-  border-radius: 999px;
-  padding: 2px 10px;
-  font-size: 11px;
-  letter-spacing: .04em;
-  text-transform: uppercase;
+.neu-small {
+  background: var(--card-bg);
+  box-shadow: 7px 7px 16px var(--shadow-dark), -7px -7px 16px var(--shadow-light);
+  border-radius: 14px;
+}
+
+.neu-badge {
+  background: var(--card-bg);
+  box-shadow: 4px 4px 10px var(--shadow-dark), -4px -4px 10px var(--shadow-light);
+  border-radius: 50%;
+}
+
+.neu-btn {
+  background: var(--grad-teal);
+  color: #fff;
+  box-shadow: 7px 7px 16px var(--shadow-dark), -7px -7px 16px var(--shadow-light);
+  border-radius: 18px;
   font-weight: 600;
+  border: none;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.neu-btn:active {
+  box-shadow: inset 5px 5px 12px rgba(0,0,0,0.2), inset -5px -5px 12px rgba(255,255,255,0.1);
+  transform: translateY(1px);
+}
+
+.neu-btn:disabled {
+  opacity: 0.5;
+  box-shadow: none;
+  background: var(--card-bg);
+  color: var(--ink-soft);
+  transform: none;
+  cursor: default;
+}
+
+.neu-btn-copper {
+  background: var(--grad-copper);
+  color: #fff;
+  box-shadow: 7px 7px 16px var(--shadow-dark), -7px -7px 16px var(--shadow-light);
+  border-radius: 18px;
+  font-weight: 600;
+  border: none;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+.neu-btn-copper:active {
+  box-shadow: inset 5px 5px 12px rgba(0,0,0,0.2), inset -5px -5px 12px rgba(255,255,255,0.1);
+  transform: translateY(1px);
+}
+
+.neu-tile-primary {
+  background: var(--grad-teal);
+  color: #fff;
+  box-shadow: 7px 7px 16px var(--shadow-dark), -7px -7px 16px var(--shadow-light);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neu-tile-neutral {
+  background: var(--card-bg);
+  color: var(--ink-soft);
+  box-shadow: inset 5px 5px 12px var(--shadow-dark), inset -5px -5px 12px var(--shadow-light);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neu-bubble-tutor {
+  background: var(--card-bg);
+  color: var(--ink);
+  box-shadow: 7px 7px 16px var(--shadow-dark), -7px -7px 16px var(--shadow-light);
+  border-radius: 18px 18px 18px 4px;
+  padding: 14px 18px;
+}
+
+.neu-bubble-user {
+  background: var(--grad-teal);
+  color: #fff;
+  box-shadow: 7px 7px 16px var(--shadow-dark), -7px -7px 16px var(--shadow-light);
+  border-radius: 18px 18px 4px 18px;
+  padding: 14px 18px;
+}
+
+.neu-bubble-correction {
+  background: var(--card-bg);
+  color: var(--color-copper);
+  box-shadow: inset 5px 5px 12px var(--shadow-dark), inset -5px -5px 12px var(--shadow-light);
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-size: 13px;
 }
 
 /* Animations */
@@ -107,78 +188,83 @@ textarea, input, select { font-family: inherit; }
    Mobile App Layout Classes
    ============================================================ */
 
-.responsive-grid-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.responsive-grid-halves {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+.responsive-grid-sidebar { display: flex; flex-direction: column; gap: 16px; }
+.responsive-grid-halves { display: flex; flex-direction: column; gap: 16px; }
 
 .mobile-scroll-x {
-  display: flex;
-  overflow-x: auto;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
+  display: flex; overflow-x: auto; white-space: nowrap;
+  -webkit-overflow-scrolling: touch; scrollbar-width: none;
 }
-.mobile-scroll-x::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
-}
+.mobile-scroll-x::-webkit-scrollbar { display: none; }
 
 /* Force mobile phone size on desktop */
 .app-container {
-  max-width: 480px;
-  margin: 0 auto;
-  height: 100dvh;
-  background: #1E1E1E;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  max-width: 480px; margin: 0 auto; height: 100dvh;
+  background: var(--app-bg);
+  position: relative; display: flex; flex-direction: column;
 }
 
 main {
-  flex: 1;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
+  flex: 1; overflow-y: hidden; overflow-x: hidden;
+  position: relative; display: flex; flex-direction: column;
 }
 
-.bottom-nav {
+.neu-nav-tray {
   width: 100%;
   max-width: 480px;
-  background: var(--nav-bg);
-  border-top: 1px solid var(--line);
+  background: var(--card-bg);
+  box-shadow: inset 5px 5px 12px var(--shadow-dark), inset -5px -5px 12px var(--shadow-light);
+  border-radius: 24px;
   display: flex;
   justify-content: space-around;
-  padding: 10px 0 20px;
+  padding: 12px 10px;
+  margin: 20px 16px 20px 16px;
   z-index: 100;
+  width: calc(100% - 32px); /* respect padding */
 }
 
-.bottom-nav button {
+.neu-nav-tray button {
   background: transparent;
-  border: none;
   color: var(--ink-soft);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   font-size: 10px;
-  cursor: pointer;
-  padding: 6px 10px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  padding: 8px;
+  border-radius: 14px;
+  width: 60px;
 }
 
-.bottom-nav button.active {
-  color: #63B3ED;
-}
-.bottom-nav button.active .icon {
-  color: #63B3ED;
+.neu-nav-tray button.active {
+  background: var(--grad-teal);
+  color: #fff;
+  box-shadow: 7px 7px 16px var(--shadow-dark), -7px -7px 16px var(--shadow-light);
+  transform: translateY(-8px);
 }
 
+/* ============================================================
+   Global Click Feeling
+   ============================================================ */
 
+button, 
+[style*="cursor: pointer"] {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:active:not(:disabled), 
+[style*="cursor: pointer"]:active {
+  transform: scale(0.96);
+}
+
+.neu-raised[style*="cursor: pointer"]:active,
+button.neu-small:active {
+  box-shadow: inset 5px 5px 12px var(--shadow-dark), inset -5px -5px 12px var(--shadow-light);
+}
+
+.neu-nav-tray button:active:not(.active) {
+  transform: scale(0.92);
+  background: rgba(0,0,0,0.05);
+}

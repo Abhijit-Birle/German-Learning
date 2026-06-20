@@ -2,13 +2,17 @@ import { useState, useEffect, useMemo } from 'react';
 import { useGemini } from '../hooks/useGemini.js';
 import { LS, loadVocab, saveVocab } from '../utils/storage.js';
 import { speakHumanGerman, speakBrowserFallback } from '../utils/tts.js';
+import { showToast } from '../utils/toast.js';
 import { EmptyState } from './ui/Atoms.jsx';
+import { Icon } from './ui/Icon.jsx';
+import { t } from '../i18n.js';
+import { getVocabularyPrompt } from '../utils/prompts.js';
 
 function leitnerInterval(box) {
   return [0, 1, 2, 4, 9, 18][box] || 1;
 }
 
-export function Vocabulary({ level }) {
+export function Vocabulary({ level, appLang }) {
   const { call } = useGemini();
   const [vocab, setVocab] = useState(loadVocab());
   const [topic, setTopic] = useState('');
@@ -29,7 +33,7 @@ export function Vocabulary({ level }) {
     if (!topic.trim() || loading) return;
     setLoading(true);
     try {
-      const sys = `You are a German vocabulary generator for a CEFR ${level} learner. Given a topic, produce 8 useful German words/phrases appropriate to that level. Return ONLY raw JSON: {"words":[{"word":"<German word with article if noun, e.g. 'die Wohnung'>","translation":"<English>","example":"<natural German example sentence using the word>","exampleTranslation":"<English translation of example>"}]}`;
+      const sys = getVocabularyPrompt(level);
       const out = await call(sys, [{ role: 'user', parts: [{ text: `Topic: ${topic}` }] }], true);
       const newCards = (out.words || []).map((w) => ({
         id: 'v_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7),
@@ -92,45 +96,56 @@ export function Vocabulary({ level }) {
     <div style={{ padding: '0 16px 24px 16px', display: 'flex', flexDirection: 'column', gap: 16 }}>
       
       {/* Top Stats */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 8 }}>
-        <div style={{ background: '#252424', borderRadius: 8, padding: '16px 8px', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <div style={{ fontSize: 20, fontWeight: 700, color: '#fff' }}>{vocab.length}</div>
-          <div style={{ fontSize: 11, color: 'var(--ink-soft)' }}>gesamt</div>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 12 }}>
+        <div className="neu-inset" style={{ padding: '16px 8px', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div style={{ fontSize: 20, fontWeight: 700, color: 'var(--ink)' }}>{vocab.length}</div>
+          <div style={{ fontSize: 11, color: 'var(--ink-soft)' }}>{t('voc_total', appLang)}</div>
         </div>
-        <div style={{ background: '#1F4A23', borderRadius: 8, padding: '16px 8px', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <div style={{ fontSize: 20, fontWeight: 700, color: '#48BB78' }}>{mastered}</div>
-          <div style={{ fontSize: 11, color: '#48BB78', opacity: 0.8 }}>gemeistert</div>
+        <div className="neu-inset" style={{ padding: '16px 8px', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div style={{ fontSize: 20, fontWeight: 700, color: 'var(--color-teal)' }}>{mastered}</div>
+          <div style={{ fontSize: 11, color: 'var(--color-teal)', opacity: 0.8 }}>{t('voc_mastered', appLang)}</div>
         </div>
-        <div style={{ background: '#5C4314', borderRadius: 8, padding: '16px 8px', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <div style={{ fontSize: 20, fontWeight: 700, color: '#D69E2E' }}>{repeat}</div>
-          <div style={{ fontSize: 11, color: '#D69E2E', opacity: 0.8 }}>zur wiederholung</div>
+        <div className="neu-inset" style={{ padding: '16px 8px', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div style={{ fontSize: 20, fontWeight: 700, color: 'var(--color-copper)' }}>{repeat}</div>
+          <div style={{ fontSize: 11, color: 'var(--color-copper)', opacity: 0.8 }}>{t('voc_review', appLang)}</div>
         </div>
       </div>
 
       {/* Filters & Add Toggle */}
-      <div style={{ display: 'flex', gap: 8, overflowX: 'auto', paddingBottom: 4, alignItems: 'center' }} className="scrollbar-hidden">
-        <button onClick={() => setMode(mode === 'add' ? 'review' : 'add')} style={{ flexShrink: 0, padding: '6px 12px', borderRadius: 20, background: mode === 'add' ? '#2B4B70' : 'transparent', border: '1px solid var(--line)', color: '#fff', fontSize: 13, cursor: 'pointer' }}>
-          + Neu
+      <div style={{ display: 'flex', gap: 8, overflowX: 'auto', paddingBottom: 8, alignItems: 'center' }} className="scrollbar-hidden">
+        <button 
+          onClick={() => setMode(mode === 'add' ? 'review' : 'add')} 
+          className={mode === 'add' ? 'neu-btn' : 'neu-small'}
+          style={{ flexShrink: 0, padding: '8px 14px', fontSize: 13, display: 'flex', alignItems: 'center', gap: 6 }}
+        >
+          <Icon name="BookOpen" size={14} /> {t('voc_new', appLang)}
         </button>
-        {topics.map(t => (
-          <button key={t} style={{ flexShrink: 0, padding: '6px 16px', borderRadius: 20, background: t === 'Alle' && mode !== 'add' ? '#2B4B70' : 'transparent', border: '1px solid var(--line)', color: '#fff', fontSize: 13, cursor: 'pointer' }}>
-            {t}
+        {topics.map(tOption => (
+          <button 
+            key={tOption} 
+            onClick={() => {}} // TODO implement filter
+            className={tOption === 'Alle' && mode !== 'add' ? 'neu-btn' : 'neu-small'}
+            style={{ flexShrink: 0, padding: '8px 14px', fontSize: 13, color: tOption === 'Alle' && mode !== 'add' ? '#fff' : 'var(--ink)' }}
+          >
+            {tOption === 'Alle' ? t('voc_all', appLang) : tOption}
           </button>
         ))}
       </div>
 
       {mode === 'add' && (
-        <div className="card fadein" style={{ padding: 20, background: '#252424', borderRadius: 12 }}>
-          <div className="display" style={{ fontSize: 16, marginBottom: 10, color: '#fff' }}>Generate vocabulary by topic</div>
+        <div className="neu-raised fadein" style={{ padding: 20 }}>
+          <div className="display" style={{ fontSize: 16, marginBottom: 12, color: 'var(--ink)' }}>{t('voc_gen_title', appLang)}</div>
           <input
+            className="neu-inset"
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
-            placeholder="e.g. Beruf, Alltag…"
-            style={{ width: '100%', padding: '10px 14px', border: '1px solid var(--line)', borderRadius: 8, marginBottom: 12, background: '#1A1A1A', color: '#fff', outline: 'none' }}
+            placeholder={t('voc_gen_ph', appLang)}
+            style={{ width: '100%', padding: '12px 14px', marginBottom: 16, color: 'var(--ink)' }}
             onKeyDown={(e) => e.key === 'Enter' && generate()}
           />
-          <button className="btn" onClick={generate} disabled={loading || !topic.trim()} style={{ width: '100%', background: '#2B4B70', border: 'none', cursor: 'pointer', padding: '12px', borderRadius: 8, color: '#fff' }}>
-            {loading ? 'Generating…' : `Generate 8 words`}
+          <button className="neu-btn" onClick={generate} disabled={loading || !topic.trim()} style={{ width: '100%', padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8 }}>
+            {loading ? <span className="spin"><Icon name="Globe" size={16} /></span> : <Icon name="BookOpen" size={16} />}
+            {loading ? t('voc_btn_generating', appLang) : t('voc_btn_gen', appLang)}
           </button>
         </div>
       )}
@@ -138,34 +153,46 @@ export function Vocabulary({ level }) {
       {/* Flashcard Area */}
       {mode !== 'add' && current && (
         <div>
-          <div className="card fadein" onClick={() => setFlipped(!flipped)} style={{ background: '#E8E5FA', padding: '24px 20px', borderRadius: 16, textAlign: 'center', position: 'relative', cursor: 'pointer', minHeight: 200, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <div style={{ position: 'absolute', top: 16, right: 16, background: '#C4BEF2', color: '#41328C', fontSize: 10, fontWeight: 700, padding: '4px 8px', borderRadius: 12 }}>
-              {current.word.match(/^(der|die|das)\s/i) ? 'Substantiv' : 'Wort'}
+          <div className="neu-raised fadein" onClick={() => setFlipped(!flipped)} style={{ padding: '24px 20px', textAlign: 'center', position: 'relative', cursor: 'pointer', minHeight: 200, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+            <div className="neu-small" style={{ position: 'absolute', top: 16, right: 16, color: 'var(--color-teal)', fontSize: 10, fontWeight: 700, padding: '4px 8px' }}>
+              {current.word.match(/^(der|die|das)\s/i) ? t('voc_noun', appLang) : t('voc_word', appLang)}
             </div>
             
-            <div style={{ color: '#41328C', fontSize: 14, marginBottom: 8 }}>{current.word}</div>
+            <div style={{ color: 'var(--color-teal)', fontSize: 14, marginBottom: 8, fontWeight: 600 }}>{current.word}</div>
             
             {flipped ? (
               <>
-                <div style={{ color: '#1B1440', fontSize: 26, fontWeight: 700, marginBottom: 16 }}>{current.translation}</div>
-                <div style={{ color: '#41328C', fontSize: 14, fontStyle: 'italic', marginBottom: 16 }}>"{current.example}"</div>
+                <div 
+                  onDoubleClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(current.translation); showToast(t('copy', appLang) + '!'); }} 
+                  style={{ color: 'var(--ink)', fontSize: 26, fontWeight: 700, marginBottom: 16, cursor: 'pointer', textAlign: 'center' }}
+                  title={t('copy', appLang)}
+                >
+                  {current.translation}
+                </div>
+                <div 
+                  onDoubleClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(current.example); showToast(t('copy', appLang) + '!'); }} 
+                  style={{ color: 'var(--color-teal)', fontSize: 14, fontStyle: 'italic', marginBottom: 16, cursor: 'pointer', textAlign: 'center' }}
+                  title={t('copy', appLang)}
+                >
+                  "{current.example}"
+                </div>
                 <div style={{ display: 'flex', justifyContent: 'center', gap: 16 }}>
-                  <button onClick={(e) => { e.stopPropagation(); speak(current.word); }} disabled={speakBusy} style={{ background: 'transparent', border: 'none', color: '#41328C', fontSize: 13, fontWeight: 600, cursor: 'pointer', padding: '6px 12px', border: '1px solid rgba(65,50,140,0.3)', borderRadius: 8, display: 'flex', alignItems: 'center', gap: 4 }}>🔊 Wort</button>
-                  <button onClick={(e) => { e.stopPropagation(); speak(current.example); }} disabled={speakBusy} style={{ background: 'transparent', border: 'none', color: '#41328C', fontSize: 13, fontWeight: 600, cursor: 'pointer', padding: '6px 12px', border: '1px solid rgba(65,50,140,0.3)', borderRadius: 8, display: 'flex', alignItems: 'center', gap: 4 }}>🔊 Satz</button>
+                  <button onClick={(e) => { e.stopPropagation(); speak(current.word); }} disabled={speakBusy} className="neu-small" style={{ color: 'var(--color-teal)', fontSize: 13, fontWeight: 600, padding: '6px 12px', display: 'flex', alignItems: 'center', gap: 4 }}><Icon name="Volume2" size={14} /> {t('voc_word', appLang)}</button>
+                  <button onClick={(e) => { e.stopPropagation(); speak(current.example); }} disabled={speakBusy} className="neu-small" style={{ color: 'var(--color-teal)', fontSize: 13, fontWeight: 600, padding: '6px 12px', display: 'flex', alignItems: 'center', gap: 4 }}><Icon name="Volume2" size={14} /> {t('voc_sentence', appLang)}</button>
                 </div>
               </>
             ) : (
-              <div style={{ color: '#41328C', fontSize: 26, fontWeight: 700, marginBottom: 16, opacity: 0.1 }}>...</div>
+              <div style={{ color: 'var(--ink)', fontSize: 26, fontWeight: 700, marginBottom: 16, opacity: 0.1 }}>...</div>
             )}
           </div>
           
           {flipped && (
-            <div style={{ display: 'flex', gap: 12, marginTop: 16 }} className="fadein">
-              <button onClick={() => grade(current.id, 'again')} style={{ flex: 1, padding: '12px', background: 'transparent', border: '1px solid #E55039', borderRadius: 8, color: '#E55039', fontSize: 14, fontWeight: 500, cursor: 'pointer' }}>
-                Nochmal üben
+            <div style={{ display: 'flex', gap: 12, marginTop: 20 }} className="fadein">
+              <button onClick={() => grade(current.id, 'again')} className="neu-btn-copper" style={{ flex: 1, padding: '12px', fontSize: 14, fontWeight: 600 }}>
+                {t('voc_again', appLang)}
               </button>
-              <button onClick={() => grade(current.id, 'good')} style={{ flex: 1, padding: '12px', background: 'transparent', border: '1px solid #48BB78', borderRadius: 8, color: '#48BB78', fontSize: 14, fontWeight: 500, cursor: 'pointer' }}>
-                Gemeistert
+              <button onClick={() => grade(current.id, 'good')} className="neu-btn" style={{ flex: 1, padding: '12px', fontSize: 14, fontWeight: 600 }}>
+                {t('voc_mastered_btn', appLang)}
               </button>
             </div>
           )}
@@ -173,19 +200,19 @@ export function Vocabulary({ level }) {
       )}
 
       {/* Word List */}
-      <div style={{ paddingBottom: 24 }}>
-        <div style={{ fontSize: 16, fontWeight: 600, color: '#fff', marginBottom: 16 }}>Wortliste</div>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ paddingBottom: 24, marginTop: 12 }}>
+        <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)', marginBottom: 16 }}>{t('voc_list', appLang)}</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
           {vocab.map((c, i) => {
             const isMastered = c.box >= 4;
             return (
-              <div key={c.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px 0', borderBottom: i < vocab.length - 1 ? '1px solid var(--line)' : 'none' }}>
+              <div key={c.id} className="neu-inset" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px' }}>
                 <div>
-                  <div style={{ fontSize: 15, fontWeight: 600, color: '#fff', marginBottom: 2 }}>{c.word}</div>
+                  <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--ink)', marginBottom: 2 }}>{c.word}</div>
                   <div style={{ fontSize: 13, color: 'var(--ink-soft)' }}>{c.translation}</div>
                 </div>
-                <div style={{ background: isMastered ? '#1F4A23' : '#5C4314', color: isMastered ? '#48BB78' : '#D69E2E', fontSize: 11, fontWeight: 600, padding: '4px 8px', borderRadius: 4 }}>
-                  {isMastered ? 'gemeistert' : 'wiederholen'}
+                <div className="neu-small" style={{ color: isMastered ? 'var(--color-teal)' : 'var(--color-copper)', fontSize: 11, fontWeight: 700, padding: '4px 8px' }}>
+                  {isMastered ? t('voc_mastered', appLang) : t('voc_review', appLang)}
                 </div>
               </div>
             );

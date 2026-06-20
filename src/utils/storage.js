@@ -48,3 +48,19 @@ export function loadVocab() {
 export function saveVocab(v) {
   LS.set('gt_vocab', v);
 }
+
+// ---- Writings -------------------------------------------------------
+export function loadWritings() {
+  return LS.get('gt_writings', []);
+}
+
+export function addWriting(writing) {
+  if (!writing) return;
+  const cur = loadWritings();
+  const entry = {
+    ...writing,
+    id: 'w_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7),
+    date: new Date().toISOString(),
+  };
+  LS.set('gt_writings', [entry, ...cur].slice(0, 100)); // Keep last 100 submissions
+}

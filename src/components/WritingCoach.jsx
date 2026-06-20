@@ -1,24 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useGemini } from '../hooks/useGemini.js';
-import { addMistakes } from '../utils/storage.js';
+import { addMistakes, loadWritings, addWriting } from '../utils/storage.js';
 import { Loading, EmptyState } from './ui/Atoms.jsx';
+import { Icon } from './ui/Icon.jsx';
+import { t } from '../i18n.js';
+import { getWritingCoachPrompt } from '../utils/prompts.js';
 
-export function WritingCoach({ level }) {
+export function WritingCoach({ level, appLang, onTaskStart, onTaskEnd, isTaskActive }) {
   const { call } = useGemini();
   const [type, setType] = useState('sentence');
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
+  const [writings, setWritings] = useState([]);
+
+  useEffect(() => {
+    if (!isTaskActive) {
+      setWritings(loadWritings());
+    }
+  }, [isTaskActive]);
 
   const submit = async () => {
     if (!text.trim() || loading) return;
     setLoading(true);
     setResult(null);
     try {
-      const sys = `You are an expert German writing coach. The learner (CEFR ${level}) submitted a ${type}. Correct it, suggest more natural wording, and give level-appropriate feedback. Return ONLY raw JSON: {"correctedText":"<fully corrected version>","naturalVersion":"<more idiomatic/native-sounding rewrite, can equal correctedText if already natural>","levelFeedback":"<1-2 sentence assessment of writing relative to CEFR ${level}, and whether it reads more like a lower or higher level>","mistakes":[{"original":"<exact mistaken phrase from learner text>","correction":"<fix>","explanation":"<why, in plain English>","category":"grammar|vocabulary|word-order|style|other"}]}`;
+      const sys = getWritingCoachPrompt(level, type);
       const out = await call(sys, [{ role: 'user', parts: [{ text }] }], true);
       setResult(out);
       addMistakes((out.mistakes || []).map((m) => ({ ...m, source: 'writing-coach' })));
+      addWriting({ original: text, result: out });
     } catch (e) {
       alert(e.message === 'NO_KEY' ? 'Set your Gemini API key first.' : e.message);
     } finally {
@@ -26,90 +37,144 @@ export function WritingCoach({ level }) {
     }
   };
 
-  const wordCount = text.trim() ? text.trim().split(/\s+/).length : 0;
+  if (!isTaskActive) {
+    return (
+      <div style={{ padding: '0 16px 24px 16px', display: 'flex', flexDirection: 'column', gap: 16 }}>
+        {/* Task Overview */}
+        <div className="neu-raised" style={{ padding: '24px 20px', display: 'flex', flexDirection: 'column', gap: 16, marginTop: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, color: 'var(--color-copper)' }}>
+            <div className="neu-small" style={{ width: 44, height: 44, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Icon name="PenTool" size={20} color="var(--color-copper)" />
+            </div>
+            <div>
+              <div style={{ fontSize: 13, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t('wr_task', appLang)}</div>
+              <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)' }}>{t('wr_task_desc', appLang)}</div>
+            </div>
+          </div>
+          
+          <button 
+            className="neu-btn" 
+            onClick={() => { setText(''); setResult(null); onTaskStart && onTaskStart(); }}
+            style={{ width: '100%', padding: '14px', fontSize: 15, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8 }}
+          >
+            <Icon name="ArrowRight" size={18} /> {t('wr_btn_start', appLang) || 'Start Writing'}
+          </button>
+        </div>
+
+        {/* History */}
+        <div style={{ marginTop: 24 }}>
+          <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 16, color: 'var(--ink)' }}>{t('wr_history', appLang)}</div>
+          {writings.length === 0 ? (
+            <div style={{ textAlign: 'center', color: 'var(--ink-soft)', fontSize: 13, padding: '24px 0' }}>{t('wr_history_empty', appLang)}</div>
+          ) : (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+              {writings.map((w, i) => (
+                <div key={i} className="neu-raised" style={{ padding: '16px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+                  <div style={{ fontSize: 12, color: 'var(--ink-soft)' }}>{new Date(w.date).toLocaleDateString()}</div>
+                  <div style={{ fontSize: 14, color: 'var(--ink)', fontWeight: 600, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                    {w.original}
+                  </div>
+                  <div style={{ display: 'flex', gap: 16, marginTop: 4 }}>
+                    <div style={{ fontSize: 12, color: 'var(--color-copper)', display: 'flex', alignItems: 'center', gap: 4 }}>
+                      <Icon name="AlertTriangle" size={14} /> {(w.result?.mistakes || []).length} {t('wr_mistakes', appLang)}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div style={{ padding: '0 16px 24px 16px', display: 'flex', flexDirection: 'column', gap: 16 }}>
-      {/* Prompt Card */}
-      <div style={{ background: '#E8F2FA', borderRadius: 12, padding: '16px' }}>
-        <div style={{ fontSize: 13, fontWeight: 600, color: '#2B4B70', marginBottom: 8 }}>Heutige aufgabe</div>
-        <div style={{ fontSize: 15, color: '#1B314F', lineHeight: 1.4 }}>
-          Beschreibe in 5-6 Sätzen, warum du nach Deutschland ziehen möchtest.
-        </div>
-      </div>
-
-      {/* Input panel */}
-      <div>
-        <div style={{ position: 'relative' }}>
-          <textarea
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="Schreib hier..."
-            rows={6}
-            style={{
-              width: '100%', padding: '16px',
-              border: '1px solid var(--line)', borderRadius: 12,
-              background: '#252424', color: '#fff', resize: 'vertical', fontSize: 15, lineHeight: 1.5,
-              outline: 'none'
-            }}
-          />
-        </div>
-        
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8, fontSize: 12, color: 'var(--ink-soft)', padding: '0 4px' }}>
-          <div>{wordCount}<br/>wörter</div>
-          <div style={{ textAlign: 'right' }}>Niveau:<br/>{level}</div>
-        </div>
-
-        <button 
-          onClick={submit} 
-          disabled={loading || !text.trim()}
-          style={{ width: '100%', background: '#2B4B70', color: '#fff', border: 'none', borderRadius: 8, padding: '14px', fontSize: 15, fontWeight: 500, marginTop: 16, cursor: 'pointer', opacity: (loading || !text.trim()) ? 0.6 : 1 }}
-        >
-          {loading ? 'Lade...' : 'Korrektur erhalten'}
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+      {/* Header */}
+      <div style={{ padding: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--app-bg)' }}>
+        <button className="neu-small" onClick={() => onTaskEnd && onTaskEnd()} style={{ padding: '6px', color: 'var(--ink)' }}>
+          <Icon name="ChevronLeft" size={20} />
         </button>
+        <div style={{ fontWeight: 600, fontSize: 15 }}>
+          {t('wr_task', appLang)}
+        </div>
+        <div style={{ width: 32 }}></div> {/* Spacer for centering */}
       </div>
+
+      <div className="scrollbar" style={{ padding: '16px', flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <div className="neu-raised" style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)' }}>{t('wr_task_desc', appLang)}</div>
+        </div>
+
+      {/* Input Area */}
+      <div className="neu-inset" style={{ padding: 4, display: 'flex', flexDirection: 'column' }}>
+        <textarea
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder={t('wr_placeholder', appLang)}
+          style={{ width: '100%', height: 160, padding: 12, resize: 'none', background: 'transparent', color: 'var(--ink)', outline: 'none' }}
+        />
+      </div>
+        
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 12, fontSize: 12, color: 'var(--ink-soft)', padding: '0 8px', fontWeight: 600 }}>
+        <div>{text.split(/\s+/).filter(w => w.length > 0).length}<br/>{t('wr_words', appLang)}</div>
+        <div style={{ textAlign: 'right' }}>{t('wr_level', appLang)}:<br/>{level}</div>
+      </div>
+
+      <button 
+        className="neu-btn"
+        onClick={submit} 
+        disabled={loading || !text.trim()}
+        style={{ width: '100%', padding: '14px', fontSize: 15, marginTop: 16, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8 }}
+      >
+        {loading ? <span className="spin"><Icon name="Globe" size={18} /></span> : <Icon name="CheckCircle" size={18} />}
+        {loading ? t('wr_btn_loading', appLang) : t('wr_btn_get', appLang)}
+      </button>
 
       {/* Feedback panel */}
       {result && (
-        <div className="fadein" style={{ marginTop: 8 }}>
-          <div style={{ fontSize: 16, fontWeight: 600, color: '#fff', marginBottom: 12 }}>Korrigierter text</div>
+        <div className="fadein" style={{ marginTop: 12 }}>
+          <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)', marginBottom: 12 }}>{t('wr_corrected', appLang)}</div>
           
-          <div style={{ background: '#252424', border: '1px solid var(--line)', borderRadius: 12, padding: 16, fontSize: 15, lineHeight: 1.5, color: '#fff', marginBottom: 20 }}>
-            {/* Very simple inline replacement approximation or just show corrected text */}
+          <div className="neu-inset" style={{ padding: 16, fontSize: 15, lineHeight: 1.5, color: 'var(--ink)', marginBottom: 20 }}>
             {result.correctedText}
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 20 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 24 }}>
             {(result.mistakes || []).map((m, i) => (
-              <div key={i} style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-                <div style={{ width: 16, height: 16, border: '1px solid #E55039', borderRadius: 3, flexShrink: 0, marginTop: 2 }}></div>
-                <div style={{ fontSize: 14, color: '#D4D4D4', lineHeight: 1.4 }}>
-                  <span style={{ color: '#fff' }}>{m.original}</span> → <span style={{ color: '#fff' }}>{m.correction}</span>: {m.explanation}
+              <div key={i} className="neu-small" style={{ padding: 12, display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                <div style={{ color: 'var(--color-copper)', flexShrink: 0, marginTop: 2 }}>
+                  <Icon name="AlertTriangle" size={16} />
+                </div>
+                <div style={{ fontSize: 14, color: 'var(--ink-soft)', lineHeight: 1.4 }}>
+                  <span style={{ color: 'var(--color-copper)', textDecoration: 'line-through' }}>{m.original}</span> → <span style={{ color: 'var(--color-teal)', fontWeight: 600 }}>{m.correction}</span>: {m.explanation}
                 </div>
               </div>
             ))}
-            {/* Adding the positive feedback visually as a green box like in mockup */}
-            <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-              <div style={{ width: 16, height: 16, border: '1px solid #48BB78', borderRadius: 3, flexShrink: 0, marginTop: 2 }}></div>
-              <div style={{ fontSize: 14, color: '#D4D4D4', lineHeight: 1.4 }}>
-                Satzstellung und Wortschatz sind sehr gut für {level} Niveau.
+            <div className="neu-small" style={{ padding: 12, display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+              <div style={{ color: 'var(--color-teal)', flexShrink: 0, marginTop: 2 }}>
+                <Icon name="Check" size={16} />
+              </div>
+              <div style={{ fontSize: 14, color: 'var(--ink-soft)', lineHeight: 1.4 }}>
+                {result.levelFeedback || `Satzstellung und Wortschatz sind sehr gut für ${level} Niveau.`}
               </div>
             </div>
           </div>
 
-          {/* Bottom Stats */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-            <div style={{ background: '#252424', borderRadius: 8, padding: '16px', textAlign: 'center' }}>
-              <div style={{ fontSize: 20, fontWeight: 700, color: '#fff' }}>{(result.mistakes || []).length}</div>
-              <div style={{ fontSize: 12, color: 'var(--ink-soft)' }}>Fehler</div>
-            </div>
-            <div style={{ background: '#252424', borderRadius: 8, padding: '16px', textAlign: 'center' }}>
-              <div style={{ fontSize: 20, fontWeight: 700, color: '#fff' }}>{level}</div>
-              <div style={{ fontSize: 12, color: 'var(--ink-soft)' }}>geschätzt</div>
+            {/* Bottom Stats */}
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+              <div className="neu-inset" style={{ padding: '16px', textAlign: 'center' }}>
+                <div style={{ fontSize: 24, fontWeight: 700, color: 'var(--color-copper)' }}>{(result.mistakes || []).length}</div>
+                <div style={{ fontSize: 12, color: 'var(--ink-soft)', fontWeight: 600, marginTop: 4 }}>{t('wr_mistakes', appLang)}</div>
+              </div>
+              <div className="neu-inset" style={{ padding: '16px', textAlign: 'center' }}>
+                <div style={{ fontSize: 24, fontWeight: 700, color: 'var(--color-teal)' }}>{level}</div>
+                <div style={{ fontSize: 12, color: 'var(--ink-soft)', fontWeight: 600, marginTop: 4 }}>{t('wr_estimated', appLang)}</div>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

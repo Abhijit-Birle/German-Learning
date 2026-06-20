@@ -3,8 +3,11 @@ import { useGemini } from '../hooks/useGemini.js';
 import { loadMistakes } from '../utils/storage.js';
 import { EmptyState } from './ui/Atoms.jsx';
 import { ExerciseRow } from './ExerciseRow.jsx';
+import { Icon } from './ui/Icon.jsx';
+import { t } from '../i18n.js';
+import { getMistakeMemoryPrompt } from '../utils/prompts.js';
 
-export function MistakeMemory({ level }) {
+export function MistakeMemory({ level, appLang }) {
   const { call } = useGemini();
   const [mistakes, setMistakes] = useState(loadMistakes());
   const [loading, setLoading] = useState(false);
@@ -13,9 +16,11 @@ export function MistakeMemory({ level }) {
   const refresh = () => setMistakes(loadMistakes());
 
   const byCategory = useMemo(() => {
-    const map = {};
-    mistakes.forEach((m) => { map[m.category] = (map[m.category] || 0) + 1; });
-    return Object.entries(map).sort((a, b) => b[1] - a[1]);
+    const counts = {};
+    mistakes.forEach((m) => {
+      counts[m.category] = (counts[m.category] || 0) + 1;
+    });
+    return Object.entries(counts).sort((a, b) => b[1] - a[1]);
   }, [mistakes]);
 
   const trend = useMemo(() => {
@@ -37,13 +42,10 @@ export function MistakeMemory({ level }) {
     try {
       const weak = byCategory.slice(0, 3).map((c) => c[0]).join(', ');
       const examples = mistakes
-        .slice(0, 12)
-        .map((m) => `- (${m.category}) wrote "${m.original}" should be "${m.correction}": ${m.explanation}`)
-        .join('\n');
-      const sys = `You are a German tutor creating targeted practice exercises for a CEFR ${level} learner based on their real mistakes. Their weakest areas are: ${weak}.
-Recent mistakes:
-${examples}
-Create 5 short targeted exercises (fill-in-the-blank or correct-the-sentence) that directly address these weak patterns. Return ONLY raw JSON: {"exercises":[{"type":"fill-in-blank|correct-the-sentence","prompt":"<German sentence with ___ or with an error>","answer":"<correct answer>","hint":"<short English hint about the rule>"}]}`;
+          .slice(0, 12)
+          .map((m) => `- (${m.category}) wrote "${m.original}" should be "${m.correction}": ${m.explanation}`)
+          .join('\n');
+      const sys = getMistakeMemoryPrompt(level, weak, examples);
       const out = await call(sys, [{ role: 'user', parts: [{ text: 'Generate exercises now.' }] }], true);
       setExercises(out.exercises || []);
     } catch (e) {
@@ -66,14 +68,14 @@ Create 5 short targeted exercises (fill-in-the-blank or correct-the-sentence) th
     <div style={{ padding: '0 16px 24px 16px', display: 'flex', flexDirection: 'column', gap: 16 }}>
       
       {/* Top Card: Häufigstes Muster */}
-      <div style={{ background: '#FAEAE8', borderRadius: 12, padding: '16px', display: 'flex', gap: 12, alignItems: 'center' }}>
-        <div style={{ width: 24, height: 24, border: '2px solid #5C3232', borderRadius: 4, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <span style={{ display: 'block', width: 12, height: 12, border: '2px solid #5C3232' }}></span>
+      <div className="neu-inset" style={{ padding: '16px', display: 'flex', gap: 16, alignItems: 'center' }}>
+        <div className="neu-small" style={{ width: 40, height: 40, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Icon name="AlertTriangle" size={20} color="var(--color-copper)" />
         </div>
         <div>
-          <div style={{ fontSize: 16, fontWeight: 700, color: '#5C3232' }}>Häufigstes Muster</div>
-          <div style={{ fontSize: 13, color: '#A8402B' }}>
-            {mostFrequent ? `${mostFrequent[0]} — ${mostFrequent[1]} mal` : 'Noch keine Muster'}
+          <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)' }}>{t('mis_pattern', appLang)}</div>
+          <div style={{ fontSize: 13, color: 'var(--color-copper)', fontWeight: 600, marginTop: 4 }}>
+            {mostFrequent ? `${mostFrequent[0]} — ${mostFrequent[1]} ${t('mis_times', appLang)}` : t('mis_no_pattern', appLang)}
           </div>
         </div>
       </div>
@@ -85,53 +87,43 @@ Create 5 short targeted exercises (fill-in-the-blank or correct-the-sentence) th
             <button
               key={c}
               onClick={() => setFilter(c)}
+              className={filter === c ? 'neu-btn' : 'neu-small'}
               style={{
-                flexShrink: 0, padding: '6px 16px', borderRadius: 20,
-                background: filter === c ? '#2B4B70' : 'transparent',
-                border: '1px solid var(--line)', color: '#fff', fontSize: 13, cursor: 'pointer'
+                flexShrink: 0, padding: '8px 16px', fontSize: 13, color: filter === c ? '#fff' : 'var(--ink)'
               }}
             >
-              {c}
+              {c === 'Alle' ? t('voc_all', appLang) : c}
             </button>
           ))}
-        </div>
-        {/* Progress bar below filters */}
-        <div style={{ height: 6, background: '#3B3A39', borderRadius: 3, overflow: 'hidden', marginTop: 4 }}>
-          <div style={{ width: '40%', height: '100%', background: '#5C5B5A', borderRadius: 3 }}></div>
         </div>
       </div>
 
       {/* Mistake List */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
         {filteredMistakes.length === 0 ? (
-          <EmptyState title="Keine Fehler" body="Super! Du hast hier keine Fehler gemeldet." />
+          <EmptyState title={t('mis_empty', appLang)} body={t('mis_empty_body', appLang)} />
         ) : (
           filteredMistakes.map((m) => {
             const daysAgo = Math.max(0, Math.floor((Date.now() - new Date(m.date).getTime()) / (1000 * 3600 * 24)));
             
-            // Generate a color based on category name roughly
-            let badgeBg = '#5C3232'; // Default red
-            if (m.category.toLowerCase().includes('artikel')) badgeBg = '#5C4314'; // Yellow-brown
-            if (m.category.toLowerCase().includes('wort')) badgeBg = '#2B4B70'; // Blue
-
             return (
-              <div key={m.id} style={{ background: '#252424', border: '1px solid var(--line)', borderRadius: 12, padding: 16 }}>
+              <div key={m.id} className="neu-raised" style={{ padding: 16 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12 }}>
-                  <div style={{ background: badgeBg, color: '#fff', fontSize: 11, fontWeight: 600, padding: '4px 8px', borderRadius: 12 }}>
-                    {m.category}
+                  <div className="neu-small" style={{ color: 'var(--color-copper)', fontSize: 11, fontWeight: 700, padding: '4px 10px', display: 'flex', alignItems: 'center', gap: 6 }}>
+                    <Icon name="PenTool" size={12} /> {m.category}
                   </div>
-                  <div style={{ fontSize: 12, color: 'var(--ink-soft)', textAlign: 'right', lineHeight: 1.2 }}>
-                    vor {daysAgo}<br/>Tagen
+                  <div style={{ fontSize: 11, color: 'var(--ink-soft)', fontWeight: 600, textAlign: 'right', lineHeight: 1.2 }}>
+                    {t('mis_days_ago', appLang).replace('{x}', daysAgo)}
                   </div>
                 </div>
                 
-                <div style={{ fontSize: 14, color: 'var(--ink-soft)', textDecoration: 'line-through', marginBottom: 4 }}>
+                <div style={{ fontSize: 14, color: 'var(--ink-soft)', textDecoration: 'line-through', marginBottom: 6 }}>
                   {m.original}
                 </div>
-                <div style={{ fontSize: 14, color: '#48BB78', fontWeight: 500, marginBottom: 8 }}>
-                  {m.correction}
+                <div style={{ fontSize: 15, color: 'var(--color-teal)', fontWeight: 700, marginBottom: 8, display: 'flex', alignItems: 'flex-start', gap: 6 }}>
+                  <Icon name="ArrowRight" size={16} style={{ marginTop: 2 }} /> {m.correction}
                 </div>
-                <div style={{ fontSize: 13, color: '#D4D4D4' }}>
+                <div className="neu-inset" style={{ fontSize: 13, color: 'var(--ink)', padding: '10px 12px', marginTop: 12 }}>
                   {m.explanation}
                 </div>
               </div>
@@ -140,14 +132,13 @@ Create 5 short targeted exercises (fill-in-the-blank or correct-the-sentence) th
         )}
       </div>
 
-      {/* Hidden functionalities for now but accessible via a button if needed */}
-      <button onClick={genExercises} style={{ background: 'transparent', border: '1px dashed var(--line)', borderRadius: 8, padding: 12, color: 'var(--ink-soft)', fontSize: 13, marginTop: 8, cursor: 'pointer', textAlign: 'center' }}>
-        {loading ? 'Generiere...' : 'Übungen generieren'}
+      <button onClick={genExercises} className="neu-small" style={{ padding: 16, color: 'var(--ink)', fontSize: 14, marginTop: 8, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, fontWeight: 600 }}>
+        <Icon name="Layers" size={18} /> {loading ? t('mis_btn_generating', appLang) : t('mis_btn_gen', appLang)}
       </button>
 
       {exercises && (
-        <div className="card fadein" style={{ padding: 18, marginBottom: 20 }}>
-          <div className="display" style={{ fontSize: 16, marginBottom: 10 }}>Targeted exercises</div>
+        <div className="neu-raised fadein" style={{ padding: 18, marginBottom: 20 }}>
+          <div className="display" style={{ fontSize: 16, marginBottom: 12 }}>{t('mis_targeted', appLang)}</div>
           {exercises.map((ex, i) => <ExerciseRow key={i} ex={ex} />)}
         </div>
       )}

@@ -1,0 +1,387 @@
+{
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/build.gradle": {
+    "mtime": 1781972118.2003796,
+    "ast_hash": "ba33ec7c15e5d7e3f1c08c8ba85c5555",
+    "semantic_hash": "ba33ec7c15e5d7e3f1c08c8ba85c5555"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/capacitor.build.gradle": {
+    "mtime": 1781983357.6875725,
+    "ast_hash": "80be4877bbd0fae6c7b53d99f1346192",
+    "semantic_hash": "80be4877bbd0fae6c7b53d99f1346192"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/androidTest/java/com/getcapacitor/myapp/ExampleInstrumentedTest.java": {
+    "mtime": 1781859670.0,
+    "ast_hash": "fbaf7cc870c663eb52dcf218531c439d",
+    "semantic_hash": "fbaf7cc870c663eb52dcf218531c439d"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/assets/capacitor.config.json": {
+    "mtime": 1781983357.6549554,
+    "ast_hash": "d5b6f37be5dbd7e3378846d98f5870f6",
+    "semantic_hash": "d5b6f37be5dbd7e3378846d98f5870f6"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/assets/capacitor.plugins.json": {
+    "mtime": 1781983357.6679404,
+    "ast_hash": "1de932032a873f0e6cda7641d2537884",
+    "semantic_hash": "1de932032a873f0e6cda7641d2537884"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/assets/public/assets/index-Bdp42A3B.js": {
+    "mtime": 1781983357.6536503,
+    "ast_hash": "f16b5f8d7e926afe713656b98847db5e",
+    "semantic_hash": "f16b5f8d7e926afe713656b98847db5e"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/assets/public/assets/web-Cmghx9E3.js": {
+    "mtime": 1781983357.6530273,
+    "ast_hash": "7e0a47120a0445660236211a5b47f1d8",
+    "semantic_hash": "7e0a47120a0445660236211a5b47f1d8"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/assets/public/cordova.js": {
+    "mtime": 1781983357.6849885,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/assets/public/cordova_plugins.js": {
+    "mtime": 1781983357.685067,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/java/com/deutschwerkstatt/app/MainActivity.java": {
+    "mtime": 1781972118.2000003,
+    "ast_hash": "4987b8b0f84fa8ecf610ef5711a975c8",
+    "semantic_hash": "4987b8b0f84fa8ecf610ef5711a975c8"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/test/java/com/getcapacitor/myapp/ExampleUnitTest.java": {
+    "mtime": 1781859670.0,
+    "ast_hash": "e91b4501c14da821682fa5c26a16d616",
+    "semantic_hash": "e91b4501c14da821682fa5c26a16d616"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/build.gradle": {
+    "mtime": 1781859670.0,
+    "ast_hash": "682315a426653617c6a74fc12bef55b6",
+    "semantic_hash": "682315a426653617c6a74fc12bef55b6"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/capacitor-cordova-android-plugins/build.gradle": {
+    "mtime": 1781983357.688346,
+    "ast_hash": "2af61653d70c95d20802c8b5c433ba90",
+    "semantic_hash": "2af61653d70c95d20802c8b5c433ba90"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/capacitor-cordova-android-plugins/cordova.variables.gradle": {
+    "mtime": 1781983357.688485,
+    "ast_hash": "d2372a0ae9aa60abb8d03e7f06bf9194",
+    "semantic_hash": "d2372a0ae9aa60abb8d03e7f06bf9194"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/capacitor.settings.gradle": {
+    "mtime": 1781983357.687318,
+    "ast_hash": "debe20d3a37085db80910111c2fbc5e9",
+    "semantic_hash": "debe20d3a37085db80910111c2fbc5e9"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/gradlew": {
+    "mtime": 1781859670.0,
+    "ast_hash": "794669d78aef1dd5c7d889ef618b311a",
+    "semantic_hash": "794669d78aef1dd5c7d889ef618b311a"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/settings.gradle": {
+    "mtime": 1781972237.6543984,
+    "ast_hash": "19ec37d7bc4f9990f12250dc42953e2f",
+    "semantic_hash": "19ec37d7bc4f9990f12250dc42953e2f"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/variables.gradle": {
+    "mtime": 1781859670.0,
+    "ast_hash": "4b3fce8ea2a515a9d2e47e74757172ec",
+    "semantic_hash": "4b3fce8ea2a515a9d2e47e74757172ec"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/capacitor.config.json": {
+    "mtime": 1781972105.175531,
+    "ast_hash": "f6cec902e4a0ae83628be17588df06bc",
+    "semantic_hash": "f6cec902e4a0ae83628be17588df06bc"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/eslint.config.js": {
+    "mtime": 1781964571.5264335,
+    "ast_hash": "3aa4b57d7f08181d86bde52a4dcb7f22",
+    "semantic_hash": "3aa4b57d7f08181d86bde52a4dcb7f22"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/package.json": {
+    "mtime": 1781980492.9989843,
+    "ast_hash": "9327d8304fdc2425cb13dd0e215f5d55",
+    "semantic_hash": "9327d8304fdc2425cb13dd0e215f5d55"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/App.jsx": {
+    "mtime": 1781981731.5633512,
+    "ast_hash": "6fe803630f1b062350bd687a17ea38fe",
+    "semantic_hash": "6fe803630f1b062350bd687a17ea38fe"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/ApiKeyBar.jsx": {
+    "mtime": 1781977817.1186655,
+    "ast_hash": "86561667a1aedee303db62754eb6fc65",
+    "semantic_hash": "86561667a1aedee303db62754eb6fc65"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/DailyLesson.jsx": {
+    "mtime": 1781978499.9139678,
+    "ast_hash": "c5b1d72f407c156df67e2f7f4f56ce6d",
+    "semantic_hash": "c5b1d72f407c156df67e2f7f4f56ce6d"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/ExerciseRow.jsx": {
+    "mtime": 1781964728.542591,
+    "ast_hash": "dcf6961f815804696ce101344263a266",
+    "semantic_hash": "dcf6961f815804696ce101344263a266"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/MistakeMemory.jsx": {
+    "mtime": 1781978262.5367346,
+    "ast_hash": "090953276c23c251267c438c8e171ea8",
+    "semantic_hash": "090953276c23c251267c438c8e171ea8"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/Onboarding.jsx": {
+    "mtime": 1781977801.94185,
+    "ast_hash": "23b1879021efa85b40cfdb7a5b20ffd8",
+    "semantic_hash": "23b1879021efa85b40cfdb7a5b20ffd8"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/QuickTranslator.jsx": {
+    "mtime": 1781964720.6887093,
+    "ast_hash": "a73b6b7f6c96afd9c919b34895541e9c",
+    "semantic_hash": "a73b6b7f6c96afd9c919b34895541e9c"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/Tutor.jsx": {
+    "mtime": 1781983794.2894127,
+    "ast_hash": "b552f4ce78970e20d582812c559cbc9f",
+    "semantic_hash": "b552f4ce78970e20d582812c559cbc9f"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/Vocabulary.jsx": {
+    "mtime": 1781982199.2312565,
+    "ast_hash": "0ddbe5ccb864bfde2ad6c933642134a6",
+    "semantic_hash": "0ddbe5ccb864bfde2ad6c933642134a6"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/WritingCoach.jsx": {
+    "mtime": 1781983077.6558065,
+    "ast_hash": "47769e9fb93407906f9c579d727ba30a",
+    "semantic_hash": "47769e9fb93407906f9c579d727ba30a"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/ui/Atoms.jsx": {
+    "mtime": 1781983676.6584423,
+    "ast_hash": "111f3f9b5130b9c0656b122527eebdc8",
+    "semantic_hash": "111f3f9b5130b9c0656b122527eebdc8"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/ui/Icon.jsx": {
+    "mtime": 1781981779.0687547,
+    "ast_hash": "b5a1b25ae3bd06b981cf69cc352a806e",
+    "semantic_hash": "b5a1b25ae3bd06b981cf69cc352a806e"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/constants.js": {
+    "mtime": 1781977164.6836765,
+    "ast_hash": "4496db2bcab91eedc2307a8b8fcdefdf",
+    "semantic_hash": "4496db2bcab91eedc2307a8b8fcdefdf"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/hooks/useGemini.js": {
+    "mtime": 1781964667.1389892,
+    "ast_hash": "646726ee66199e70375566305021eab0",
+    "semantic_hash": "646726ee66199e70375566305021eab0"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/i18n.js": {
+    "mtime": 1781983652.246949,
+    "ast_hash": "18ea250b9cf61d17cf6fb5c1856a4eee",
+    "semantic_hash": "18ea250b9cf61d17cf6fb5c1856a4eee"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/main.jsx": {
+    "mtime": 1781964983.434485,
+    "ast_hash": "44ca67ae1faa247f0b2c2885e5960acd",
+    "semantic_hash": "44ca67ae1faa247f0b2c2885e5960acd"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/utils/storage.js": {
+    "mtime": 1781983050.181008,
+    "ast_hash": "6d73d1bdb7e0caf2a6faa014c5a5bf72",
+    "semantic_hash": "6d73d1bdb7e0caf2a6faa014c5a5bf72"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/utils/toast.js": {
+    "mtime": 1781982127.1484292,
+    "ast_hash": "b4ee1a2de387b8feb86c3639f39fb877",
+    "semantic_hash": "b4ee1a2de387b8feb86c3639f39fb877"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/utils/tts.js": {
+    "mtime": 1781982136.0563164,
+    "ast_hash": "3bff5c6b12c6833e2640ed954ac0f786",
+    "semantic_hash": "3bff5c6b12c6833e2640ed954ac0f786"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/vite.config.js": {
+    "mtime": 1781964571.5312304,
+    "ast_hash": "88439104b3c207f17d33ef3160e3b080",
+    "semantic_hash": "88439104b3c207f17d33ef3160e3b080"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/README.md": {
+    "mtime": 1781964571.5257883,
+    "ast_hash": "a28dc4cb878325f3e9e5649f3e1469ac",
+    "semantic_hash": "a28dc4cb878325f3e9e5649f3e1469ac"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/assets/public/index.html": {
+    "mtime": 1781983357.652769,
+    "ast_hash": "cd56fbe6741b7e08366658b6b8f718e9",
+    "semantic_hash": "cd56fbe6741b7e08366658b6b8f718e9"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/index.html": {
+    "mtime": 1781964591.9041572,
+    "ast_hash": "9ad9b07d349719bb0c99d4e816e2d59b",
+    "semantic_hash": "9ad9b07d349719bb0c99d4e816e2d59b"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/assets/public/favicon.svg": {
+    "mtime": 1781983357.652773,
+    "ast_hash": "7e840862161341271697daa99a40d76b",
+    "semantic_hash": "7e840862161341271697daa99a40d76b"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/assets/public/icons.svg": {
+    "mtime": 1781983357.652707,
+    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
+    "semantic_hash": "3b4fcfcf393eca4d264dca4a4663bc37"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/drawable-land-hdpi/splash.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "f7a80786dd355bd39014e58027aa6e19",
+    "semantic_hash": "f7a80786dd355bd39014e58027aa6e19"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/drawable-land-mdpi/splash.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "acc976d4a36479233371a53021525c0c",
+    "semantic_hash": "acc976d4a36479233371a53021525c0c"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/drawable-land-xhdpi/splash.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "b8c72969bc1f78aab71a76035360d4af",
+    "semantic_hash": "b8c72969bc1f78aab71a76035360d4af"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/drawable-land-xxhdpi/splash.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "f87e988387b07d843905f38b084929fb",
+    "semantic_hash": "f87e988387b07d843905f38b084929fb"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/drawable-land-xxxhdpi/splash.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "055a69553b16b0bf5f72094a2e459fc7",
+    "semantic_hash": "055a69553b16b0bf5f72094a2e459fc7"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/drawable-port-hdpi/splash.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "5eb10d16c81338abe8bbc033d49638a8",
+    "semantic_hash": "5eb10d16c81338abe8bbc033d49638a8"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/drawable-port-mdpi/splash.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "d855a76a5070c8e6fcfd83a27549bdce",
+    "semantic_hash": "d855a76a5070c8e6fcfd83a27549bdce"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/drawable-port-xhdpi/splash.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "df100b2a36bdb98b711cca58941728de",
+    "semantic_hash": "df100b2a36bdb98b711cca58941728de"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/drawable-port-xxhdpi/splash.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "2c1b668364e815256f67b71dcdfa4d6e",
+    "semantic_hash": "2c1b668364e815256f67b71dcdfa4d6e"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/drawable-port-xxxhdpi/splash.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "b5b1b22b59abe686c1df0d74a423d034",
+    "semantic_hash": "b5b1b22b59abe686c1df0d74a423d034"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/drawable/splash.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "acc976d4a36479233371a53021525c0c",
+    "semantic_hash": "acc976d4a36479233371a53021525c0c"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-hdpi/ic_launcher.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "1956941339dd5fe36d5c66601c89a08d",
+    "semantic_hash": "1956941339dd5fe36d5c66601c89a08d"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "73b1e06d769fa08a9c3b8328cc15fd75",
+    "semantic_hash": "73b1e06d769fa08a9c3b8328cc15fd75"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "f43e5674865a00186dd76183cf1f2f8e",
+    "semantic_hash": "f43e5674865a00186dd76183cf1f2f8e"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-mdpi/ic_launcher.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "7ed1b3739b83215d0c4a0b4a7f2dcab4",
+    "semantic_hash": "7ed1b3739b83215d0c4a0b4a7f2dcab4"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "5b77e8aec8b17eed320a97567c7cb8bf",
+    "semantic_hash": "5b77e8aec8b17eed320a97567c7cb8bf"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "a49547a32c7d9b529af607b033811d81",
+    "semantic_hash": "a49547a32c7d9b529af607b033811d81"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "5689511ee4e41a367d0342f37ac48bdf",
+    "semantic_hash": "5689511ee4e41a367d0342f37ac48bdf"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "15cdded29b9877ac98c5931024c5da5d",
+    "semantic_hash": "15cdded29b9877ac98c5931024c5da5d"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "c890fa4af62a63486d5dea62441ce7ab",
+    "semantic_hash": "c890fa4af62a63486d5dea62441ce7ab"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "a3285eeaedda8201f04e7737b9df8421",
+    "semantic_hash": "a3285eeaedda8201f04e7737b9df8421"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "4e9584ecc16d1fc75afb798688ce576f",
+    "semantic_hash": "4e9584ecc16d1fc75afb798688ce576f"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "14cde87848553e24d7106f56eb8ceb6f",
+    "semantic_hash": "14cde87848553e24d7106f56eb8ceb6f"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "9e029293ab1ae8e3a6a7b7d0b7177e46",
+    "semantic_hash": "9e029293ab1ae8e3a6a7b7d0b7177e46"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "ed3696b7c52d9747411a475dbe3fa34a",
+    "semantic_hash": "ed3696b7c52d9747411a475dbe3fa34a"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png": {
+    "mtime": 1781859670.0,
+    "ast_hash": "85addb4159ecd3f76f02fbacd5ec86de",
+    "semantic_hash": "85addb4159ecd3f76f02fbacd5ec86de"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/public/favicon.svg": {
+    "mtime": 1781964571.5273416,
+    "ast_hash": "7e840862161341271697daa99a40d76b",
+    "semantic_hash": "7e840862161341271697daa99a40d76b"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/public/icons.svg": {
+    "mtime": 1781964571.5279448,
+    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
+    "semantic_hash": "3b4fcfcf393eca4d264dca4a4663bc37"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/assets/hero.png": {
+    "mtime": 1781964571.5290644,
+    "ast_hash": "aead493361b27e7510691c5d7072dfc1",
+    "semantic_hash": "aead493361b27e7510691c5d7072dfc1"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/assets/react.svg": {
+    "mtime": 1781964571.5298839,
+    "ast_hash": "f0402b67b6ce880f65666bb49e841696",
+    "semantic_hash": "f0402b67b6ce880f65666bb49e841696"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/assets/vite.svg": {
+    "mtime": 1781964571.5301895,
+    "ast_hash": "9960a24288958394ac50e57ff638b036",
+    "semantic_hash": "9960a24288958394ac50e57ff638b036"
+  }
+}
