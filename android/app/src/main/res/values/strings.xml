@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Deutsch Werkstatt</string>
+    <string name="title_activity_main">Deutsch Werkstatt</string>
+    <string name="package_name">com.deutschwerkstatt.app</string>
+    <string name="custom_url_scheme">com.deutschwerkstatt.app</string>
+</resources>
