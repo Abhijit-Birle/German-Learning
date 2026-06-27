@@ -19,13 +19,27 @@ import {
   IconCheck, 
   IconKey, 
   IconArrowRight,
+  IconArrowLeft,
   IconUser,
   IconSettings,
   IconMenu2,
   IconChevronLeft,
+  IconChevronRight,
+  IconChevronDown,
   IconCircleCheck,
   IconMoon,
-  IconSun
+  IconSun,
+  IconPlayerPlay,
+  IconFileText,
+  IconRepeat,
+  IconHeadphones,
+  IconX,
+  IconArrowsExchange,
+  IconLock,
+  IconTag,
+  IconList,
+  IconCircleX,
+  IconRefresh
 } from '@tabler/icons-react';
 
 const icons = {
@@ -50,12 +64,27 @@ const icons = {
   CheckCircle: IconCircleCheck,
   Key: IconKey,
   ArrowRight: IconArrowRight,
+  ArrowLeft: IconArrowLeft,
   User: IconUser,
   Settings: IconSettings,
   Menu: IconMenu2,
   ChevronLeft: IconChevronLeft,
+  ChevronRight: IconChevronRight,
+  ChevronDown: IconChevronDown,
   Moon: IconMoon,
-  Sun: IconSun
+  Sun: IconSun,
+  Play: IconPlayerPlay,
+  FileText: IconFileText,
+  Repeat: IconRepeat,
+  Headphones: IconHeadphones,
+  X: IconX,
+  ArrowsRightLeft: IconArrowsExchange,
+  Lock: IconLock,
+  Tag: IconTag,
+  List: IconList,
+  Edit3: IconPencil,
+  XCircle: IconCircleX,
+  RefreshCw: IconRefresh
 };
 
 export function Icon({ name, size = 20, color, ...props }) {

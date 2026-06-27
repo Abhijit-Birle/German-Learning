@@ -69,15 +69,25 @@ export function MistakeMemory({ level, appLang }) {
       
       {/* Top Card: Häufigstes Muster */}
       <div className="neu-inset" style={{ padding: '16px', display: 'flex', gap: 16, alignItems: 'center' }}>
-        <div className="neu-small" style={{ width: 40, height: 40, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <div className="neu-small" style={{ width: 40, height: 40, display: 'flex', justifyContent: 'center', alignItems: 'center', flexShrink: 0 }}>
           <Icon name="AlertTriangle" size={20} color="var(--color-copper)" />
         </div>
-        <div>
+        <div style={{ flex: 1 }}>
           <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)' }}>{t('mis_pattern', appLang)}</div>
           <div style={{ fontSize: 13, color: 'var(--color-copper)', fontWeight: 600, marginTop: 4 }}>
             {mostFrequent ? `${mostFrequent[0]} — ${mostFrequent[1]} ${t('mis_times', appLang)}` : t('mis_no_pattern', appLang)}
           </div>
         </div>
+        {mostFrequent && (
+          <button 
+            onClick={genExercises} 
+            disabled={loading}
+            className="neu-btn" 
+            style={{ padding: '8px 12px', fontSize: 12, display: 'flex', alignItems: 'center', gap: 6, flexShrink: 0 }}
+          >
+            {loading ? <span className="pulse-dot" style={{ width: 6, height: 6, background: '#fff' }} /> : <Icon name="Target" size={14} color="#fff" />} Üben
+          </button>
+        )}
       </div>
 
       {/* Filter Tabs */}
@@ -133,7 +143,7 @@ export function MistakeMemory({ level, appLang }) {
       </div>
 
       <button onClick={genExercises} className="neu-small" style={{ padding: 16, color: 'var(--ink)', fontSize: 14, marginTop: 8, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, fontWeight: 600 }}>
-        <Icon name="Layers" size={18} /> {loading ? t('mis_btn_generating', appLang) : t('mis_btn_gen', appLang)}
+        <Icon name="Layers" size={18} /> {loading ? t('mis_btn_generating', appLang) : (appLang === 'de' ? 'Übungen generieren' : 'Generate Exercises')}
       </button>
 
       {exercises && (

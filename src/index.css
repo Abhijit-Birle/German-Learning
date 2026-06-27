@@ -43,6 +43,8 @@
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 
 html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+* { -ms-overflow-style: none; scrollbar-width: none; }
+*::-webkit-scrollbar { display: none; }
 
 body {
   background: var(--app-bg); 
@@ -55,14 +57,13 @@ h1, h2, h3, .display { font-family: 'Fraunces', serif; color: var(--ink); }
 
 ::selection { background: var(--color-teal); color: #fff; }
 
-button { font-family: inherit; cursor: pointer; border: none; }
+button { font-family: inherit; cursor: pointer; border: none; color: inherit; }
 textarea, input, select { font-family: inherit; border: none; }
 input:focus, textarea:focus, select:focus { outline: none; }
 
 /* Scrollbar */
-.scrollbar::-webkit-scrollbar { width: 8px; }
-.scrollbar::-webkit-scrollbar-thumb { background: #d0cec5; border-radius: 4px; }
-
+.scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.scrollbar::-webkit-scrollbar { display: none; }
 /* ============================================================
    Neumorphic Utility Classes
    ============================================================ */
@@ -132,6 +133,26 @@ input:focus, textarea:focus, select:focus { outline: none; }
 .neu-tile-primary {
   background: var(--grad-teal);
   color: #fff;
+  box-shadow: 7px 7px 16px var(--shadow-dark), -7px -7px 16px var(--shadow-light);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neu-tile-copper {
+  background: var(--grad-copper);
+  color: #fff;
+  box-shadow: 7px 7px 16px var(--shadow-dark), -7px -7px 16px var(--shadow-light);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.neu-tile-gray {
+  background: var(--card-bg);
+  color: var(--ink-soft);
   box-shadow: 7px 7px 16px var(--shadow-dark), -7px -7px 16px var(--shadow-light);
   border-radius: 14px;
   display: flex;
@@ -267,4 +288,68 @@ button.neu-small:active {
 .neu-nav-tray button:active:not(.active) {
   transform: scale(0.92);
   background: rgba(0,0,0,0.05);
+}
+/* ============================================================
+   Toggle Component Styles
+   ============================================================ */
+.neu-toggle-track {
+  width: 38px;
+  height: 22px;
+  border-radius: 999px;
+  background: #D3D1C7;
+  box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
+  position: relative;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+[data-theme="dark"] .neu-toggle-track {
+  background: #11100F;
+}
+
+.neu-toggle-track.active {
+  background: var(--grad-teal);
+}
+
+.neu-toggle-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 1px 1px 3px var(--shadow-dark);
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+}
+
+.neu-toggle-track.active .neu-toggle-thumb {
+  transform: translateX(16px);
+}
+
+/* ============================================================
+   Progress Ring Styles
+   ============================================================ */
+.progress-ring-track {
+  fill: transparent;
+  stroke: #E2DFD6;
+}
+
+[data-theme="dark"] .progress-ring-track {
+  stroke: #32302D;
+}
+
+.progress-ring-fill {
+  fill: transparent;
+  stroke: var(--color-teal);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s ease-in-out;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

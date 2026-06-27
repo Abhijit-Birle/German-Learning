@@ -68,6 +68,6 @@ export const TABS = [
   { id: 'tutor',    label: 'Pfad',       icon: 'Map' },
   { id: 'vocab',    label: 'Vokabeln',   icon: 'BookOpen' },
   { id: 'mistakes', label: 'Fehler',     icon: 'AlertTriangle' },
-  { id: 'writing',  label: 'Schreiben',  icon: 'PenTool' },
-  { id: 'lesson',   label: 'Lektion',    icon: 'Layers' },
+  { id: 'dictionary', label: 'Wörterbuch', icon: 'Book' },
+  { id: 'profile',  label: 'Profil',     icon: 'User' }
 ];

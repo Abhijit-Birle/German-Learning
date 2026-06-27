@@ -1,0 +1,4724 @@
+[
+  {
+    "id": "A1.1",
+    "title": "Greetings",
+    "items": [
+      {
+        "type": "sublesson",
+        "id": "A1.1.1",
+        "difficulty": 1,
+        "title": "Level 1: Greetings",
+        "vocabulary": [
+          {
+            "word": "hallo",
+            "translation": "hello"
+          },
+          {
+            "word": "guten Morgen",
+            "translation": "good morning"
+          },
+          {
+            "word": "guten Tag",
+            "translation": "good day"
+          },
+          {
+            "word": "guten Abend",
+            "translation": "good evening"
+          }
+        ],
+        "grammar": {
+          "title": "Personal Pronouns",
+          "explanation": "Personal pronouns are used to replace nouns. In German, 'ich' is 'I', 'du' is informal 'you', and 'Sie' is formal 'you'."
+        },
+        "practice": [
+          {
+            "question": "___ heiße Anna.",
+            "translation": "I am called Anna.",
+            "options": [
+              "Ich",
+              "Du",
+              "Sie"
+            ],
+            "answer": "Ich"
+          },
+          {
+            "question": "Wie heißt ___? (informal)",
+            "translation": "What is your name?",
+            "options": [
+              "ich",
+              "du",
+              "Sie"
+            ],
+            "answer": "du"
+          },
+          {
+            "question": "Kommen ___ aus Berlin? (formal)",
+            "translation": "Do you come from Berlin?",
+            "options": [
+              "ich",
+              "du",
+              "Sie"
+            ],
+            "answer": "Sie"
+          },
+          {
+            "question": "___ bin müde.",
+            "translation": "I am tired.",
+            "options": [
+              "Ich",
+              "Du",
+              "Sie"
+            ],
+            "answer": "Ich"
+          },
+          {
+            "question": "Bist ___ bereit?",
+            "translation": "Are you ready?",
+            "options": [
+              "ich",
+              "du",
+              "Sie"
+            ],
+            "answer": "du"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Guten Morgen! Wie geht es dir?",
+            "question": "What time of day is it?",
+            "options": [
+              "Morning",
+              "Afternoon",
+              "Night"
+            ],
+            "answer": "Morning"
+          },
+          {
+            "audioText": "Hallo, ich bin Max.",
+            "question": "Who is speaking?",
+            "options": [
+              "Anna",
+              "Max",
+              "Lukas"
+            ],
+            "answer": "Max"
+          },
+          {
+            "audioText": "Guten Abend, Herr Müller.",
+            "question": "Is this formal or informal?",
+            "options": [
+              "Formal",
+              "Informal",
+              "Unknown"
+            ],
+            "answer": "Formal"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Introduce yourself.",
+            "prompt": "Say: Hello, I am [Your Name]."
+          },
+          {
+            "task": "Greet someone in the morning.",
+            "prompt": "Say: Good morning!"
+          }
+        ],
+        "roleplay": {
+          "scenario": "You meet a colleague for the first time.",
+          "userRole": "Colleague A",
+          "botRole": "Colleague B",
+          "startingLine": "Guten Morgen! Ich bin neu hier."
+        },
+        "review": "You completed Level 1 of Greetings!"
+      },
+      {
+        "type": "note",
+        "title": "Grammar Focus: Personal Pronouns",
+        "content": "Personal pronouns are used to replace nouns. In German, 'ich' is 'I', 'du' is informal 'you', and 'Sie' is formal 'you'."
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.1.2",
+        "difficulty": 2,
+        "title": "Level 2: Greetings (Intermediate)",
+        "vocabulary": [
+          {
+            "word": "hallo",
+            "translation": "hello"
+          },
+          {
+            "word": "guten Morgen",
+            "translation": "good morning"
+          },
+          {
+            "word": "guten Tag",
+            "translation": "good day"
+          },
+          {
+            "word": "guten Abend",
+            "translation": "good evening"
+          }
+        ],
+        "grammar": {
+          "title": "Personal Pronouns",
+          "explanation": "Personal pronouns are used to replace nouns. In German, 'ich' is 'I', 'du' is informal 'you', and 'Sie' is formal 'you'."
+        },
+        "practice": [
+          {
+            "question": "___ heiße Anna. [Level 2]",
+            "translation": "I am called Anna.",
+            "options": [
+              "Ich",
+              "Du",
+              "Sie"
+            ],
+            "answer": "Ich"
+          },
+          {
+            "question": "Wie heißt ___? (informal) [Level 2]",
+            "translation": "What is your name?",
+            "options": [
+              "ich",
+              "du",
+              "Sie"
+            ],
+            "answer": "du"
+          },
+          {
+            "question": "Kommen ___ aus Berlin? (formal) [Level 2]",
+            "translation": "Do you come from Berlin?",
+            "options": [
+              "ich",
+              "du",
+              "Sie"
+            ],
+            "answer": "Sie"
+          },
+          {
+            "question": "___ bin müde. [Level 2]",
+            "translation": "I am tired.",
+            "options": [
+              "Ich",
+              "Du",
+              "Sie"
+            ],
+            "answer": "Ich"
+          },
+          {
+            "question": "Bist ___ bereit? [Level 2]",
+            "translation": "Are you ready?",
+            "options": [
+              "ich",
+              "du",
+              "Sie"
+            ],
+            "answer": "du"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Guten Morgen! Wie geht es dir?",
+            "question": "What time of day is it?",
+            "options": [
+              "Morning",
+              "Afternoon",
+              "Night"
+            ],
+            "answer": "Morning"
+          },
+          {
+            "audioText": "Hallo, ich bin Max.",
+            "question": "Who is speaking?",
+            "options": [
+              "Anna",
+              "Max",
+              "Lukas"
+            ],
+            "answer": "Max"
+          },
+          {
+            "audioText": "Guten Abend, Herr Müller.",
+            "question": "Is this formal or informal?",
+            "options": [
+              "Formal",
+              "Informal",
+              "Unknown"
+            ],
+            "answer": "Formal"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Introduce yourself.",
+            "prompt": "Say: Hello, I am [Your Name]."
+          },
+          {
+            "task": "Greet someone in the morning.",
+            "prompt": "Say: Good morning!"
+          }
+        ],
+        "roleplay": {
+          "scenario": "You meet a colleague for the first time.",
+          "userRole": "Colleague A",
+          "botRole": "Colleague B",
+          "startingLine": "Guten Morgen! Ich bin neu hier."
+        },
+        "review": "You completed Level 2 of Greetings!"
+      },
+      {
+        "type": "note",
+        "title": "Cultural Note",
+        "content": "A quick tip to remember when practicing greetings in Germany!"
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.1.3",
+        "difficulty": 3,
+        "title": "Level 3: Greetings (Advanced)",
+        "vocabulary": [
+          {
+            "word": "hallo",
+            "translation": "hello"
+          },
+          {
+            "word": "guten Morgen",
+            "translation": "good morning"
+          },
+          {
+            "word": "guten Tag",
+            "translation": "good day"
+          },
+          {
+            "word": "guten Abend",
+            "translation": "good evening"
+          }
+        ],
+        "grammar": {
+          "title": "Personal Pronouns",
+          "explanation": "Personal pronouns are used to replace nouns. In German, 'ich' is 'I', 'du' is informal 'you', and 'Sie' is formal 'you'."
+        },
+        "practice": [
+          {
+            "question": "___ heiße Anna. [Level 3]",
+            "translation": "I am called Anna.",
+            "options": [
+              "Ich",
+              "Du",
+              "Sie"
+            ],
+            "answer": "Ich"
+          },
+          {
+            "question": "Wie heißt ___? (informal) [Level 3]",
+            "translation": "What is your name?",
+            "options": [
+              "ich",
+              "du",
+              "Sie"
+            ],
+            "answer": "du"
+          },
+          {
+            "question": "Kommen ___ aus Berlin? (formal) [Level 3]",
+            "translation": "Do you come from Berlin?",
+            "options": [
+              "ich",
+              "du",
+              "Sie"
+            ],
+            "answer": "Sie"
+          },
+          {
+            "question": "___ bin müde. [Level 3]",
+            "translation": "I am tired.",
+            "options": [
+              "Ich",
+              "Du",
+              "Sie"
+            ],
+            "answer": "Ich"
+          },
+          {
+            "question": "Bist ___ bereit? [Level 3]",
+            "translation": "Are you ready?",
+            "options": [
+              "ich",
+              "du",
+              "Sie"
+            ],
+            "answer": "du"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Guten Morgen! Wie geht es dir?",
+            "question": "What time of day is it?",
+            "options": [
+              "Morning",
+              "Afternoon",
+              "Night"
+            ],
+            "answer": "Morning"
+          },
+          {
+            "audioText": "Hallo, ich bin Max.",
+            "question": "Who is speaking?",
+            "options": [
+              "Anna",
+              "Max",
+              "Lukas"
+            ],
+            "answer": "Max"
+          },
+          {
+            "audioText": "Guten Abend, Herr Müller.",
+            "question": "Is this formal or informal?",
+            "options": [
+              "Formal",
+              "Informal",
+              "Unknown"
+            ],
+            "answer": "Formal"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Introduce yourself.",
+            "prompt": "Say: Hello, I am [Your Name]."
+          },
+          {
+            "task": "Greet someone in the morning.",
+            "prompt": "Say: Good morning!"
+          }
+        ],
+        "roleplay": {
+          "scenario": "You meet a colleague for the first time.",
+          "userRole": "Colleague A",
+          "botRole": "Colleague B",
+          "startingLine": "Guten Morgen! Ich bin neu hier."
+        },
+        "review": "You completed Level 3 of Greetings!"
+      },
+      {
+        "type": "revision",
+        "id": "A1.1.rev",
+        "title": "Topic Revision: Greetings",
+        "vocabulary": [
+          {
+            "word": "hallo",
+            "translation": "hello"
+          },
+          {
+            "word": "guten Morgen",
+            "translation": "good morning"
+          },
+          {
+            "word": "guten Tag",
+            "translation": "good day"
+          },
+          {
+            "word": "guten Abend",
+            "translation": "good evening"
+          }
+        ],
+        "practice": [
+          {
+            "question": "___ heiße Anna.",
+            "translation": "I am called Anna.",
+            "options": [
+              "Ich",
+              "Du",
+              "Sie"
+            ],
+            "answer": "Ich"
+          },
+          {
+            "question": "Wie heißt ___? (informal)",
+            "translation": "What is your name?",
+            "options": [
+              "ich",
+              "du",
+              "Sie"
+            ],
+            "answer": "du"
+          },
+          {
+            "question": "Kommen ___ aus Berlin? (formal)",
+            "translation": "Do you come from Berlin?",
+            "options": [
+              "ich",
+              "du",
+              "Sie"
+            ],
+            "answer": "Sie"
+          },
+          {
+            "question": "___ bin müde.",
+            "translation": "I am tired.",
+            "options": [
+              "Ich",
+              "Du",
+              "Sie"
+            ],
+            "answer": "Ich"
+          },
+          {
+            "question": "Bist ___ bereit?",
+            "translation": "Are you ready?",
+            "options": [
+              "ich",
+              "du",
+              "Sie"
+            ],
+            "answer": "du"
+          }
+        ],
+        "review": "You have successfully revised Greetings!"
+      }
+    ]
+  },
+  {
+    "id": "A1.2",
+    "title": "Introductions",
+    "items": [
+      {
+        "type": "sublesson",
+        "id": "A1.2.1",
+        "difficulty": 1,
+        "title": "Level 1: Introductions",
+        "vocabulary": [
+          {
+            "word": "heißen",
+            "translation": "to be called"
+          },
+          {
+            "word": "kommen",
+            "translation": "to come"
+          },
+          {
+            "word": "wohnen",
+            "translation": "to live"
+          }
+        ],
+        "grammar": {
+          "title": "Verb Conjugation",
+          "explanation": "Verbs in German change their endings depending on the subject. For 'ich' it usually ends in '-e', for 'du' it ends in '-st', and for 'er/sie/es' it ends in '-t'."
+        },
+        "practice": [
+          {
+            "question": "Ich ___ aus Indien.",
+            "translation": "I come from India.",
+            "options": [
+              "komme",
+              "kommst",
+              "kommt"
+            ],
+            "answer": "komme"
+          },
+          {
+            "question": "Woher ___ du?",
+            "translation": "Where do you come from?",
+            "options": [
+              "komme",
+              "kommst",
+              "kommt"
+            ],
+            "answer": "kommst"
+          },
+          {
+            "question": "Er ___ in München.",
+            "translation": "He lives in Munich.",
+            "options": [
+              "wohne",
+              "wohnst",
+              "wohnt"
+            ],
+            "answer": "wohnt"
+          },
+          {
+            "question": "Wie ___ Sie?",
+            "translation": "What is your name? (formal)",
+            "options": [
+              "heiße",
+              "heißt",
+              "heißen"
+            ],
+            "answer": "heißen"
+          },
+          {
+            "question": "Ich ___ Johannes.",
+            "translation": "I am called Johannes.",
+            "options": [
+              "heiße",
+              "heißt",
+              "heißen"
+            ],
+            "answer": "heiße"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Ich wohne in Berlin, aber ich komme aus Spanien.",
+            "question": "Where does the speaker live?",
+            "options": [
+              "Berlin",
+              "Spain",
+              "Munich"
+            ],
+            "answer": "Berlin"
+          },
+          {
+            "audioText": "Wie heißt du?",
+            "question": "What is being asked?",
+            "options": [
+              "Where do you live?",
+              "What is your name?",
+              "How old are you?"
+            ],
+            "answer": "What is your name?"
+          },
+          {
+            "audioText": "Das ist Herr Schmidt. Er wohnt in Frankfurt.",
+            "question": "Where does Herr Schmidt live?",
+            "options": [
+              "Berlin",
+              "Frankfurt",
+              "Hamburg"
+            ],
+            "answer": "Frankfurt"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Tell someone where you live.",
+            "prompt": "Say: I live in [City]."
+          },
+          {
+            "task": "Ask someone where they come from (informal).",
+            "prompt": "Say: Where do you come from?"
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are introducing yourself to a new neighbor.",
+          "userRole": "Neighbor",
+          "botRole": "New Resident",
+          "startingLine": "Hallo! Ich wohne nebenan. Wie heißt du?"
+        },
+        "review": "You completed Level 1 of Introductions!"
+      },
+      {
+        "type": "note",
+        "title": "Grammar Focus: Verb Conjugation",
+        "content": "Verbs in German change their endings depending on the subject. For 'ich' it usually ends in '-e', for 'du' it ends in '-st', and for 'er/sie/es' it ends in '-t'."
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.2.2",
+        "difficulty": 2,
+        "title": "Level 2: Introductions (Intermediate)",
+        "vocabulary": [
+          {
+            "word": "heißen",
+            "translation": "to be called"
+          },
+          {
+            "word": "kommen",
+            "translation": "to come"
+          },
+          {
+            "word": "wohnen",
+            "translation": "to live"
+          }
+        ],
+        "grammar": {
+          "title": "Verb Conjugation",
+          "explanation": "Verbs in German change their endings depending on the subject. For 'ich' it usually ends in '-e', for 'du' it ends in '-st', and for 'er/sie/es' it ends in '-t'."
+        },
+        "practice": [
+          {
+            "question": "Ich ___ aus Indien. [Level 2]",
+            "translation": "I come from India.",
+            "options": [
+              "komme",
+              "kommst",
+              "kommt"
+            ],
+            "answer": "komme"
+          },
+          {
+            "question": "Woher ___ du? [Level 2]",
+            "translation": "Where do you come from?",
+            "options": [
+              "komme",
+              "kommst",
+              "kommt"
+            ],
+            "answer": "kommst"
+          },
+          {
+            "question": "Er ___ in München. [Level 2]",
+            "translation": "He lives in Munich.",
+            "options": [
+              "wohne",
+              "wohnst",
+              "wohnt"
+            ],
+            "answer": "wohnt"
+          },
+          {
+            "question": "Wie ___ Sie? [Level 2]",
+            "translation": "What is your name? (formal)",
+            "options": [
+              "heiße",
+              "heißt",
+              "heißen"
+            ],
+            "answer": "heißen"
+          },
+          {
+            "question": "Ich ___ Johannes. [Level 2]",
+            "translation": "I am called Johannes.",
+            "options": [
+              "heiße",
+              "heißt",
+              "heißen"
+            ],
+            "answer": "heiße"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Ich wohne in Berlin, aber ich komme aus Spanien.",
+            "question": "Where does the speaker live?",
+            "options": [
+              "Berlin",
+              "Spain",
+              "Munich"
+            ],
+            "answer": "Berlin"
+          },
+          {
+            "audioText": "Wie heißt du?",
+            "question": "What is being asked?",
+            "options": [
+              "Where do you live?",
+              "What is your name?",
+              "How old are you?"
+            ],
+            "answer": "What is your name?"
+          },
+          {
+            "audioText": "Das ist Herr Schmidt. Er wohnt in Frankfurt.",
+            "question": "Where does Herr Schmidt live?",
+            "options": [
+              "Berlin",
+              "Frankfurt",
+              "Hamburg"
+            ],
+            "answer": "Frankfurt"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Tell someone where you live.",
+            "prompt": "Say: I live in [City]."
+          },
+          {
+            "task": "Ask someone where they come from (informal).",
+            "prompt": "Say: Where do you come from?"
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are introducing yourself to a new neighbor.",
+          "userRole": "Neighbor",
+          "botRole": "New Resident",
+          "startingLine": "Hallo! Ich wohne nebenan. Wie heißt du?"
+        },
+        "review": "You completed Level 2 of Introductions!"
+      },
+      {
+        "type": "note",
+        "title": "Cultural Note",
+        "content": "A quick tip to remember when practicing introductions in Germany!"
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.2.3",
+        "difficulty": 3,
+        "title": "Level 3: Introductions (Advanced)",
+        "vocabulary": [
+          {
+            "word": "heißen",
+            "translation": "to be called"
+          },
+          {
+            "word": "kommen",
+            "translation": "to come"
+          },
+          {
+            "word": "wohnen",
+            "translation": "to live"
+          }
+        ],
+        "grammar": {
+          "title": "Verb Conjugation",
+          "explanation": "Verbs in German change their endings depending on the subject. For 'ich' it usually ends in '-e', for 'du' it ends in '-st', and for 'er/sie/es' it ends in '-t'."
+        },
+        "practice": [
+          {
+            "question": "Ich ___ aus Indien. [Level 3]",
+            "translation": "I come from India.",
+            "options": [
+              "komme",
+              "kommst",
+              "kommt"
+            ],
+            "answer": "komme"
+          },
+          {
+            "question": "Woher ___ du? [Level 3]",
+            "translation": "Where do you come from?",
+            "options": [
+              "komme",
+              "kommst",
+              "kommt"
+            ],
+            "answer": "kommst"
+          },
+          {
+            "question": "Er ___ in München. [Level 3]",
+            "translation": "He lives in Munich.",
+            "options": [
+              "wohne",
+              "wohnst",
+              "wohnt"
+            ],
+            "answer": "wohnt"
+          },
+          {
+            "question": "Wie ___ Sie? [Level 3]",
+            "translation": "What is your name? (formal)",
+            "options": [
+              "heiße",
+              "heißt",
+              "heißen"
+            ],
+            "answer": "heißen"
+          },
+          {
+            "question": "Ich ___ Johannes. [Level 3]",
+            "translation": "I am called Johannes.",
+            "options": [
+              "heiße",
+              "heißt",
+              "heißen"
+            ],
+            "answer": "heiße"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Ich wohne in Berlin, aber ich komme aus Spanien.",
+            "question": "Where does the speaker live?",
+            "options": [
+              "Berlin",
+              "Spain",
+              "Munich"
+            ],
+            "answer": "Berlin"
+          },
+          {
+            "audioText": "Wie heißt du?",
+            "question": "What is being asked?",
+            "options": [
+              "Where do you live?",
+              "What is your name?",
+              "How old are you?"
+            ],
+            "answer": "What is your name?"
+          },
+          {
+            "audioText": "Das ist Herr Schmidt. Er wohnt in Frankfurt.",
+            "question": "Where does Herr Schmidt live?",
+            "options": [
+              "Berlin",
+              "Frankfurt",
+              "Hamburg"
+            ],
+            "answer": "Frankfurt"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Tell someone where you live.",
+            "prompt": "Say: I live in [City]."
+          },
+          {
+            "task": "Ask someone where they come from (informal).",
+            "prompt": "Say: Where do you come from?"
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are introducing yourself to a new neighbor.",
+          "userRole": "Neighbor",
+          "botRole": "New Resident",
+          "startingLine": "Hallo! Ich wohne nebenan. Wie heißt du?"
+        },
+        "review": "You completed Level 3 of Introductions!"
+      },
+      {
+        "type": "revision",
+        "id": "A1.2.rev",
+        "title": "Topic Revision: Introductions",
+        "vocabulary": [
+          {
+            "word": "heißen",
+            "translation": "to be called"
+          },
+          {
+            "word": "kommen",
+            "translation": "to come"
+          },
+          {
+            "word": "wohnen",
+            "translation": "to live"
+          }
+        ],
+        "practice": [
+          {
+            "question": "Ich ___ aus Indien.",
+            "translation": "I come from India.",
+            "options": [
+              "komme",
+              "kommst",
+              "kommt"
+            ],
+            "answer": "komme"
+          },
+          {
+            "question": "Woher ___ du?",
+            "translation": "Where do you come from?",
+            "options": [
+              "komme",
+              "kommst",
+              "kommt"
+            ],
+            "answer": "kommst"
+          },
+          {
+            "question": "Er ___ in München.",
+            "translation": "He lives in Munich.",
+            "options": [
+              "wohne",
+              "wohnst",
+              "wohnt"
+            ],
+            "answer": "wohnt"
+          },
+          {
+            "question": "Wie ___ Sie?",
+            "translation": "What is your name? (formal)",
+            "options": [
+              "heiße",
+              "heißt",
+              "heißen"
+            ],
+            "answer": "heißen"
+          },
+          {
+            "question": "Ich ___ Johannes.",
+            "translation": "I am called Johannes.",
+            "options": [
+              "heiße",
+              "heißt",
+              "heißen"
+            ],
+            "answer": "heiße"
+          }
+        ],
+        "review": "You have successfully revised Introductions!"
+      }
+    ]
+  },
+  {
+    "id": "A1.3",
+    "title": "Countries & Languages",
+    "items": [
+      {
+        "type": "sublesson",
+        "id": "A1.3.1",
+        "difficulty": 1,
+        "title": "Level 1: Countries & Languages",
+        "vocabulary": [
+          {
+            "word": "sprechen",
+            "translation": "to speak"
+          },
+          {
+            "word": "das Land",
+            "translation": "country"
+          },
+          {
+            "word": "die Sprache",
+            "translation": "language"
+          }
+        ],
+        "grammar": {
+          "title": "Irregular Verb 'sprechen'",
+          "explanation": "The verb 'sprechen' is irregular. The vowel 'e' changes to 'i' for 'du' (sprichst) and 'er/sie/es' (spricht)."
+        },
+        "practice": [
+          {
+            "question": "Er ___ Deutsch.",
+            "translation": "He speaks German.",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "spricht"
+          },
+          {
+            "question": "Ich ___ ein bisschen Englisch.",
+            "translation": "I speak a little English.",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "spreche"
+          },
+          {
+            "question": "Welche Sprachen ___ du?",
+            "translation": "Which languages do you speak?",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "sprichst"
+          },
+          {
+            "question": "Sie (formal) ___ sehr gut Französisch.",
+            "translation": "You speak very good French.",
+            "options": [
+              "sprechen",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "sprechen"
+          },
+          {
+            "question": "Meine Mutter ___ Spanisch.",
+            "translation": "My mother speaks Spanish.",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "spricht"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Ich spreche Englisch und ein bisschen Deutsch.",
+            "question": "Which language does the speaker speak well?",
+            "options": [
+              "English",
+              "German",
+              "Spanish"
+            ],
+            "answer": "English"
+          },
+          {
+            "audioText": "Kommen Sie aus Italien?",
+            "question": "What is the speaker asking?",
+            "options": [
+              "Are you from Italy?",
+              "Do you speak Italian?",
+              "Where is Italy?"
+            ],
+            "answer": "Are you from Italy?"
+          },
+          {
+            "audioText": "Sie spricht drei Sprachen.",
+            "question": "How many languages does she speak?",
+            "options": [
+              "Two",
+              "Three",
+              "Four"
+            ],
+            "answer": "Three"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Tell someone what languages you speak.",
+            "prompt": "Say: I speak English and a little German."
+          },
+          {
+            "task": "Ask someone what languages they speak (formal).",
+            "prompt": "Say: Which languages do you speak?"
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are at an international language meetup.",
+          "userRole": "Participant",
+          "botRole": "Language Enthusiast",
+          "startingLine": "Hallo! Welche Sprachen sprichst du?"
+        },
+        "review": "You completed Level 1 of Countries & Languages!"
+      },
+      {
+        "type": "note",
+        "title": "Grammar Focus: Irregular Verb 'sprechen'",
+        "content": "The verb 'sprechen' is irregular. The vowel 'e' changes to 'i' for 'du' (sprichst) and 'er/sie/es' (spricht)."
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.3.2",
+        "difficulty": 2,
+        "title": "Level 2: Countries & Languages (Intermediate)",
+        "vocabulary": [
+          {
+            "word": "sprechen",
+            "translation": "to speak"
+          },
+          {
+            "word": "das Land",
+            "translation": "country"
+          },
+          {
+            "word": "die Sprache",
+            "translation": "language"
+          }
+        ],
+        "grammar": {
+          "title": "Irregular Verb 'sprechen'",
+          "explanation": "The verb 'sprechen' is irregular. The vowel 'e' changes to 'i' for 'du' (sprichst) and 'er/sie/es' (spricht)."
+        },
+        "practice": [
+          {
+            "question": "Er ___ Deutsch. [Level 2]",
+            "translation": "He speaks German.",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "spricht"
+          },
+          {
+            "question": "Ich ___ ein bisschen Englisch. [Level 2]",
+            "translation": "I speak a little English.",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "spreche"
+          },
+          {
+            "question": "Welche Sprachen ___ du? [Level 2]",
+            "translation": "Which languages do you speak?",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "sprichst"
+          },
+          {
+            "question": "Sie (formal) ___ sehr gut Französisch. [Level 2]",
+            "translation": "You speak very good French.",
+            "options": [
+              "sprechen",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "sprechen"
+          },
+          {
+            "question": "Meine Mutter ___ Spanisch. [Level 2]",
+            "translation": "My mother speaks Spanish.",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "spricht"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Ich spreche Englisch und ein bisschen Deutsch.",
+            "question": "Which language does the speaker speak well?",
+            "options": [
+              "English",
+              "German",
+              "Spanish"
+            ],
+            "answer": "English"
+          },
+          {
+            "audioText": "Kommen Sie aus Italien?",
+            "question": "What is the speaker asking?",
+            "options": [
+              "Are you from Italy?",
+              "Do you speak Italian?",
+              "Where is Italy?"
+            ],
+            "answer": "Are you from Italy?"
+          },
+          {
+            "audioText": "Sie spricht drei Sprachen.",
+            "question": "How many languages does she speak?",
+            "options": [
+              "Two",
+              "Three",
+              "Four"
+            ],
+            "answer": "Three"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Tell someone what languages you speak.",
+            "prompt": "Say: I speak English and a little German."
+          },
+          {
+            "task": "Ask someone what languages they speak (formal).",
+            "prompt": "Say: Which languages do you speak?"
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are at an international language meetup.",
+          "userRole": "Participant",
+          "botRole": "Language Enthusiast",
+          "startingLine": "Hallo! Welche Sprachen sprichst du?"
+        },
+        "review": "You completed Level 2 of Countries & Languages!"
+      },
+      {
+        "type": "note",
+        "title": "Cultural Note",
+        "content": "A quick tip to remember when practicing countries & languages in Germany!"
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.3.3",
+        "difficulty": 3,
+        "title": "Level 3: Countries & Languages (Advanced)",
+        "vocabulary": [
+          {
+            "word": "sprechen",
+            "translation": "to speak"
+          },
+          {
+            "word": "das Land",
+            "translation": "country"
+          },
+          {
+            "word": "die Sprache",
+            "translation": "language"
+          }
+        ],
+        "grammar": {
+          "title": "Irregular Verb 'sprechen'",
+          "explanation": "The verb 'sprechen' is irregular. The vowel 'e' changes to 'i' for 'du' (sprichst) and 'er/sie/es' (spricht)."
+        },
+        "practice": [
+          {
+            "question": "Er ___ Deutsch. [Level 3]",
+            "translation": "He speaks German.",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "spricht"
+          },
+          {
+            "question": "Ich ___ ein bisschen Englisch. [Level 3]",
+            "translation": "I speak a little English.",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "spreche"
+          },
+          {
+            "question": "Welche Sprachen ___ du? [Level 3]",
+            "translation": "Which languages do you speak?",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "sprichst"
+          },
+          {
+            "question": "Sie (formal) ___ sehr gut Französisch. [Level 3]",
+            "translation": "You speak very good French.",
+            "options": [
+              "sprechen",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "sprechen"
+          },
+          {
+            "question": "Meine Mutter ___ Spanisch. [Level 3]",
+            "translation": "My mother speaks Spanish.",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "spricht"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Ich spreche Englisch und ein bisschen Deutsch.",
+            "question": "Which language does the speaker speak well?",
+            "options": [
+              "English",
+              "German",
+              "Spanish"
+            ],
+            "answer": "English"
+          },
+          {
+            "audioText": "Kommen Sie aus Italien?",
+            "question": "What is the speaker asking?",
+            "options": [
+              "Are you from Italy?",
+              "Do you speak Italian?",
+              "Where is Italy?"
+            ],
+            "answer": "Are you from Italy?"
+          },
+          {
+            "audioText": "Sie spricht drei Sprachen.",
+            "question": "How many languages does she speak?",
+            "options": [
+              "Two",
+              "Three",
+              "Four"
+            ],
+            "answer": "Three"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Tell someone what languages you speak.",
+            "prompt": "Say: I speak English and a little German."
+          },
+          {
+            "task": "Ask someone what languages they speak (formal).",
+            "prompt": "Say: Which languages do you speak?"
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are at an international language meetup.",
+          "userRole": "Participant",
+          "botRole": "Language Enthusiast",
+          "startingLine": "Hallo! Welche Sprachen sprichst du?"
+        },
+        "review": "You completed Level 3 of Countries & Languages!"
+      },
+      {
+        "type": "revision",
+        "id": "A1.3.rev",
+        "title": "Topic Revision: Countries & Languages",
+        "vocabulary": [
+          {
+            "word": "sprechen",
+            "translation": "to speak"
+          },
+          {
+            "word": "das Land",
+            "translation": "country"
+          },
+          {
+            "word": "die Sprache",
+            "translation": "language"
+          }
+        ],
+        "practice": [
+          {
+            "question": "Er ___ Deutsch.",
+            "translation": "He speaks German.",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "spricht"
+          },
+          {
+            "question": "Ich ___ ein bisschen Englisch.",
+            "translation": "I speak a little English.",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "spreche"
+          },
+          {
+            "question": "Welche Sprachen ___ du?",
+            "translation": "Which languages do you speak?",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "sprichst"
+          },
+          {
+            "question": "Sie (formal) ___ sehr gut Französisch.",
+            "translation": "You speak very good French.",
+            "options": [
+              "sprechen",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "sprechen"
+          },
+          {
+            "question": "Meine Mutter ___ Spanisch.",
+            "translation": "My mother speaks Spanish.",
+            "options": [
+              "spreche",
+              "sprichst",
+              "spricht"
+            ],
+            "answer": "spricht"
+          }
+        ],
+        "review": "You have successfully revised Countries & Languages!"
+      }
+    ]
+  },
+  {
+    "id": "A1.4",
+    "title": "Numbers",
+    "items": [
+      {
+        "type": "sublesson",
+        "id": "A1.4.1",
+        "difficulty": 1,
+        "title": "Level 1: Numbers",
+        "vocabulary": [
+          {
+            "word": "die Zahl",
+            "translation": "number"
+          },
+          {
+            "word": "alt",
+            "translation": "old"
+          },
+          {
+            "word": "das Jahr",
+            "translation": "year"
+          }
+        ],
+        "grammar": {
+          "title": "Questions & Age",
+          "explanation": "To ask about age in German, use 'Wie alt...?' (How old...?). The verb 'sein' (to be) is used, just like in English."
+        },
+        "practice": [
+          {
+            "question": "Wie alt ___ du?",
+            "translation": "How old are you?",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "bist"
+          },
+          {
+            "question": "Ich ___ 29 Jahre alt.",
+            "translation": "I am 29 years old.",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "bin"
+          },
+          {
+            "question": "Meine Schwester ___ 20 Jahre alt.",
+            "translation": "My sister is 20 years old.",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "ist"
+          },
+          {
+            "question": "Wie alt ___ Sie? (formal)",
+            "translation": "How old are you? (formal)",
+            "options": [
+              "sind",
+              "bist",
+              "ist"
+            ],
+            "answer": "sind"
+          },
+          {
+            "question": "Wir ___ beide 30 Jahre alt.",
+            "translation": "We are both 30 years old.",
+            "options": [
+              "sind",
+              "seid",
+              "ist"
+            ],
+            "answer": "sind"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Ich bin fünfundzwanzig Jahre alt.",
+            "question": "How old is the speaker?",
+            "options": [
+              "20",
+              "25",
+              "35"
+            ],
+            "answer": "25"
+          },
+          {
+            "audioText": "Meine Handynummer ist 0157 8899.",
+            "question": "What is the speaker giving?",
+            "options": [
+              "Age",
+              "Address",
+              "Phone number"
+            ],
+            "answer": "Phone number"
+          },
+          {
+            "audioText": "Das kostet zehn Euro.",
+            "question": "How much does it cost?",
+            "options": [
+              "5 Euro",
+              "10 Euro",
+              "12 Euro"
+            ],
+            "answer": "10 Euro"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Say your age.",
+            "prompt": "Say: I am [your age] years old."
+          },
+          {
+            "task": "Ask someone for their phone number (informal).",
+            "prompt": "Say: What is your phone number?"
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are filling out a form at a reception desk.",
+          "userRole": "Applicant",
+          "botRole": "Receptionist",
+          "startingLine": "Guten Tag. Wie alt sind Sie und wie ist Ihre Telefonnummer?"
+        },
+        "review": "You completed Level 1 of Numbers!"
+      },
+      {
+        "type": "note",
+        "title": "Grammar Focus: Questions & Age",
+        "content": "To ask about age in German, use 'Wie alt...?' (How old...?). The verb 'sein' (to be) is used, just like in English."
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.4.2",
+        "difficulty": 2,
+        "title": "Level 2: Numbers (Intermediate)",
+        "vocabulary": [
+          {
+            "word": "die Zahl",
+            "translation": "number"
+          },
+          {
+            "word": "alt",
+            "translation": "old"
+          },
+          {
+            "word": "das Jahr",
+            "translation": "year"
+          }
+        ],
+        "grammar": {
+          "title": "Questions & Age",
+          "explanation": "To ask about age in German, use 'Wie alt...?' (How old...?). The verb 'sein' (to be) is used, just like in English."
+        },
+        "practice": [
+          {
+            "question": "Wie alt ___ du? [Level 2]",
+            "translation": "How old are you?",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "bist"
+          },
+          {
+            "question": "Ich ___ 29 Jahre alt. [Level 2]",
+            "translation": "I am 29 years old.",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "bin"
+          },
+          {
+            "question": "Meine Schwester ___ 20 Jahre alt. [Level 2]",
+            "translation": "My sister is 20 years old.",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "ist"
+          },
+          {
+            "question": "Wie alt ___ Sie? (formal) [Level 2]",
+            "translation": "How old are you? (formal)",
+            "options": [
+              "sind",
+              "bist",
+              "ist"
+            ],
+            "answer": "sind"
+          },
+          {
+            "question": "Wir ___ beide 30 Jahre alt. [Level 2]",
+            "translation": "We are both 30 years old.",
+            "options": [
+              "sind",
+              "seid",
+              "ist"
+            ],
+            "answer": "sind"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Ich bin fünfundzwanzig Jahre alt.",
+            "question": "How old is the speaker?",
+            "options": [
+              "20",
+              "25",
+              "35"
+            ],
+            "answer": "25"
+          },
+          {
+            "audioText": "Meine Handynummer ist 0157 8899.",
+            "question": "What is the speaker giving?",
+            "options": [
+              "Age",
+              "Address",
+              "Phone number"
+            ],
+            "answer": "Phone number"
+          },
+          {
+            "audioText": "Das kostet zehn Euro.",
+            "question": "How much does it cost?",
+            "options": [
+              "5 Euro",
+              "10 Euro",
+              "12 Euro"
+            ],
+            "answer": "10 Euro"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Say your age.",
+            "prompt": "Say: I am [your age] years old."
+          },
+          {
+            "task": "Ask someone for their phone number (informal).",
+            "prompt": "Say: What is your phone number?"
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are filling out a form at a reception desk.",
+          "userRole": "Applicant",
+          "botRole": "Receptionist",
+          "startingLine": "Guten Tag. Wie alt sind Sie und wie ist Ihre Telefonnummer?"
+        },
+        "review": "You completed Level 2 of Numbers!"
+      },
+      {
+        "type": "note",
+        "title": "Cultural Note",
+        "content": "A quick tip to remember when practicing numbers in Germany!"
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.4.3",
+        "difficulty": 3,
+        "title": "Level 3: Numbers (Advanced)",
+        "vocabulary": [
+          {
+            "word": "die Zahl",
+            "translation": "number"
+          },
+          {
+            "word": "alt",
+            "translation": "old"
+          },
+          {
+            "word": "das Jahr",
+            "translation": "year"
+          }
+        ],
+        "grammar": {
+          "title": "Questions & Age",
+          "explanation": "To ask about age in German, use 'Wie alt...?' (How old...?). The verb 'sein' (to be) is used, just like in English."
+        },
+        "practice": [
+          {
+            "question": "Wie alt ___ du? [Level 3]",
+            "translation": "How old are you?",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "bist"
+          },
+          {
+            "question": "Ich ___ 29 Jahre alt. [Level 3]",
+            "translation": "I am 29 years old.",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "bin"
+          },
+          {
+            "question": "Meine Schwester ___ 20 Jahre alt. [Level 3]",
+            "translation": "My sister is 20 years old.",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "ist"
+          },
+          {
+            "question": "Wie alt ___ Sie? (formal) [Level 3]",
+            "translation": "How old are you? (formal)",
+            "options": [
+              "sind",
+              "bist",
+              "ist"
+            ],
+            "answer": "sind"
+          },
+          {
+            "question": "Wir ___ beide 30 Jahre alt. [Level 3]",
+            "translation": "We are both 30 years old.",
+            "options": [
+              "sind",
+              "seid",
+              "ist"
+            ],
+            "answer": "sind"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Ich bin fünfundzwanzig Jahre alt.",
+            "question": "How old is the speaker?",
+            "options": [
+              "20",
+              "25",
+              "35"
+            ],
+            "answer": "25"
+          },
+          {
+            "audioText": "Meine Handynummer ist 0157 8899.",
+            "question": "What is the speaker giving?",
+            "options": [
+              "Age",
+              "Address",
+              "Phone number"
+            ],
+            "answer": "Phone number"
+          },
+          {
+            "audioText": "Das kostet zehn Euro.",
+            "question": "How much does it cost?",
+            "options": [
+              "5 Euro",
+              "10 Euro",
+              "12 Euro"
+            ],
+            "answer": "10 Euro"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Say your age.",
+            "prompt": "Say: I am [your age] years old."
+          },
+          {
+            "task": "Ask someone for their phone number (informal).",
+            "prompt": "Say: What is your phone number?"
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are filling out a form at a reception desk.",
+          "userRole": "Applicant",
+          "botRole": "Receptionist",
+          "startingLine": "Guten Tag. Wie alt sind Sie und wie ist Ihre Telefonnummer?"
+        },
+        "review": "You completed Level 3 of Numbers!"
+      },
+      {
+        "type": "revision",
+        "id": "A1.4.rev",
+        "title": "Topic Revision: Numbers",
+        "vocabulary": [
+          {
+            "word": "die Zahl",
+            "translation": "number"
+          },
+          {
+            "word": "alt",
+            "translation": "old"
+          },
+          {
+            "word": "das Jahr",
+            "translation": "year"
+          }
+        ],
+        "practice": [
+          {
+            "question": "Wie alt ___ du?",
+            "translation": "How old are you?",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "bist"
+          },
+          {
+            "question": "Ich ___ 29 Jahre alt.",
+            "translation": "I am 29 years old.",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "bin"
+          },
+          {
+            "question": "Meine Schwester ___ 20 Jahre alt.",
+            "translation": "My sister is 20 years old.",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "ist"
+          },
+          {
+            "question": "Wie alt ___ Sie? (formal)",
+            "translation": "How old are you? (formal)",
+            "options": [
+              "sind",
+              "bist",
+              "ist"
+            ],
+            "answer": "sind"
+          },
+          {
+            "question": "Wir ___ beide 30 Jahre alt.",
+            "translation": "We are both 30 years old.",
+            "options": [
+              "sind",
+              "seid",
+              "ist"
+            ],
+            "answer": "sind"
+          }
+        ],
+        "review": "You have successfully revised Numbers!"
+      }
+    ]
+  },
+  {
+    "id": "A1.5",
+    "title": "Family",
+    "items": [
+      {
+        "type": "sublesson",
+        "id": "A1.5.1",
+        "difficulty": 1,
+        "title": "Level 1: Family",
+        "vocabulary": [
+          {
+            "word": "die Mutter",
+            "translation": "mother"
+          },
+          {
+            "word": "der Vater",
+            "translation": "father"
+          },
+          {
+            "word": "die Schwester",
+            "translation": "sister"
+          },
+          {
+            "word": "der Bruder",
+            "translation": "brother"
+          }
+        ],
+        "grammar": {
+          "title": "Possessive Articles",
+          "explanation": "Use 'mein' for masculine/neuter nouns (mein Vater) and 'meine' for feminine/plural nouns (meine Mutter)."
+        },
+        "practice": [
+          {
+            "question": "Das ist ___ Mutter.",
+            "translation": "That is my mother.",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "meine"
+          },
+          {
+            "question": "Das ist ___ Bruder.",
+            "translation": "That is my brother.",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "mein"
+          },
+          {
+            "question": "___ Schwester heißt Laura.",
+            "translation": "My sister is named Laura.",
+            "options": [
+              "Mein",
+              "Meine"
+            ],
+            "answer": "Meine"
+          },
+          {
+            "question": "Wo ist ___ Vater?",
+            "translation": "Where is my father?",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "mein"
+          },
+          {
+            "question": "Sind das ___ Kinder? (plural)",
+            "translation": "Are those my children?",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "meine"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Meine Mutter heißt Sabine und mein Vater heißt Thomas.",
+            "question": "What is the mother's name?",
+            "options": [
+              "Sabine",
+              "Thomas",
+              "Laura"
+            ],
+            "answer": "Sabine"
+          },
+          {
+            "audioText": "Ich habe einen Bruder und zwei Schwestern.",
+            "question": "How many sisters does the speaker have?",
+            "options": [
+              "One",
+              "Two",
+              "Three"
+            ],
+            "answer": "Two"
+          },
+          {
+            "audioText": "Das ist meine Familie.",
+            "question": "What is the speaker introducing?",
+            "options": [
+              "Friends",
+              "Colleagues",
+              "Family"
+            ],
+            "answer": "Family"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Introduce your mother.",
+            "prompt": "Say: This is my mother."
+          },
+          {
+            "task": "State how many siblings you have.",
+            "prompt": "Say: I have [number] brothers and [number] sisters."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are showing a photo of your family to a friend.",
+          "userRole": "You",
+          "botRole": "Friend",
+          "startingLine": "Wer ist das auf dem Foto?"
+        },
+        "review": "You completed Level 1 of Family!"
+      },
+      {
+        "type": "note",
+        "title": "Grammar Focus: Possessive Articles",
+        "content": "Use 'mein' for masculine/neuter nouns (mein Vater) and 'meine' for feminine/plural nouns (meine Mutter)."
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.5.2",
+        "difficulty": 2,
+        "title": "Level 2: Family (Intermediate)",
+        "vocabulary": [
+          {
+            "word": "die Mutter",
+            "translation": "mother"
+          },
+          {
+            "word": "der Vater",
+            "translation": "father"
+          },
+          {
+            "word": "die Schwester",
+            "translation": "sister"
+          },
+          {
+            "word": "der Bruder",
+            "translation": "brother"
+          }
+        ],
+        "grammar": {
+          "title": "Possessive Articles",
+          "explanation": "Use 'mein' for masculine/neuter nouns (mein Vater) and 'meine' for feminine/plural nouns (meine Mutter)."
+        },
+        "practice": [
+          {
+            "question": "Das ist ___ Mutter. [Level 2]",
+            "translation": "That is my mother.",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "meine"
+          },
+          {
+            "question": "Das ist ___ Bruder. [Level 2]",
+            "translation": "That is my brother.",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "mein"
+          },
+          {
+            "question": "___ Schwester heißt Laura. [Level 2]",
+            "translation": "My sister is named Laura.",
+            "options": [
+              "Mein",
+              "Meine"
+            ],
+            "answer": "Meine"
+          },
+          {
+            "question": "Wo ist ___ Vater? [Level 2]",
+            "translation": "Where is my father?",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "mein"
+          },
+          {
+            "question": "Sind das ___ Kinder? (plural) [Level 2]",
+            "translation": "Are those my children?",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "meine"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Meine Mutter heißt Sabine und mein Vater heißt Thomas.",
+            "question": "What is the mother's name?",
+            "options": [
+              "Sabine",
+              "Thomas",
+              "Laura"
+            ],
+            "answer": "Sabine"
+          },
+          {
+            "audioText": "Ich habe einen Bruder und zwei Schwestern.",
+            "question": "How many sisters does the speaker have?",
+            "options": [
+              "One",
+              "Two",
+              "Three"
+            ],
+            "answer": "Two"
+          },
+          {
+            "audioText": "Das ist meine Familie.",
+            "question": "What is the speaker introducing?",
+            "options": [
+              "Friends",
+              "Colleagues",
+              "Family"
+            ],
+            "answer": "Family"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Introduce your mother.",
+            "prompt": "Say: This is my mother."
+          },
+          {
+            "task": "State how many siblings you have.",
+            "prompt": "Say: I have [number] brothers and [number] sisters."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are showing a photo of your family to a friend.",
+          "userRole": "You",
+          "botRole": "Friend",
+          "startingLine": "Wer ist das auf dem Foto?"
+        },
+        "review": "You completed Level 2 of Family!"
+      },
+      {
+        "type": "note",
+        "title": "Cultural Note",
+        "content": "A quick tip to remember when practicing family in Germany!"
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.5.3",
+        "difficulty": 3,
+        "title": "Level 3: Family (Advanced)",
+        "vocabulary": [
+          {
+            "word": "die Mutter",
+            "translation": "mother"
+          },
+          {
+            "word": "der Vater",
+            "translation": "father"
+          },
+          {
+            "word": "die Schwester",
+            "translation": "sister"
+          },
+          {
+            "word": "der Bruder",
+            "translation": "brother"
+          }
+        ],
+        "grammar": {
+          "title": "Possessive Articles",
+          "explanation": "Use 'mein' for masculine/neuter nouns (mein Vater) and 'meine' for feminine/plural nouns (meine Mutter)."
+        },
+        "practice": [
+          {
+            "question": "Das ist ___ Mutter. [Level 3]",
+            "translation": "That is my mother.",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "meine"
+          },
+          {
+            "question": "Das ist ___ Bruder. [Level 3]",
+            "translation": "That is my brother.",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "mein"
+          },
+          {
+            "question": "___ Schwester heißt Laura. [Level 3]",
+            "translation": "My sister is named Laura.",
+            "options": [
+              "Mein",
+              "Meine"
+            ],
+            "answer": "Meine"
+          },
+          {
+            "question": "Wo ist ___ Vater? [Level 3]",
+            "translation": "Where is my father?",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "mein"
+          },
+          {
+            "question": "Sind das ___ Kinder? (plural) [Level 3]",
+            "translation": "Are those my children?",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "meine"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Meine Mutter heißt Sabine und mein Vater heißt Thomas.",
+            "question": "What is the mother's name?",
+            "options": [
+              "Sabine",
+              "Thomas",
+              "Laura"
+            ],
+            "answer": "Sabine"
+          },
+          {
+            "audioText": "Ich habe einen Bruder und zwei Schwestern.",
+            "question": "How many sisters does the speaker have?",
+            "options": [
+              "One",
+              "Two",
+              "Three"
+            ],
+            "answer": "Two"
+          },
+          {
+            "audioText": "Das ist meine Familie.",
+            "question": "What is the speaker introducing?",
+            "options": [
+              "Friends",
+              "Colleagues",
+              "Family"
+            ],
+            "answer": "Family"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Introduce your mother.",
+            "prompt": "Say: This is my mother."
+          },
+          {
+            "task": "State how many siblings you have.",
+            "prompt": "Say: I have [number] brothers and [number] sisters."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are showing a photo of your family to a friend.",
+          "userRole": "You",
+          "botRole": "Friend",
+          "startingLine": "Wer ist das auf dem Foto?"
+        },
+        "review": "You completed Level 3 of Family!"
+      },
+      {
+        "type": "revision",
+        "id": "A1.5.rev",
+        "title": "Topic Revision: Family",
+        "vocabulary": [
+          {
+            "word": "die Mutter",
+            "translation": "mother"
+          },
+          {
+            "word": "der Vater",
+            "translation": "father"
+          },
+          {
+            "word": "die Schwester",
+            "translation": "sister"
+          },
+          {
+            "word": "der Bruder",
+            "translation": "brother"
+          }
+        ],
+        "practice": [
+          {
+            "question": "Das ist ___ Mutter.",
+            "translation": "That is my mother.",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "meine"
+          },
+          {
+            "question": "Das ist ___ Bruder.",
+            "translation": "That is my brother.",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "mein"
+          },
+          {
+            "question": "___ Schwester heißt Laura.",
+            "translation": "My sister is named Laura.",
+            "options": [
+              "Mein",
+              "Meine"
+            ],
+            "answer": "Meine"
+          },
+          {
+            "question": "Wo ist ___ Vater?",
+            "translation": "Where is my father?",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "mein"
+          },
+          {
+            "question": "Sind das ___ Kinder? (plural)",
+            "translation": "Are those my children?",
+            "options": [
+              "mein",
+              "meine"
+            ],
+            "answer": "meine"
+          }
+        ],
+        "review": "You have successfully revised Family!"
+      }
+    ]
+  },
+  {
+    "id": "A1.6",
+    "title": "Food & Drinks",
+    "items": [
+      {
+        "type": "sublesson",
+        "id": "A1.6.1",
+        "difficulty": 1,
+        "title": "Level 1: Food & Drinks",
+        "vocabulary": [
+          {
+            "word": "der Kaffee",
+            "translation": "coffee"
+          },
+          {
+            "word": "der Tee",
+            "translation": "tea"
+          },
+          {
+            "word": "das Wasser",
+            "translation": "water"
+          },
+          {
+            "word": "der Apfel",
+            "translation": "apple"
+          }
+        ],
+        "grammar": {
+          "title": "Akkusativ",
+          "explanation": "The direct object of a sentence takes the accusative case. Masculine 'ein' becomes 'einen' (einen Kaffee). Feminine 'eine' and neuter 'ein' stay the same."
+        },
+        "practice": [
+          {
+            "question": "Ich möchte ___ Kaffee. (masculine)",
+            "translation": "I would like a coffee.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "einen"
+          },
+          {
+            "question": "Sie trinkt ___ Wasser. (neuter)",
+            "translation": "She is drinking a water.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "ein"
+          },
+          {
+            "question": "Er isst ___ Banane. (feminine)",
+            "translation": "He is eating a banana.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "eine"
+          },
+          {
+            "question": "Wir brauchen ___ Apfel. (masculine)",
+            "translation": "We need an apple.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "einen"
+          },
+          {
+            "question": "Möchten Sie ___ Tee? (masculine)",
+            "translation": "Would you like a tea?",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "einen"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Ich möchte bitte einen Kaffee mit Milch.",
+            "question": "How does the speaker want their coffee?",
+            "options": [
+              "Black",
+              "With milk",
+              "With sugar"
+            ],
+            "answer": "With milk"
+          },
+          {
+            "audioText": "Trinkst du lieber Tee oder Kaffee?",
+            "question": "What is the speaker asking?",
+            "options": [
+              "Do you prefer tea or coffee?",
+              "Is the coffee hot?",
+              "Do you want water?"
+            ],
+            "answer": "Do you prefer tea or coffee?"
+          },
+          {
+            "audioText": "Ich esse einen Apfel.",
+            "question": "What is the speaker eating?",
+            "options": [
+              "Banana",
+              "Apple",
+              "Bread"
+            ],
+            "answer": "Apple"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Order a coffee.",
+            "prompt": "Say: I would like a coffee, please."
+          },
+          {
+            "task": "Say what you are eating.",
+            "prompt": "Say: I am eating an apple."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are at a café ordering breakfast.",
+          "userRole": "Customer",
+          "botRole": "Waiter",
+          "startingLine": "Guten Morgen! Was möchten Sie trinken?"
+        },
+        "review": "You completed Level 1 of Food & Drinks!"
+      },
+      {
+        "type": "note",
+        "title": "Grammar Focus: Akkusativ",
+        "content": "The direct object of a sentence takes the accusative case. Masculine 'ein' becomes 'einen' (einen Kaffee). Feminine 'eine' and neuter 'ein' stay the same."
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.6.2",
+        "difficulty": 2,
+        "title": "Level 2: Food & Drinks (Intermediate)",
+        "vocabulary": [
+          {
+            "word": "der Kaffee",
+            "translation": "coffee"
+          },
+          {
+            "word": "der Tee",
+            "translation": "tea"
+          },
+          {
+            "word": "das Wasser",
+            "translation": "water"
+          },
+          {
+            "word": "der Apfel",
+            "translation": "apple"
+          }
+        ],
+        "grammar": {
+          "title": "Akkusativ",
+          "explanation": "The direct object of a sentence takes the accusative case. Masculine 'ein' becomes 'einen' (einen Kaffee). Feminine 'eine' and neuter 'ein' stay the same."
+        },
+        "practice": [
+          {
+            "question": "Ich möchte ___ Kaffee. (masculine) [Level 2]",
+            "translation": "I would like a coffee.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "einen"
+          },
+          {
+            "question": "Sie trinkt ___ Wasser. (neuter) [Level 2]",
+            "translation": "She is drinking a water.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "ein"
+          },
+          {
+            "question": "Er isst ___ Banane. (feminine) [Level 2]",
+            "translation": "He is eating a banana.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "eine"
+          },
+          {
+            "question": "Wir brauchen ___ Apfel. (masculine) [Level 2]",
+            "translation": "We need an apple.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "einen"
+          },
+          {
+            "question": "Möchten Sie ___ Tee? (masculine) [Level 2]",
+            "translation": "Would you like a tea?",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "einen"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Ich möchte bitte einen Kaffee mit Milch.",
+            "question": "How does the speaker want their coffee?",
+            "options": [
+              "Black",
+              "With milk",
+              "With sugar"
+            ],
+            "answer": "With milk"
+          },
+          {
+            "audioText": "Trinkst du lieber Tee oder Kaffee?",
+            "question": "What is the speaker asking?",
+            "options": [
+              "Do you prefer tea or coffee?",
+              "Is the coffee hot?",
+              "Do you want water?"
+            ],
+            "answer": "Do you prefer tea or coffee?"
+          },
+          {
+            "audioText": "Ich esse einen Apfel.",
+            "question": "What is the speaker eating?",
+            "options": [
+              "Banana",
+              "Apple",
+              "Bread"
+            ],
+            "answer": "Apple"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Order a coffee.",
+            "prompt": "Say: I would like a coffee, please."
+          },
+          {
+            "task": "Say what you are eating.",
+            "prompt": "Say: I am eating an apple."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are at a café ordering breakfast.",
+          "userRole": "Customer",
+          "botRole": "Waiter",
+          "startingLine": "Guten Morgen! Was möchten Sie trinken?"
+        },
+        "review": "You completed Level 2 of Food & Drinks!"
+      },
+      {
+        "type": "note",
+        "title": "Cultural Note",
+        "content": "A quick tip to remember when practicing food & drinks in Germany!"
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.6.3",
+        "difficulty": 3,
+        "title": "Level 3: Food & Drinks (Advanced)",
+        "vocabulary": [
+          {
+            "word": "der Kaffee",
+            "translation": "coffee"
+          },
+          {
+            "word": "der Tee",
+            "translation": "tea"
+          },
+          {
+            "word": "das Wasser",
+            "translation": "water"
+          },
+          {
+            "word": "der Apfel",
+            "translation": "apple"
+          }
+        ],
+        "grammar": {
+          "title": "Akkusativ",
+          "explanation": "The direct object of a sentence takes the accusative case. Masculine 'ein' becomes 'einen' (einen Kaffee). Feminine 'eine' and neuter 'ein' stay the same."
+        },
+        "practice": [
+          {
+            "question": "Ich möchte ___ Kaffee. (masculine) [Level 3]",
+            "translation": "I would like a coffee.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "einen"
+          },
+          {
+            "question": "Sie trinkt ___ Wasser. (neuter) [Level 3]",
+            "translation": "She is drinking a water.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "ein"
+          },
+          {
+            "question": "Er isst ___ Banane. (feminine) [Level 3]",
+            "translation": "He is eating a banana.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "eine"
+          },
+          {
+            "question": "Wir brauchen ___ Apfel. (masculine) [Level 3]",
+            "translation": "We need an apple.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "einen"
+          },
+          {
+            "question": "Möchten Sie ___ Tee? (masculine) [Level 3]",
+            "translation": "Would you like a tea?",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "einen"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Ich möchte bitte einen Kaffee mit Milch.",
+            "question": "How does the speaker want their coffee?",
+            "options": [
+              "Black",
+              "With milk",
+              "With sugar"
+            ],
+            "answer": "With milk"
+          },
+          {
+            "audioText": "Trinkst du lieber Tee oder Kaffee?",
+            "question": "What is the speaker asking?",
+            "options": [
+              "Do you prefer tea or coffee?",
+              "Is the coffee hot?",
+              "Do you want water?"
+            ],
+            "answer": "Do you prefer tea or coffee?"
+          },
+          {
+            "audioText": "Ich esse einen Apfel.",
+            "question": "What is the speaker eating?",
+            "options": [
+              "Banana",
+              "Apple",
+              "Bread"
+            ],
+            "answer": "Apple"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Order a coffee.",
+            "prompt": "Say: I would like a coffee, please."
+          },
+          {
+            "task": "Say what you are eating.",
+            "prompt": "Say: I am eating an apple."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are at a café ordering breakfast.",
+          "userRole": "Customer",
+          "botRole": "Waiter",
+          "startingLine": "Guten Morgen! Was möchten Sie trinken?"
+        },
+        "review": "You completed Level 3 of Food & Drinks!"
+      },
+      {
+        "type": "revision",
+        "id": "A1.6.rev",
+        "title": "Topic Revision: Food & Drinks",
+        "vocabulary": [
+          {
+            "word": "der Kaffee",
+            "translation": "coffee"
+          },
+          {
+            "word": "der Tee",
+            "translation": "tea"
+          },
+          {
+            "word": "das Wasser",
+            "translation": "water"
+          },
+          {
+            "word": "der Apfel",
+            "translation": "apple"
+          }
+        ],
+        "practice": [
+          {
+            "question": "Ich möchte ___ Kaffee. (masculine)",
+            "translation": "I would like a coffee.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "einen"
+          },
+          {
+            "question": "Sie trinkt ___ Wasser. (neuter)",
+            "translation": "She is drinking a water.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "ein"
+          },
+          {
+            "question": "Er isst ___ Banane. (feminine)",
+            "translation": "He is eating a banana.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "eine"
+          },
+          {
+            "question": "Wir brauchen ___ Apfel. (masculine)",
+            "translation": "We need an apple.",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "einen"
+          },
+          {
+            "question": "Möchten Sie ___ Tee? (masculine)",
+            "translation": "Would you like a tea?",
+            "options": [
+              "ein",
+              "einen",
+              "eine"
+            ],
+            "answer": "einen"
+          }
+        ],
+        "review": "You have successfully revised Food & Drinks!"
+      }
+    ]
+  },
+  {
+    "id": "A1.7",
+    "title": "Shopping",
+    "items": [
+      {
+        "type": "sublesson",
+        "id": "A1.7.1",
+        "difficulty": 1,
+        "title": "Level 1: Shopping",
+        "vocabulary": [
+          {
+            "word": "kaufen",
+            "translation": "to buy"
+          },
+          {
+            "word": "kosten",
+            "translation": "to cost"
+          },
+          {
+            "word": "das Brot",
+            "translation": "bread"
+          },
+          {
+            "word": "das Geld",
+            "translation": "money"
+          }
+        ],
+        "grammar": {
+          "title": "Verbs: haben & möchten",
+          "explanation": "'haben' (to have) and 'möchten' (would like) are essential for shopping. Remember: ich habe, du hast, er hat. ich möchte, du möchtest, er möchte."
+        },
+        "practice": [
+          {
+            "question": "Ich ___ ein Brot.",
+            "translation": "I have a bread.",
+            "options": [
+              "habe",
+              "hast",
+              "hat"
+            ],
+            "answer": "habe"
+          },
+          {
+            "question": "Was ___ du kaufen?",
+            "translation": "What would you like to buy?",
+            "options": [
+              "möchte",
+              "möchtest",
+              "möchten"
+            ],
+            "answer": "möchtest"
+          },
+          {
+            "question": "___ Sie Tomaten?",
+            "translation": "Do you have tomatoes?",
+            "options": [
+              "Haben",
+              "Hast",
+              "Hat"
+            ],
+            "answer": "Haben"
+          },
+          {
+            "question": "Er ___ kein Geld.",
+            "translation": "He has no money.",
+            "options": [
+              "habe",
+              "hast",
+              "hat"
+            ],
+            "answer": "hat"
+          },
+          {
+            "question": "Wir ___ bezahlen.",
+            "translation": "We would like to pay.",
+            "options": [
+              "möchte",
+              "möchtest",
+              "möchten"
+            ],
+            "answer": "möchten"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Das Brot kostet drei Euro fünfzig.",
+            "question": "How much does the bread cost?",
+            "options": [
+              "3.50",
+              "3.15",
+              "5.30"
+            ],
+            "answer": "3.50"
+          },
+          {
+            "audioText": "Haben Sie auch Äpfel?",
+            "question": "What is the customer looking for?",
+            "options": [
+              "Apples",
+              "Bread",
+              "Water"
+            ],
+            "answer": "Apples"
+          },
+          {
+            "audioText": "Ich möchte mit Karte bezahlen.",
+            "question": "How does the customer want to pay?",
+            "options": [
+              "Cash",
+              "Card",
+              "Check"
+            ],
+            "answer": "Card"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Ask how much something costs.",
+            "prompt": "Say: How much does the bread cost?"
+          },
+          {
+            "task": "Say you would like to pay.",
+            "prompt": "Say: I would like to pay, please."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are at a bakery buying bread.",
+          "userRole": "Customer",
+          "botRole": "Baker",
+          "startingLine": "Guten Tag! Was darf es sein?"
+        },
+        "review": "You completed Level 1 of Shopping!"
+      },
+      {
+        "type": "note",
+        "title": "Grammar Focus: Verbs: haben & möchten",
+        "content": "'haben' (to have) and 'möchten' (would like) are essential for shopping. Remember: ich habe, du hast, er hat. ich möchte, du möchtest, er möchte."
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.7.2",
+        "difficulty": 2,
+        "title": "Level 2: Shopping (Intermediate)",
+        "vocabulary": [
+          {
+            "word": "kaufen",
+            "translation": "to buy"
+          },
+          {
+            "word": "kosten",
+            "translation": "to cost"
+          },
+          {
+            "word": "das Brot",
+            "translation": "bread"
+          },
+          {
+            "word": "das Geld",
+            "translation": "money"
+          }
+        ],
+        "grammar": {
+          "title": "Verbs: haben & möchten",
+          "explanation": "'haben' (to have) and 'möchten' (would like) are essential for shopping. Remember: ich habe, du hast, er hat. ich möchte, du möchtest, er möchte."
+        },
+        "practice": [
+          {
+            "question": "Ich ___ ein Brot. [Level 2]",
+            "translation": "I have a bread.",
+            "options": [
+              "habe",
+              "hast",
+              "hat"
+            ],
+            "answer": "habe"
+          },
+          {
+            "question": "Was ___ du kaufen? [Level 2]",
+            "translation": "What would you like to buy?",
+            "options": [
+              "möchte",
+              "möchtest",
+              "möchten"
+            ],
+            "answer": "möchtest"
+          },
+          {
+            "question": "___ Sie Tomaten? [Level 2]",
+            "translation": "Do you have tomatoes?",
+            "options": [
+              "Haben",
+              "Hast",
+              "Hat"
+            ],
+            "answer": "Haben"
+          },
+          {
+            "question": "Er ___ kein Geld. [Level 2]",
+            "translation": "He has no money.",
+            "options": [
+              "habe",
+              "hast",
+              "hat"
+            ],
+            "answer": "hat"
+          },
+          {
+            "question": "Wir ___ bezahlen. [Level 2]",
+            "translation": "We would like to pay.",
+            "options": [
+              "möchte",
+              "möchtest",
+              "möchten"
+            ],
+            "answer": "möchten"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Das Brot kostet drei Euro fünfzig.",
+            "question": "How much does the bread cost?",
+            "options": [
+              "3.50",
+              "3.15",
+              "5.30"
+            ],
+            "answer": "3.50"
+          },
+          {
+            "audioText": "Haben Sie auch Äpfel?",
+            "question": "What is the customer looking for?",
+            "options": [
+              "Apples",
+              "Bread",
+              "Water"
+            ],
+            "answer": "Apples"
+          },
+          {
+            "audioText": "Ich möchte mit Karte bezahlen.",
+            "question": "How does the customer want to pay?",
+            "options": [
+              "Cash",
+              "Card",
+              "Check"
+            ],
+            "answer": "Card"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Ask how much something costs.",
+            "prompt": "Say: How much does the bread cost?"
+          },
+          {
+            "task": "Say you would like to pay.",
+            "prompt": "Say: I would like to pay, please."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are at a bakery buying bread.",
+          "userRole": "Customer",
+          "botRole": "Baker",
+          "startingLine": "Guten Tag! Was darf es sein?"
+        },
+        "review": "You completed Level 2 of Shopping!"
+      },
+      {
+        "type": "note",
+        "title": "Cultural Note",
+        "content": "A quick tip to remember when practicing shopping in Germany!"
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.7.3",
+        "difficulty": 3,
+        "title": "Level 3: Shopping (Advanced)",
+        "vocabulary": [
+          {
+            "word": "kaufen",
+            "translation": "to buy"
+          },
+          {
+            "word": "kosten",
+            "translation": "to cost"
+          },
+          {
+            "word": "das Brot",
+            "translation": "bread"
+          },
+          {
+            "word": "das Geld",
+            "translation": "money"
+          }
+        ],
+        "grammar": {
+          "title": "Verbs: haben & möchten",
+          "explanation": "'haben' (to have) and 'möchten' (would like) are essential for shopping. Remember: ich habe, du hast, er hat. ich möchte, du möchtest, er möchte."
+        },
+        "practice": [
+          {
+            "question": "Ich ___ ein Brot. [Level 3]",
+            "translation": "I have a bread.",
+            "options": [
+              "habe",
+              "hast",
+              "hat"
+            ],
+            "answer": "habe"
+          },
+          {
+            "question": "Was ___ du kaufen? [Level 3]",
+            "translation": "What would you like to buy?",
+            "options": [
+              "möchte",
+              "möchtest",
+              "möchten"
+            ],
+            "answer": "möchtest"
+          },
+          {
+            "question": "___ Sie Tomaten? [Level 3]",
+            "translation": "Do you have tomatoes?",
+            "options": [
+              "Haben",
+              "Hast",
+              "Hat"
+            ],
+            "answer": "Haben"
+          },
+          {
+            "question": "Er ___ kein Geld. [Level 3]",
+            "translation": "He has no money.",
+            "options": [
+              "habe",
+              "hast",
+              "hat"
+            ],
+            "answer": "hat"
+          },
+          {
+            "question": "Wir ___ bezahlen. [Level 3]",
+            "translation": "We would like to pay.",
+            "options": [
+              "möchte",
+              "möchtest",
+              "möchten"
+            ],
+            "answer": "möchten"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Das Brot kostet drei Euro fünfzig.",
+            "question": "How much does the bread cost?",
+            "options": [
+              "3.50",
+              "3.15",
+              "5.30"
+            ],
+            "answer": "3.50"
+          },
+          {
+            "audioText": "Haben Sie auch Äpfel?",
+            "question": "What is the customer looking for?",
+            "options": [
+              "Apples",
+              "Bread",
+              "Water"
+            ],
+            "answer": "Apples"
+          },
+          {
+            "audioText": "Ich möchte mit Karte bezahlen.",
+            "question": "How does the customer want to pay?",
+            "options": [
+              "Cash",
+              "Card",
+              "Check"
+            ],
+            "answer": "Card"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Ask how much something costs.",
+            "prompt": "Say: How much does the bread cost?"
+          },
+          {
+            "task": "Say you would like to pay.",
+            "prompt": "Say: I would like to pay, please."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are at a bakery buying bread.",
+          "userRole": "Customer",
+          "botRole": "Baker",
+          "startingLine": "Guten Tag! Was darf es sein?"
+        },
+        "review": "You completed Level 3 of Shopping!"
+      },
+      {
+        "type": "revision",
+        "id": "A1.7.rev",
+        "title": "Topic Revision: Shopping",
+        "vocabulary": [
+          {
+            "word": "kaufen",
+            "translation": "to buy"
+          },
+          {
+            "word": "kosten",
+            "translation": "to cost"
+          },
+          {
+            "word": "das Brot",
+            "translation": "bread"
+          },
+          {
+            "word": "das Geld",
+            "translation": "money"
+          }
+        ],
+        "practice": [
+          {
+            "question": "Ich ___ ein Brot.",
+            "translation": "I have a bread.",
+            "options": [
+              "habe",
+              "hast",
+              "hat"
+            ],
+            "answer": "habe"
+          },
+          {
+            "question": "Was ___ du kaufen?",
+            "translation": "What would you like to buy?",
+            "options": [
+              "möchte",
+              "möchtest",
+              "möchten"
+            ],
+            "answer": "möchtest"
+          },
+          {
+            "question": "___ Sie Tomaten?",
+            "translation": "Do you have tomatoes?",
+            "options": [
+              "Haben",
+              "Hast",
+              "Hat"
+            ],
+            "answer": "Haben"
+          },
+          {
+            "question": "Er ___ kein Geld.",
+            "translation": "He has no money.",
+            "options": [
+              "habe",
+              "hast",
+              "hat"
+            ],
+            "answer": "hat"
+          },
+          {
+            "question": "Wir ___ bezahlen.",
+            "translation": "We would like to pay.",
+            "options": [
+              "möchte",
+              "möchtest",
+              "möchten"
+            ],
+            "answer": "möchten"
+          }
+        ],
+        "review": "You have successfully revised Shopping!"
+      }
+    ]
+  },
+  {
+    "id": "A1.8",
+    "title": "Time & Date",
+    "items": [
+      {
+        "type": "sublesson",
+        "id": "A1.8.1",
+        "difficulty": 1,
+        "title": "Level 1: Time & Date",
+        "vocabulary": [
+          {
+            "word": "heute",
+            "translation": "today"
+          },
+          {
+            "word": "morgen",
+            "translation": "tomorrow"
+          },
+          {
+            "word": "die Uhr",
+            "translation": "clock/o'clock"
+          },
+          {
+            "word": "frei",
+            "translation": "free"
+          }
+        ],
+        "grammar": {
+          "title": "Word Order",
+          "explanation": "In a German main clause, the conjugated verb is ALWAYS in the second position. If a time word (like 'heute') starts the sentence, the subject moves after the verb: 'Heute habe ich frei.'"
+        },
+        "practice": [
+          {
+            "question": "Heute ___ ich frei.",
+            "translation": "Today I am free.",
+            "options": [
+              "habe",
+              "hast",
+              "hat"
+            ],
+            "answer": "habe"
+          },
+          {
+            "question": "Morgen ___ wir ins Kino.",
+            "translation": "Tomorrow we are going to the cinema.",
+            "options": [
+              "gehen",
+              "gehe",
+              "geht"
+            ],
+            "answer": "gehen"
+          },
+          {
+            "question": "Um acht Uhr ___ der Film.",
+            "translation": "At eight o'clock the film begins.",
+            "options": [
+              "beginnt",
+              "beginnen",
+              "beginne"
+            ],
+            "answer": "beginnt"
+          },
+          {
+            "question": "Am Montag ___ sie arbeiten.",
+            "translation": "On Monday she has to work.",
+            "options": [
+              "muss",
+              "müsst",
+              "müssen"
+            ],
+            "answer": "muss"
+          },
+          {
+            "question": "Jetzt ___ ich müde.",
+            "translation": "Now I am tired.",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "bin"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Es ist halb acht.",
+            "question": "What time is it?",
+            "options": [
+              "7:30",
+              "8:30",
+              "6:30"
+            ],
+            "answer": "7:30"
+          },
+          {
+            "audioText": "Heute habe ich keine Zeit.",
+            "question": "Does the speaker have time today?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe"
+            ],
+            "answer": "No"
+          },
+          {
+            "audioText": "Wir treffen uns um 15 Uhr.",
+            "question": "When are they meeting?",
+            "options": [
+              "3 PM",
+              "5 PM",
+              "12 PM"
+            ],
+            "answer": "3 PM"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Say you have free time today.",
+            "prompt": "Say: Today I have free time."
+          },
+          {
+            "task": "Say it is 3 o'clock.",
+            "prompt": "Say: It is three o'clock."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are arranging a time to meet a friend.",
+          "userRole": "You",
+          "botRole": "Friend",
+          "startingLine": "Hast du heute Abend Zeit?"
+        },
+        "review": "You completed Level 1 of Time & Date!"
+      },
+      {
+        "type": "note",
+        "title": "Grammar Focus: Word Order",
+        "content": "In a German main clause, the conjugated verb is ALWAYS in the second position. If a time word (like 'heute') starts the sentence, the subject moves after the verb: 'Heute habe ich frei.'"
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.8.2",
+        "difficulty": 2,
+        "title": "Level 2: Time & Date (Intermediate)",
+        "vocabulary": [
+          {
+            "word": "heute",
+            "translation": "today"
+          },
+          {
+            "word": "morgen",
+            "translation": "tomorrow"
+          },
+          {
+            "word": "die Uhr",
+            "translation": "clock/o'clock"
+          },
+          {
+            "word": "frei",
+            "translation": "free"
+          }
+        ],
+        "grammar": {
+          "title": "Word Order",
+          "explanation": "In a German main clause, the conjugated verb is ALWAYS in the second position. If a time word (like 'heute') starts the sentence, the subject moves after the verb: 'Heute habe ich frei.'"
+        },
+        "practice": [
+          {
+            "question": "Heute ___ ich frei. [Level 2]",
+            "translation": "Today I am free.",
+            "options": [
+              "habe",
+              "hast",
+              "hat"
+            ],
+            "answer": "habe"
+          },
+          {
+            "question": "Morgen ___ wir ins Kino. [Level 2]",
+            "translation": "Tomorrow we are going to the cinema.",
+            "options": [
+              "gehen",
+              "gehe",
+              "geht"
+            ],
+            "answer": "gehen"
+          },
+          {
+            "question": "Um acht Uhr ___ der Film. [Level 2]",
+            "translation": "At eight o'clock the film begins.",
+            "options": [
+              "beginnt",
+              "beginnen",
+              "beginne"
+            ],
+            "answer": "beginnt"
+          },
+          {
+            "question": "Am Montag ___ sie arbeiten. [Level 2]",
+            "translation": "On Monday she has to work.",
+            "options": [
+              "muss",
+              "müsst",
+              "müssen"
+            ],
+            "answer": "muss"
+          },
+          {
+            "question": "Jetzt ___ ich müde. [Level 2]",
+            "translation": "Now I am tired.",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "bin"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Es ist halb acht.",
+            "question": "What time is it?",
+            "options": [
+              "7:30",
+              "8:30",
+              "6:30"
+            ],
+            "answer": "7:30"
+          },
+          {
+            "audioText": "Heute habe ich keine Zeit.",
+            "question": "Does the speaker have time today?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe"
+            ],
+            "answer": "No"
+          },
+          {
+            "audioText": "Wir treffen uns um 15 Uhr.",
+            "question": "When are they meeting?",
+            "options": [
+              "3 PM",
+              "5 PM",
+              "12 PM"
+            ],
+            "answer": "3 PM"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Say you have free time today.",
+            "prompt": "Say: Today I have free time."
+          },
+          {
+            "task": "Say it is 3 o'clock.",
+            "prompt": "Say: It is three o'clock."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are arranging a time to meet a friend.",
+          "userRole": "You",
+          "botRole": "Friend",
+          "startingLine": "Hast du heute Abend Zeit?"
+        },
+        "review": "You completed Level 2 of Time & Date!"
+      },
+      {
+        "type": "note",
+        "title": "Cultural Note",
+        "content": "A quick tip to remember when practicing time & date in Germany!"
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.8.3",
+        "difficulty": 3,
+        "title": "Level 3: Time & Date (Advanced)",
+        "vocabulary": [
+          {
+            "word": "heute",
+            "translation": "today"
+          },
+          {
+            "word": "morgen",
+            "translation": "tomorrow"
+          },
+          {
+            "word": "die Uhr",
+            "translation": "clock/o'clock"
+          },
+          {
+            "word": "frei",
+            "translation": "free"
+          }
+        ],
+        "grammar": {
+          "title": "Word Order",
+          "explanation": "In a German main clause, the conjugated verb is ALWAYS in the second position. If a time word (like 'heute') starts the sentence, the subject moves after the verb: 'Heute habe ich frei.'"
+        },
+        "practice": [
+          {
+            "question": "Heute ___ ich frei. [Level 3]",
+            "translation": "Today I am free.",
+            "options": [
+              "habe",
+              "hast",
+              "hat"
+            ],
+            "answer": "habe"
+          },
+          {
+            "question": "Morgen ___ wir ins Kino. [Level 3]",
+            "translation": "Tomorrow we are going to the cinema.",
+            "options": [
+              "gehen",
+              "gehe",
+              "geht"
+            ],
+            "answer": "gehen"
+          },
+          {
+            "question": "Um acht Uhr ___ der Film. [Level 3]",
+            "translation": "At eight o'clock the film begins.",
+            "options": [
+              "beginnt",
+              "beginnen",
+              "beginne"
+            ],
+            "answer": "beginnt"
+          },
+          {
+            "question": "Am Montag ___ sie arbeiten. [Level 3]",
+            "translation": "On Monday she has to work.",
+            "options": [
+              "muss",
+              "müsst",
+              "müssen"
+            ],
+            "answer": "muss"
+          },
+          {
+            "question": "Jetzt ___ ich müde. [Level 3]",
+            "translation": "Now I am tired.",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "bin"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Es ist halb acht.",
+            "question": "What time is it?",
+            "options": [
+              "7:30",
+              "8:30",
+              "6:30"
+            ],
+            "answer": "7:30"
+          },
+          {
+            "audioText": "Heute habe ich keine Zeit.",
+            "question": "Does the speaker have time today?",
+            "options": [
+              "Yes",
+              "No",
+              "Maybe"
+            ],
+            "answer": "No"
+          },
+          {
+            "audioText": "Wir treffen uns um 15 Uhr.",
+            "question": "When are they meeting?",
+            "options": [
+              "3 PM",
+              "5 PM",
+              "12 PM"
+            ],
+            "answer": "3 PM"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Say you have free time today.",
+            "prompt": "Say: Today I have free time."
+          },
+          {
+            "task": "Say it is 3 o'clock.",
+            "prompt": "Say: It is three o'clock."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are arranging a time to meet a friend.",
+          "userRole": "You",
+          "botRole": "Friend",
+          "startingLine": "Hast du heute Abend Zeit?"
+        },
+        "review": "You completed Level 3 of Time & Date!"
+      },
+      {
+        "type": "revision",
+        "id": "A1.8.rev",
+        "title": "Topic Revision: Time & Date",
+        "vocabulary": [
+          {
+            "word": "heute",
+            "translation": "today"
+          },
+          {
+            "word": "morgen",
+            "translation": "tomorrow"
+          },
+          {
+            "word": "die Uhr",
+            "translation": "clock/o'clock"
+          },
+          {
+            "word": "frei",
+            "translation": "free"
+          }
+        ],
+        "practice": [
+          {
+            "question": "Heute ___ ich frei.",
+            "translation": "Today I am free.",
+            "options": [
+              "habe",
+              "hast",
+              "hat"
+            ],
+            "answer": "habe"
+          },
+          {
+            "question": "Morgen ___ wir ins Kino.",
+            "translation": "Tomorrow we are going to the cinema.",
+            "options": [
+              "gehen",
+              "gehe",
+              "geht"
+            ],
+            "answer": "gehen"
+          },
+          {
+            "question": "Um acht Uhr ___ der Film.",
+            "translation": "At eight o'clock the film begins.",
+            "options": [
+              "beginnt",
+              "beginnen",
+              "beginne"
+            ],
+            "answer": "beginnt"
+          },
+          {
+            "question": "Am Montag ___ sie arbeiten.",
+            "translation": "On Monday she has to work.",
+            "options": [
+              "muss",
+              "müsst",
+              "müssen"
+            ],
+            "answer": "muss"
+          },
+          {
+            "question": "Jetzt ___ ich müde.",
+            "translation": "Now I am tired.",
+            "options": [
+              "bin",
+              "bist",
+              "ist"
+            ],
+            "answer": "bin"
+          }
+        ],
+        "review": "You have successfully revised Time & Date!"
+      }
+    ]
+  },
+  {
+    "id": "A1.9",
+    "title": "Directions",
+    "items": [
+      {
+        "type": "sublesson",
+        "id": "A1.9.1",
+        "difficulty": 1,
+        "title": "Level 1: Directions",
+        "vocabulary": [
+          {
+            "word": "links",
+            "translation": "left"
+          },
+          {
+            "word": "rechts",
+            "translation": "right"
+          },
+          {
+            "word": "geradeaus",
+            "translation": "straight ahead"
+          },
+          {
+            "word": "die Straße",
+            "translation": "street"
+          }
+        ],
+        "grammar": {
+          "title": "Imperative (Formal)",
+          "explanation": "To give a command or direction formally, use the infinitive verb followed by 'Sie': 'Gehen Sie' (Go), 'Fahren Sie' (Drive)."
+        },
+        "practice": [
+          {
+            "question": "___ Sie geradeaus.",
+            "translation": "Go straight ahead.",
+            "options": [
+              "Gehen",
+              "Geht",
+              "Gehst"
+            ],
+            "answer": "Gehen"
+          },
+          {
+            "question": "___ Sie an der Ampel links.",
+            "translation": "Drive left at the traffic light.",
+            "options": [
+              "Fahren",
+              "Fahrt",
+              "Fährst"
+            ],
+            "answer": "Fahren"
+          },
+          {
+            "question": "Entschuldigung, wie ___ ich zum Bahnhof?",
+            "translation": "Excuse me, how do I get to the train station?",
+            "options": [
+              "komme",
+              "kommst",
+              "kommt"
+            ],
+            "answer": "komme"
+          },
+          {
+            "question": "___ Sie die erste Straße rechts.",
+            "translation": "Take the first street on the right.",
+            "options": [
+              "Nehmen",
+              "Nehmt",
+              "Nimmst"
+            ],
+            "answer": "Nehmen"
+          },
+          {
+            "question": "Die Bank ___ auf der linken Seite.",
+            "translation": "The bank is on the left side.",
+            "options": [
+              "ist",
+              "sind",
+              "bin"
+            ],
+            "answer": "ist"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Gehen Sie geradeaus und dann die zweite Straße links.",
+            "question": "Where should you turn?",
+            "options": [
+              "First left",
+              "Second left",
+              "Second right"
+            ],
+            "answer": "Second left"
+          },
+          {
+            "audioText": "Der Bahnhof ist in der Nähe.",
+            "question": "Where is the train station?",
+            "options": [
+              "Far away",
+              "Nearby",
+              "Closed"
+            ],
+            "answer": "Nearby"
+          },
+          {
+            "audioText": "Fahren Sie nach rechts.",
+            "question": "Which way should you drive?",
+            "options": [
+              "Left",
+              "Right",
+              "Straight"
+            ],
+            "answer": "Right"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Ask where the train station is.",
+            "prompt": "Say: Excuse me, where is the train station?"
+          },
+          {
+            "task": "Tell someone to go straight ahead.",
+            "prompt": "Say: Go straight ahead."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are lost in a new city and asking for directions.",
+          "userRole": "Tourist",
+          "botRole": "Local",
+          "startingLine": "Entschuldigung, ich suche den Bahnhof."
+        },
+        "review": "You completed Level 1 of Directions!"
+      },
+      {
+        "type": "note",
+        "title": "Grammar Focus: Imperative (Formal)",
+        "content": "To give a command or direction formally, use the infinitive verb followed by 'Sie': 'Gehen Sie' (Go), 'Fahren Sie' (Drive)."
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.9.2",
+        "difficulty": 2,
+        "title": "Level 2: Directions (Intermediate)",
+        "vocabulary": [
+          {
+            "word": "links",
+            "translation": "left"
+          },
+          {
+            "word": "rechts",
+            "translation": "right"
+          },
+          {
+            "word": "geradeaus",
+            "translation": "straight ahead"
+          },
+          {
+            "word": "die Straße",
+            "translation": "street"
+          }
+        ],
+        "grammar": {
+          "title": "Imperative (Formal)",
+          "explanation": "To give a command or direction formally, use the infinitive verb followed by 'Sie': 'Gehen Sie' (Go), 'Fahren Sie' (Drive)."
+        },
+        "practice": [
+          {
+            "question": "___ Sie geradeaus. [Level 2]",
+            "translation": "Go straight ahead.",
+            "options": [
+              "Gehen",
+              "Geht",
+              "Gehst"
+            ],
+            "answer": "Gehen"
+          },
+          {
+            "question": "___ Sie an der Ampel links. [Level 2]",
+            "translation": "Drive left at the traffic light.",
+            "options": [
+              "Fahren",
+              "Fahrt",
+              "Fährst"
+            ],
+            "answer": "Fahren"
+          },
+          {
+            "question": "Entschuldigung, wie ___ ich zum Bahnhof? [Level 2]",
+            "translation": "Excuse me, how do I get to the train station?",
+            "options": [
+              "komme",
+              "kommst",
+              "kommt"
+            ],
+            "answer": "komme"
+          },
+          {
+            "question": "___ Sie die erste Straße rechts. [Level 2]",
+            "translation": "Take the first street on the right.",
+            "options": [
+              "Nehmen",
+              "Nehmt",
+              "Nimmst"
+            ],
+            "answer": "Nehmen"
+          },
+          {
+            "question": "Die Bank ___ auf der linken Seite. [Level 2]",
+            "translation": "The bank is on the left side.",
+            "options": [
+              "ist",
+              "sind",
+              "bin"
+            ],
+            "answer": "ist"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Gehen Sie geradeaus und dann die zweite Straße links.",
+            "question": "Where should you turn?",
+            "options": [
+              "First left",
+              "Second left",
+              "Second right"
+            ],
+            "answer": "Second left"
+          },
+          {
+            "audioText": "Der Bahnhof ist in der Nähe.",
+            "question": "Where is the train station?",
+            "options": [
+              "Far away",
+              "Nearby",
+              "Closed"
+            ],
+            "answer": "Nearby"
+          },
+          {
+            "audioText": "Fahren Sie nach rechts.",
+            "question": "Which way should you drive?",
+            "options": [
+              "Left",
+              "Right",
+              "Straight"
+            ],
+            "answer": "Right"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Ask where the train station is.",
+            "prompt": "Say: Excuse me, where is the train station?"
+          },
+          {
+            "task": "Tell someone to go straight ahead.",
+            "prompt": "Say: Go straight ahead."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are lost in a new city and asking for directions.",
+          "userRole": "Tourist",
+          "botRole": "Local",
+          "startingLine": "Entschuldigung, ich suche den Bahnhof."
+        },
+        "review": "You completed Level 2 of Directions!"
+      },
+      {
+        "type": "note",
+        "title": "Cultural Note",
+        "content": "A quick tip to remember when practicing directions in Germany!"
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.9.3",
+        "difficulty": 3,
+        "title": "Level 3: Directions (Advanced)",
+        "vocabulary": [
+          {
+            "word": "links",
+            "translation": "left"
+          },
+          {
+            "word": "rechts",
+            "translation": "right"
+          },
+          {
+            "word": "geradeaus",
+            "translation": "straight ahead"
+          },
+          {
+            "word": "die Straße",
+            "translation": "street"
+          }
+        ],
+        "grammar": {
+          "title": "Imperative (Formal)",
+          "explanation": "To give a command or direction formally, use the infinitive verb followed by 'Sie': 'Gehen Sie' (Go), 'Fahren Sie' (Drive)."
+        },
+        "practice": [
+          {
+            "question": "___ Sie geradeaus. [Level 3]",
+            "translation": "Go straight ahead.",
+            "options": [
+              "Gehen",
+              "Geht",
+              "Gehst"
+            ],
+            "answer": "Gehen"
+          },
+          {
+            "question": "___ Sie an der Ampel links. [Level 3]",
+            "translation": "Drive left at the traffic light.",
+            "options": [
+              "Fahren",
+              "Fahrt",
+              "Fährst"
+            ],
+            "answer": "Fahren"
+          },
+          {
+            "question": "Entschuldigung, wie ___ ich zum Bahnhof? [Level 3]",
+            "translation": "Excuse me, how do I get to the train station?",
+            "options": [
+              "komme",
+              "kommst",
+              "kommt"
+            ],
+            "answer": "komme"
+          },
+          {
+            "question": "___ Sie die erste Straße rechts. [Level 3]",
+            "translation": "Take the first street on the right.",
+            "options": [
+              "Nehmen",
+              "Nehmt",
+              "Nimmst"
+            ],
+            "answer": "Nehmen"
+          },
+          {
+            "question": "Die Bank ___ auf der linken Seite. [Level 3]",
+            "translation": "The bank is on the left side.",
+            "options": [
+              "ist",
+              "sind",
+              "bin"
+            ],
+            "answer": "ist"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Gehen Sie geradeaus und dann die zweite Straße links.",
+            "question": "Where should you turn?",
+            "options": [
+              "First left",
+              "Second left",
+              "Second right"
+            ],
+            "answer": "Second left"
+          },
+          {
+            "audioText": "Der Bahnhof ist in der Nähe.",
+            "question": "Where is the train station?",
+            "options": [
+              "Far away",
+              "Nearby",
+              "Closed"
+            ],
+            "answer": "Nearby"
+          },
+          {
+            "audioText": "Fahren Sie nach rechts.",
+            "question": "Which way should you drive?",
+            "options": [
+              "Left",
+              "Right",
+              "Straight"
+            ],
+            "answer": "Right"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Ask where the train station is.",
+            "prompt": "Say: Excuse me, where is the train station?"
+          },
+          {
+            "task": "Tell someone to go straight ahead.",
+            "prompt": "Say: Go straight ahead."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are lost in a new city and asking for directions.",
+          "userRole": "Tourist",
+          "botRole": "Local",
+          "startingLine": "Entschuldigung, ich suche den Bahnhof."
+        },
+        "review": "You completed Level 3 of Directions!"
+      },
+      {
+        "type": "revision",
+        "id": "A1.9.rev",
+        "title": "Topic Revision: Directions",
+        "vocabulary": [
+          {
+            "word": "links",
+            "translation": "left"
+          },
+          {
+            "word": "rechts",
+            "translation": "right"
+          },
+          {
+            "word": "geradeaus",
+            "translation": "straight ahead"
+          },
+          {
+            "word": "die Straße",
+            "translation": "street"
+          }
+        ],
+        "practice": [
+          {
+            "question": "___ Sie geradeaus.",
+            "translation": "Go straight ahead.",
+            "options": [
+              "Gehen",
+              "Geht",
+              "Gehst"
+            ],
+            "answer": "Gehen"
+          },
+          {
+            "question": "___ Sie an der Ampel links.",
+            "translation": "Drive left at the traffic light.",
+            "options": [
+              "Fahren",
+              "Fahrt",
+              "Fährst"
+            ],
+            "answer": "Fahren"
+          },
+          {
+            "question": "Entschuldigung, wie ___ ich zum Bahnhof?",
+            "translation": "Excuse me, how do I get to the train station?",
+            "options": [
+              "komme",
+              "kommst",
+              "kommt"
+            ],
+            "answer": "komme"
+          },
+          {
+            "question": "___ Sie die erste Straße rechts.",
+            "translation": "Take the first street on the right.",
+            "options": [
+              "Nehmen",
+              "Nehmt",
+              "Nimmst"
+            ],
+            "answer": "Nehmen"
+          },
+          {
+            "question": "Die Bank ___ auf der linken Seite.",
+            "translation": "The bank is on the left side.",
+            "options": [
+              "ist",
+              "sind",
+              "bin"
+            ],
+            "answer": "ist"
+          }
+        ],
+        "review": "You have successfully revised Directions!"
+      }
+    ]
+  },
+  {
+    "id": "A1.10",
+    "title": "Doctor",
+    "items": [
+      {
+        "type": "sublesson",
+        "id": "A1.10.1",
+        "difficulty": 1,
+        "title": "Level 1: Doctor",
+        "vocabulary": [
+          {
+            "word": "der Arzt",
+            "translation": "doctor"
+          },
+          {
+            "word": "die Kopfschmerzen",
+            "translation": "headache"
+          },
+          {
+            "word": "krank",
+            "translation": "sick"
+          },
+          {
+            "word": "helfen",
+            "translation": "to help"
+          }
+        ],
+        "grammar": {
+          "title": "haben vs. sein",
+          "explanation": "Use 'sein' (to be) for states like 'Ich bin krank' (I am sick). Use 'haben' (to have) for symptoms like 'Ich habe Kopfschmerzen' (I have a headache)."
+        },
+        "practice": [
+          {
+            "question": "Ich ___ Kopfschmerzen.",
+            "translation": "I have a headache.",
+            "options": [
+              "habe",
+              "bin",
+              "hat"
+            ],
+            "answer": "habe"
+          },
+          {
+            "question": "Er ___ krank.",
+            "translation": "He is sick.",
+            "options": [
+              "ist",
+              "hat",
+              "bin"
+            ],
+            "answer": "ist"
+          },
+          {
+            "question": "Wir ___ Fieber.",
+            "translation": "We have a fever.",
+            "options": [
+              "haben",
+              "sind",
+              "habt"
+            ],
+            "answer": "haben"
+          },
+          {
+            "question": "Mir ___ schlecht.",
+            "translation": "I feel sick.",
+            "options": [
+              "ist",
+              "bin",
+              "habe"
+            ],
+            "answer": "ist"
+          },
+          {
+            "question": "Sie ___ einen Termin beim Arzt.",
+            "translation": "She has an appointment at the doctor's.",
+            "options": [
+              "haben",
+              "sind",
+              "hat"
+            ],
+            "answer": "hat"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Guten Tag, was fehlt Ihnen?",
+            "question": "What is the doctor asking?",
+            "options": [
+              "What is your name?",
+              "What is wrong with you?",
+              "Do you have an appointment?"
+            ],
+            "answer": "What is wrong with you?"
+          },
+          {
+            "audioText": "Ich habe seit zwei Tagen Halsschmerzen.",
+            "question": "How long has the patient had a sore throat?",
+            "options": [
+              "Two days",
+              "Two weeks",
+              "Two hours"
+            ],
+            "answer": "Two days"
+          },
+          {
+            "audioText": "Sie müssen im Bett bleiben.",
+            "question": "What must the patient do?",
+            "options": [
+              "Go to work",
+              "Stay in bed",
+              "Drink water"
+            ],
+            "answer": "Stay in bed"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Tell the doctor you have a headache.",
+            "prompt": "Say: I have a headache."
+          },
+          {
+            "task": "Say that you are sick.",
+            "prompt": "Say: I am sick."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are at the doctor's office describing your symptoms.",
+          "userRole": "Patient",
+          "botRole": "Doctor",
+          "startingLine": "Guten Morgen. Ich bin leider krank."
+        },
+        "review": "You completed Level 1 of Doctor!"
+      },
+      {
+        "type": "note",
+        "title": "Grammar Focus: haben vs. sein",
+        "content": "Use 'sein' (to be) for states like 'Ich bin krank' (I am sick). Use 'haben' (to have) for symptoms like 'Ich habe Kopfschmerzen' (I have a headache)."
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.10.2",
+        "difficulty": 2,
+        "title": "Level 2: Doctor (Intermediate)",
+        "vocabulary": [
+          {
+            "word": "der Arzt",
+            "translation": "doctor"
+          },
+          {
+            "word": "die Kopfschmerzen",
+            "translation": "headache"
+          },
+          {
+            "word": "krank",
+            "translation": "sick"
+          },
+          {
+            "word": "helfen",
+            "translation": "to help"
+          }
+        ],
+        "grammar": {
+          "title": "haben vs. sein",
+          "explanation": "Use 'sein' (to be) for states like 'Ich bin krank' (I am sick). Use 'haben' (to have) for symptoms like 'Ich habe Kopfschmerzen' (I have a headache)."
+        },
+        "practice": [
+          {
+            "question": "Ich ___ Kopfschmerzen. [Level 2]",
+            "translation": "I have a headache.",
+            "options": [
+              "habe",
+              "bin",
+              "hat"
+            ],
+            "answer": "habe"
+          },
+          {
+            "question": "Er ___ krank. [Level 2]",
+            "translation": "He is sick.",
+            "options": [
+              "ist",
+              "hat",
+              "bin"
+            ],
+            "answer": "ist"
+          },
+          {
+            "question": "Wir ___ Fieber. [Level 2]",
+            "translation": "We have a fever.",
+            "options": [
+              "haben",
+              "sind",
+              "habt"
+            ],
+            "answer": "haben"
+          },
+          {
+            "question": "Mir ___ schlecht. [Level 2]",
+            "translation": "I feel sick.",
+            "options": [
+              "ist",
+              "bin",
+              "habe"
+            ],
+            "answer": "ist"
+          },
+          {
+            "question": "Sie ___ einen Termin beim Arzt. [Level 2]",
+            "translation": "She has an appointment at the doctor's.",
+            "options": [
+              "haben",
+              "sind",
+              "hat"
+            ],
+            "answer": "hat"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Guten Tag, was fehlt Ihnen?",
+            "question": "What is the doctor asking?",
+            "options": [
+              "What is your name?",
+              "What is wrong with you?",
+              "Do you have an appointment?"
+            ],
+            "answer": "What is wrong with you?"
+          },
+          {
+            "audioText": "Ich habe seit zwei Tagen Halsschmerzen.",
+            "question": "How long has the patient had a sore throat?",
+            "options": [
+              "Two days",
+              "Two weeks",
+              "Two hours"
+            ],
+            "answer": "Two days"
+          },
+          {
+            "audioText": "Sie müssen im Bett bleiben.",
+            "question": "What must the patient do?",
+            "options": [
+              "Go to work",
+              "Stay in bed",
+              "Drink water"
+            ],
+            "answer": "Stay in bed"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Tell the doctor you have a headache.",
+            "prompt": "Say: I have a headache."
+          },
+          {
+            "task": "Say that you are sick.",
+            "prompt": "Say: I am sick."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are at the doctor's office describing your symptoms.",
+          "userRole": "Patient",
+          "botRole": "Doctor",
+          "startingLine": "Guten Morgen. Ich bin leider krank."
+        },
+        "review": "You completed Level 2 of Doctor!"
+      },
+      {
+        "type": "note",
+        "title": "Cultural Note",
+        "content": "A quick tip to remember when practicing doctor in Germany!"
+      },
+      {
+        "type": "sublesson",
+        "id": "A1.10.3",
+        "difficulty": 3,
+        "title": "Level 3: Doctor (Advanced)",
+        "vocabulary": [
+          {
+            "word": "der Arzt",
+            "translation": "doctor"
+          },
+          {
+            "word": "die Kopfschmerzen",
+            "translation": "headache"
+          },
+          {
+            "word": "krank",
+            "translation": "sick"
+          },
+          {
+            "word": "helfen",
+            "translation": "to help"
+          }
+        ],
+        "grammar": {
+          "title": "haben vs. sein",
+          "explanation": "Use 'sein' (to be) for states like 'Ich bin krank' (I am sick). Use 'haben' (to have) for symptoms like 'Ich habe Kopfschmerzen' (I have a headache)."
+        },
+        "practice": [
+          {
+            "question": "Ich ___ Kopfschmerzen. [Level 3]",
+            "translation": "I have a headache.",
+            "options": [
+              "habe",
+              "bin",
+              "hat"
+            ],
+            "answer": "habe"
+          },
+          {
+            "question": "Er ___ krank. [Level 3]",
+            "translation": "He is sick.",
+            "options": [
+              "ist",
+              "hat",
+              "bin"
+            ],
+            "answer": "ist"
+          },
+          {
+            "question": "Wir ___ Fieber. [Level 3]",
+            "translation": "We have a fever.",
+            "options": [
+              "haben",
+              "sind",
+              "habt"
+            ],
+            "answer": "haben"
+          },
+          {
+            "question": "Mir ___ schlecht. [Level 3]",
+            "translation": "I feel sick.",
+            "options": [
+              "ist",
+              "bin",
+              "habe"
+            ],
+            "answer": "ist"
+          },
+          {
+            "question": "Sie ___ einen Termin beim Arzt. [Level 3]",
+            "translation": "She has an appointment at the doctor's.",
+            "options": [
+              "haben",
+              "sind",
+              "hat"
+            ],
+            "answer": "hat"
+          }
+        ],
+        "listening": [
+          {
+            "audioText": "Guten Tag, was fehlt Ihnen?",
+            "question": "What is the doctor asking?",
+            "options": [
+              "What is your name?",
+              "What is wrong with you?",
+              "Do you have an appointment?"
+            ],
+            "answer": "What is wrong with you?"
+          },
+          {
+            "audioText": "Ich habe seit zwei Tagen Halsschmerzen.",
+            "question": "How long has the patient had a sore throat?",
+            "options": [
+              "Two days",
+              "Two weeks",
+              "Two hours"
+            ],
+            "answer": "Two days"
+          },
+          {
+            "audioText": "Sie müssen im Bett bleiben.",
+            "question": "What must the patient do?",
+            "options": [
+              "Go to work",
+              "Stay in bed",
+              "Drink water"
+            ],
+            "answer": "Stay in bed"
+          }
+        ],
+        "speaking": [
+          {
+            "task": "Tell the doctor you have a headache.",
+            "prompt": "Say: I have a headache."
+          },
+          {
+            "task": "Say that you are sick.",
+            "prompt": "Say: I am sick."
+          }
+        ],
+        "roleplay": {
+          "scenario": "You are at the doctor's office describing your symptoms.",
+          "userRole": "Patient",
+          "botRole": "Doctor",
+          "startingLine": "Guten Morgen. Ich bin leider krank."
+        },
+        "review": "You completed Level 3 of Doctor!"
+      },
+      {
+        "type": "revision",
+        "id": "A1.10.rev",
+        "title": "Topic Revision: Doctor",
+        "vocabulary": [
+          {
+            "word": "der Arzt",
+            "translation": "doctor"
+          },
+          {
+            "word": "die Kopfschmerzen",
+            "translation": "headache"
+          },
+          {
+            "word": "krank",
+            "translation": "sick"
+          },
+          {
+            "word": "helfen",
+            "translation": "to help"
+          }
+        ],
+        "practice": [
+          {
+            "question": "Ich ___ Kopfschmerzen.",
+            "translation": "I have a headache.",
+            "options": [
+              "habe",
+              "bin",
+              "hat"
+            ],
+            "answer": "habe"
+          },
+          {
+            "question": "Er ___ krank.",
+            "translation": "He is sick.",
+            "options": [
+              "ist",
+              "hat",
+              "bin"
+            ],
+            "answer": "ist"
+          },
+          {
+            "question": "Wir ___ Fieber.",
+            "translation": "We have a fever.",
+            "options": [
+              "haben",
+              "sind",
+              "habt"
+            ],
+            "answer": "haben"
+          },
+          {
+            "question": "Mir ___ schlecht.",
+            "translation": "I feel sick.",
+            "options": [
+              "ist",
+              "bin",
+              "habe"
+            ],
+            "answer": "ist"
+          },
+          {
+            "question": "Sie ___ einen Termin beim Arzt.",
+            "translation": "She has an appointment at the doctor's.",
+            "options": [
+              "haben",
+              "sind",
+              "hat"
+            ],
+            "answer": "hat"
+          }
+        ],
+        "review": "You have successfully revised Doctor!"
+      }
+    ]
+  }
+]

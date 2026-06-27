@@ -1,4 +1,88 @@
+import React, { useState, useRef, useEffect } from 'react';
 import { Icon } from './Icon.jsx';
+
+export function CustomSelect({ value, onChange, options, style }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (containerRef.current && !containerRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+    if (isOpen) document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isOpen]);
+
+  const selectedOption = options.find(opt => opt.value === value) || options[0];
+
+  return (
+    <div ref={containerRef} style={{ position: 'relative', display: 'inline-block', ...style }}>
+      <div 
+        className="neu-inset" 
+        onClick={() => setIsOpen(!isOpen)}
+        style={{ 
+          padding: '8px 12px', 
+          display: 'flex', 
+          alignItems: 'center', 
+          gap: 8, 
+          cursor: 'pointer',
+          color: 'var(--ink)',
+          fontSize: 13,
+          fontWeight: 600,
+          ...style 
+        }}
+      >
+        <span style={{ flex: 1 }}>{selectedOption?.label}</span>
+        <Icon name={isOpen ? "ChevronUp" : "ChevronDown"} size={14} color="var(--ink-soft)" />
+      </div>
+
+      {isOpen && (
+        <div 
+          className="neu-raised"
+          style={{
+            position: 'absolute',
+            top: '100%',
+            right: 0,
+            marginTop: 8,
+            minWidth: '100%',
+            zIndex: 1000,
+            padding: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 4
+          }}
+        >
+          {options.map((opt) => (
+            <div 
+              key={opt.value}
+              onClick={() => {
+                onChange(opt.value);
+                setIsOpen(false);
+              }}
+              style={{
+                padding: '8px 12px',
+                borderRadius: 8,
+                cursor: 'pointer',
+                fontSize: 13,
+                fontWeight: opt.value === value ? 700 : 500,
+                color: opt.value === value ? 'var(--color-teal)' : 'var(--ink)',
+                background: opt.value === value ? 'var(--app-bg)' : 'transparent',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between'
+              }}
+            >
+              {opt.label}
+              {opt.value === value && <Icon name="Check" size={14} color="var(--color-teal)" />}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function Loading({ label }) {
   return (
@@ -26,6 +110,36 @@ export function EmptyState({ title, body }) {
         {title}
       </div>
       <div style={{ color: 'var(--ink-soft)', fontSize: 14, lineHeight: 1.5 }}>{body}</div>
+    </div>
+  );
+}
+
+export function ToggleSwitch({ checked, onChange }) {
+  return (
+    <div 
+      onClick={onChange}
+      style={{ 
+        width: 38, 
+        height: 22, 
+        borderRadius: 999, 
+        background: checked ? 'var(--grad-teal)' : '#D3D1C7',
+        boxShadow: 'inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light)',
+        position: 'relative',
+        cursor: 'pointer',
+        transition: 'background 0.2s'
+      }}
+    >
+      <div style={{
+        width: 16,
+        height: 16,
+        borderRadius: '50%',
+        background: '#fff',
+        boxShadow: '1px 1px 3px var(--shadow-dark)',
+        position: 'absolute',
+        top: 3,
+        left: checked ? 19 : 3,
+        transition: 'left 0.2s ease-in-out'
+      }} />
     </div>
   );
 }

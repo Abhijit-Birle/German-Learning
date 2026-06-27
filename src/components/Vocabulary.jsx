@@ -12,7 +12,7 @@ function leitnerInterval(box) {
   return [0, 1, 2, 4, 9, 18][box] || 1;
 }
 
-export function Vocabulary({ level, appLang }) {
+export function Vocabulary({ level, appLang, isTaskActive, onTaskStart, onTaskEnd }) {
   const { call } = useGemini();
   const [vocab, setVocab] = useState(loadVocab());
   const [topic, setTopic] = useState('');
@@ -92,6 +92,66 @@ export function Vocabulary({ level, appLang }) {
 
   const topics = ['Alle', ...new Set(vocab.map(v => v.topic).filter(Boolean))];
 
+  if (isTaskActive && current && mode !== 'add') {
+    return (
+      <div style={{ flex: 1, padding: '16px', display: 'flex', flexDirection: 'column' }}>
+        <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 24 }}>
+          <button className="neu-small" onClick={() => onTaskEnd && onTaskEnd()} style={{ padding: 6, color: 'var(--ink)' }}>
+            <Icon name="ChevronLeft" size={20} />
+          </button>
+          <div style={{ fontSize: 15, fontWeight: 800, color: 'var(--ink)' }}>
+            {dueCards.length} {t('voc_review', appLang)}
+          </div>
+          <div style={{ width: 32 }} />
+        </header>
+
+        <div className="neu-raised fadein" onClick={() => setFlipped(!flipped)} style={{ padding: '24px 20px', textAlign: 'center', position: 'relative', cursor: 'pointer', minHeight: 200, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div className="neu-small" style={{ position: 'absolute', top: 16, right: 16, color: 'var(--color-teal)', fontSize: 10, fontWeight: 700, padding: '4px 8px' }}>
+            {current.word.match(/^(der|die|das)\s/i) ? t('voc_noun', appLang) : t('voc_word', appLang)}
+          </div>
+          
+          <div style={{ color: 'var(--color-teal)', fontSize: 14, marginBottom: 8, fontWeight: 600 }}>{current.word}</div>
+          
+          {flipped ? (
+            <>
+              <div 
+                onDoubleClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(current.translation); showToast(t('copy', appLang) + '!'); }} 
+                style={{ color: 'var(--ink)', fontSize: 26, fontWeight: 700, marginBottom: 16, cursor: 'pointer', textAlign: 'center' }}
+                title={t('copy', appLang)}
+              >
+                {current.translation}
+              </div>
+              <div 
+                onDoubleClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(current.example); showToast(t('copy', appLang) + '!'); }} 
+                style={{ color: 'var(--color-teal)', fontSize: 14, fontStyle: 'italic', marginBottom: 16, cursor: 'pointer', textAlign: 'center' }}
+                title={t('copy', appLang)}
+              >
+                "{current.example}"
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: 16 }}>
+                <button onClick={(e) => { e.stopPropagation(); speak(current.word); }} disabled={speakBusy} className="neu-small" style={{ color: 'var(--color-teal)', fontSize: 13, fontWeight: 600, padding: '6px 12px', display: 'flex', alignItems: 'center', gap: 4 }}><Icon name="Volume2" size={14} /> {t('voc_word', appLang)}</button>
+                <button onClick={(e) => { e.stopPropagation(); speak(current.example); }} disabled={speakBusy} className="neu-small" style={{ color: 'var(--color-teal)', fontSize: 13, fontWeight: 600, padding: '6px 12px', display: 'flex', alignItems: 'center', gap: 4 }}><Icon name="Volume2" size={14} /> {t('voc_sentence', appLang)}</button>
+              </div>
+            </>
+          ) : (
+            <div style={{ color: 'var(--ink)', fontSize: 26, fontWeight: 700, marginBottom: 16, opacity: 0.1 }}>...</div>
+          )}
+        </div>
+        
+        {flipped && (
+          <div style={{ display: 'flex', gap: 12, marginTop: 20 }} className="fadein">
+            <button onClick={() => grade(current.id, 'again')} className="neu-btn-copper" style={{ flex: 1, padding: '12px', fontSize: 14, fontWeight: 600 }}>
+              {t('voc_again', appLang)}
+            </button>
+            <button onClick={() => { grade(current.id, 'good'); if (dueCards.length <= 1) { onTaskEnd && onTaskEnd(); } }} className="neu-btn" style={{ flex: 1, padding: '12px', fontSize: 14, fontWeight: 600 }}>
+              {t('voc_mastered_btn', appLang)}
+            </button>
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div style={{ padding: '0 16px 24px 16px', display: 'flex', flexDirection: 'column', gap: 16 }}>
       
@@ -111,14 +171,36 @@ export function Vocabulary({ level, appLang }) {
         </div>
       </div>
 
+      {repeat > 0 && (
+        <button 
+          className="neu-btn" 
+          onClick={() => { setMode('review'); onTaskStart && onTaskStart('vocab'); }}
+          style={{ width: '100%', padding: '14px', fontSize: 15, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8, marginTop: 8 }}
+        >
+          <Icon name="BookOpen" size={18} /> {repeat} {t('voc_review', appLang)}
+        </button>
+      )}
+
+      {/* Industry Packs Filter Row */}
+      <div style={{ marginTop: 16 }}>
+        <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--ink-soft)', marginBottom: 8, padding: '0 4px' }}>Branchenpakete (Industry Packs)</div>
+        <div className="mobile-scroll-x" style={{ gap: 8, paddingBottom: 8 }}>
+          {['Agentic AI', 'Backend', 'System Design', 'Frontend'].map(pack => (
+            <button key={pack} className="neu-small" style={{ flexShrink: 0, padding: '8px 14px', fontSize: 12, fontWeight: 600, color: 'var(--ink)' }}>
+              {pack}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Filters & Add Toggle */}
-      <div style={{ display: 'flex', gap: 8, overflowX: 'auto', paddingBottom: 8, alignItems: 'center' }} className="scrollbar-hidden">
+      <div style={{ display: 'flex', gap: 8, overflowX: 'auto', paddingBottom: 8, alignItems: 'center', marginTop: 12 }} className="mobile-scroll-x">
         <button 
           onClick={() => setMode(mode === 'add' ? 'review' : 'add')} 
           className={mode === 'add' ? 'neu-btn' : 'neu-small'}
           style={{ flexShrink: 0, padding: '8px 14px', fontSize: 13, display: 'flex', alignItems: 'center', gap: 6 }}
         >
-          <Icon name="BookOpen" size={14} /> {t('voc_new', appLang)}
+          <Icon name="Plus" size={14} /> {t('voc_new', appLang)}
         </button>
         {topics.map(tOption => (
           <button 
@@ -139,63 +221,17 @@ export function Vocabulary({ level, appLang }) {
             className="neu-inset"
             value={topic}
             onChange={(e) => setTopic(e.target.value)}
-            placeholder={t('voc_gen_ph', appLang)}
-            style={{ width: '100%', padding: '12px 14px', marginBottom: 16, color: 'var(--ink)' }}
-            onKeyDown={(e) => e.key === 'Enter' && generate()}
+            placeholder={t('voc_gen_placeholder', appLang)}
+            style={{ width: '100%', padding: 12, borderRadius: 8, fontSize: 14, marginBottom: 16, background: 'var(--card-bg)', color: 'var(--ink)' }}
           />
-          <button className="neu-btn" onClick={generate} disabled={loading || !topic.trim()} style={{ width: '100%', padding: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8 }}>
-            {loading ? <span className="spin"><Icon name="Globe" size={16} /></span> : <Icon name="BookOpen" size={16} />}
-            {loading ? t('voc_btn_generating', appLang) : t('voc_btn_gen', appLang)}
+          <button 
+            className="neu-btn" 
+            onClick={generate} 
+            disabled={loading}
+            style={{ width: '100%', padding: 12, borderRadius: 8, fontSize: 14, fontWeight: 700 }}
+          >
+            {loading ? t('voc_gen_loading', appLang) : t('voc_gen_btn', appLang)}
           </button>
-        </div>
-      )}
-
-      {/* Flashcard Area */}
-      {mode !== 'add' && current && (
-        <div>
-          <div className="neu-raised fadein" onClick={() => setFlipped(!flipped)} style={{ padding: '24px 20px', textAlign: 'center', position: 'relative', cursor: 'pointer', minHeight: 200, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-            <div className="neu-small" style={{ position: 'absolute', top: 16, right: 16, color: 'var(--color-teal)', fontSize: 10, fontWeight: 700, padding: '4px 8px' }}>
-              {current.word.match(/^(der|die|das)\s/i) ? t('voc_noun', appLang) : t('voc_word', appLang)}
-            </div>
-            
-            <div style={{ color: 'var(--color-teal)', fontSize: 14, marginBottom: 8, fontWeight: 600 }}>{current.word}</div>
-            
-            {flipped ? (
-              <>
-                <div 
-                  onDoubleClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(current.translation); showToast(t('copy', appLang) + '!'); }} 
-                  style={{ color: 'var(--ink)', fontSize: 26, fontWeight: 700, marginBottom: 16, cursor: 'pointer', textAlign: 'center' }}
-                  title={t('copy', appLang)}
-                >
-                  {current.translation}
-                </div>
-                <div 
-                  onDoubleClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText(current.example); showToast(t('copy', appLang) + '!'); }} 
-                  style={{ color: 'var(--color-teal)', fontSize: 14, fontStyle: 'italic', marginBottom: 16, cursor: 'pointer', textAlign: 'center' }}
-                  title={t('copy', appLang)}
-                >
-                  "{current.example}"
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center', gap: 16 }}>
-                  <button onClick={(e) => { e.stopPropagation(); speak(current.word); }} disabled={speakBusy} className="neu-small" style={{ color: 'var(--color-teal)', fontSize: 13, fontWeight: 600, padding: '6px 12px', display: 'flex', alignItems: 'center', gap: 4 }}><Icon name="Volume2" size={14} /> {t('voc_word', appLang)}</button>
-                  <button onClick={(e) => { e.stopPropagation(); speak(current.example); }} disabled={speakBusy} className="neu-small" style={{ color: 'var(--color-teal)', fontSize: 13, fontWeight: 600, padding: '6px 12px', display: 'flex', alignItems: 'center', gap: 4 }}><Icon name="Volume2" size={14} /> {t('voc_sentence', appLang)}</button>
-                </div>
-              </>
-            ) : (
-              <div style={{ color: 'var(--ink)', fontSize: 26, fontWeight: 700, marginBottom: 16, opacity: 0.1 }}>...</div>
-            )}
-          </div>
-          
-          {flipped && (
-            <div style={{ display: 'flex', gap: 12, marginTop: 20 }} className="fadein">
-              <button onClick={() => grade(current.id, 'again')} className="neu-btn-copper" style={{ flex: 1, padding: '12px', fontSize: 14, fontWeight: 600 }}>
-                {t('voc_again', appLang)}
-              </button>
-              <button onClick={() => grade(current.id, 'good')} className="neu-btn" style={{ flex: 1, padding: '12px', fontSize: 14, fontWeight: 600 }}>
-                {t('voc_mastered_btn', appLang)}
-              </button>
-            </div>
-          )}
         </div>
       )}
 
@@ -208,7 +244,10 @@ export function Vocabulary({ level, appLang }) {
             return (
               <div key={c.id} className="neu-inset" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '16px' }}>
                 <div>
-                  <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--ink)', marginBottom: 2 }}>{c.word}</div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 2 }}>
+                    <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--ink)' }}>{c.word}</div>
+                    {c.topic && <div className="neu-small" style={{ fontSize: 9, color: 'var(--color-copper)', padding: '2px 6px', borderRadius: 4 }}>{c.topic}</div>}
+                  </div>
                   <div style={{ fontSize: 13, color: 'var(--ink-soft)' }}>{c.translation}</div>
                 </div>
                 <div className="neu-small" style={{ color: isMastered ? 'var(--color-teal)' : 'var(--color-copper)', fontSize: 11, fontWeight: 700, padding: '4px 8px' }}>

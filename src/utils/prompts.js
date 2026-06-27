@@ -43,3 +43,51 @@ Create 5 short targeted exercises (fill-in-the-blank or correct-the-sentence) th
 export function getVocabularyPrompt(level) {
   return `You are a German vocabulary generator for a CEFR ${level} learner. Given a topic, produce 8 useful German words/phrases appropriate to that level. Return ONLY raw JSON: {"words":[{"word":"<German word with article if noun, e.g. 'die Wohnung'>","translation":"<English>","example":"<natural German example sentence using the word>","exampleTranslation":"<English translation of example>"}]}`;
 }
+
+export function getDictionaryPrompt(word) {
+  return `You are a bilingual German-English dictionary assistant.
+Return a JSON object for the German word "${word}" with:
+{
+  "word": "<the word in German>",
+  "language": "de",
+  "article": "<der, die, or das if it's a noun; else empty string>",
+  "part_of_speech": "<noun, verb, adjective, etc.>",
+  "ipa": "<IPA pronunciation>",
+  "english_pronunciation": "<phonetic spelling readable by an English speaker, e.g. frow-ghen>",
+  "cefr_level": "<A1/A2/B1/B2/C1/C2>",
+  "register": "<formal, informal, or colloquial>",
+  "definitions": ["<english definition 1>"],
+  "examples": [
+    { "german": "<german sentence 1>", "english": "<english translation 1>" }
+  ],
+  "synonyms": ["<german synonym 1>", "<german synonym 2>"],
+  "antonyms": ["<german antonym 1>"],
+  "word_family": ["<related german word 1>", "<related german word 2>"],
+  "gender": "<m, f, n or empty string if not a noun>",
+  "noun_details": {
+    "plural": "<plural form, e.g. die Häuser>",
+    "declension": {
+      "singular": { "nom": "", "akk": "", "dat": "", "gen": "" },
+      "plural": { "nom": "", "akk": "", "dat": "", "gen": "" }
+    }
+  },
+  "verb_details": {
+    "conjugation": {
+      "praesens": { "ich": "", "du": "", "er_sie_es": "", "wir": "", "ihr": "", "sie_Sie": "" },
+      "praeteritum": { "ich": "", "du": "", "er_sie_es": "", "wir": "", "ihr": "", "sie_Sie": "" },
+      "perfekt": "<e.g. hat gemacht>",
+      "imperativ": { "du": "", "ihr": "", "Sie": "" }
+    }
+  },
+  "adjective_details": {
+    "comparison": {
+      "positiv": "",
+      "komparativ": "",
+      "superlativ": ""
+    }
+  }
+}
+Important Rules:
+- Only populate 'noun_details', 'verb_details', or 'adjective_details' if the word is of that respective part of speech. Otherwise leave those fields as null or omit them.
+- Return ONLY valid JSON. No markdown fences. No explanation.`;
+}

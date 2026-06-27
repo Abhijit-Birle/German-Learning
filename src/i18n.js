@@ -4,7 +4,7 @@ export const DICT = {
     tab_path: 'Pfad',
     tab_vocab: 'Vokabeln',
     tab_mistakes: 'Fehler',
-    tab_writing: 'Schreiben',
+    tab_dictionary: 'Wörterbuch',
     tab_lesson: 'Lektion',
     header_mistakes: 'Fehlergedächtnis',
     header_app: 'Deutsch Werkstatt',
@@ -125,20 +125,13 @@ export const DICT = {
     mis_btn_generating: 'Generiere...',
     mis_targeted: 'Gezielte Übungen',
 
-    // Writing Coach
-    wr_task: 'Heutige Aufgabe',
-    wr_task_desc: 'Beschreibe in 5-6 Sätzen, warum du nach Deutschland ziehen möchtest.',
-    wr_placeholder: 'Schreib hier...',
-    wr_words: 'Wörter',
-    wr_level: 'Niveau',
-    wr_btn_start: 'Starten',
-    wr_btn_get: 'Korrektur erhalten',
-    wr_btn_loading: 'Lade...',
-    wr_corrected: 'Korrigierter Text',
-    wr_mistakes: 'Fehler',
-    wr_estimated: 'geschätzt',
-    wr_history: 'Verlauf',
-    wr_history_empty: 'Noch keine Einträge.',
+    // Dictionary
+    dict_search: 'Suchen',
+    dict_placeholder: 'Deutsches Wort suchen...',
+    dict_not_found: 'Wort nicht gefunden oder Fehler bei der API.',
+    dict_history: 'Verlauf',
+    dict_history_empty: 'Noch keine Wörter gesucht.',
+    dict_read_aloud: 'Vorlesen',
 
     // Daily Lesson
     dl_ihave: 'Ich habe',
@@ -159,7 +152,7 @@ export const DICT = {
     tab_path: 'Path',
     tab_vocab: 'Vocabulary',
     tab_mistakes: 'Mistakes',
-    tab_writing: 'Writing',
+    tab_dictionary: 'Dictionary',
     tab_lesson: 'Lesson',
     header_mistakes: 'Mistake Memory',
     header_app: 'German Workshop',
@@ -280,20 +273,13 @@ export const DICT = {
     mis_btn_generating: 'Generating...',
     mis_targeted: 'Targeted exercises',
 
-    // Writing Coach
-    wr_task: 'Today\'s Task',
-    wr_task_desc: 'Describe in 5-6 sentences why you want to move to Germany.',
-    wr_placeholder: 'Write here...',
-    wr_words: 'Words',
-    wr_level: 'Level',
-    wr_btn_start: 'Start Writing',
-    wr_btn_get: 'Get correction',
-    wr_btn_loading: 'Loading...',
-    wr_corrected: 'Corrected text',
-    wr_mistakes: 'Mistakes',
-    wr_estimated: 'estimated',
-    wr_history: 'History',
-    wr_history_empty: 'No entries yet.',
+    // Dictionary
+    dict_search: 'Search',
+    dict_placeholder: 'Search for a German word...',
+    dict_not_found: 'Word not found or API error.',
+    dict_history: 'History',
+    dict_history_empty: 'No words searched yet.',
+    dict_read_aloud: 'Read Aloud',
 
     // Daily Lesson
     dl_ihave: 'I have',

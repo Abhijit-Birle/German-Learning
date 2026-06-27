@@ -64,3 +64,72 @@ export function addWriting(writing) {
   };
   LS.set('gt_writings', [entry, ...cur].slice(0, 100)); // Keep last 100 submissions
 }
+
+// ---- Dictionary -----------------------------------------------------
+export function loadDictHistory() {
+  return LS.get('gt_dict_history', []);
+}
+
+export function addDictHistory(wordData) {
+  if (!wordData || !wordData.word) return;
+  const cur = loadDictHistory();
+  // Remove if exists to move to top
+  const filtered = cur.filter(w => w.word.toLowerCase() !== wordData.word.toLowerCase());
+  const entry = {
+    ...wordData,
+    date: new Date().toISOString(),
+  };
+  LS.set('gt_dict_history', [entry, ...filtered].slice(0, 200)); // Keep last 200 words
+}
+
+// ---- IndexedDB for Audio Caching ------------------------------------
+const DB_NAME = 'DeutschWerkstattDB';
+const DB_VERSION = 1;
+const STORE_NAME = 'audioCache';
+
+function getDB() {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open(DB_NAME, DB_VERSION);
+    request.onerror = () => reject(request.error);
+    request.onsuccess = () => resolve(request.result);
+    request.onupgradeneeded = (e) => {
+      const db = e.target.result;
+      if (!db.objectStoreNames.contains(STORE_NAME)) {
+        db.createObjectStore(STORE_NAME);
+      }
+    };
+  });
+}
+
+export const AudioCache = {
+  async get(key) {
+    try {
+      const db = await getDB();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readonly');
+        const store = tx.objectStore(STORE_NAME);
+        const req = store.get(key);
+        req.onsuccess = () => resolve(req.result);
+        req.onerror = () => reject(req.error);
+      });
+    } catch (e) {
+      console.warn('IDB get error', e);
+      return null;
+    }
+  },
+  async set(key, value) {
+    try {
+      const db = await getDB();
+      return new Promise((resolve, reject) => {
+        const tx = db.transaction(STORE_NAME, 'readwrite');
+        const store = tx.objectStore(STORE_NAME);
+        const req = store.put(value, key);
+        req.onsuccess = () => resolve();
+        req.onerror = () => reject(req.error);
+      });
+    } catch (e) {
+      console.warn('IDB set error', e);
+    }
+  }
+};
+

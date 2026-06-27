@@ -1,33 +1,31 @@
 # Graph Report - .  (2026-06-21)
 
 ## Corpus Check
-- Corpus is ~32,025 words - fits in a single context window. You may not need a graph.
+- Corpus is ~36,627 words - fits in a single context window. You may not need a graph.
 
 ## Summary
-- 488 nodes · 1709 edges · 32 communities (29 shown, 3 thin omitted)
+- 506 nodes · 1762 edges · 30 communities (27 shown, 3 thin omitted)
 - Extraction: 76% EXTRACTED · 24% INFERRED · 0% AMBIGUOUS · INFERRED: 416 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Community Hubs (Navigation)
-- [[_COMMUNITY_Minified Assets Bundle|Minified Assets Bundle]]
-- [[_COMMUNITY_Minified JS Chunk 1|Minified JS Chunk 1]]
-- [[_COMMUNITY_React App & Components|React App & Components]]
-- [[_COMMUNITY_Minified JS Chunk 2|Minified JS Chunk 2]]
-- [[_COMMUNITY_Minified JS Chunk 3|Minified JS Chunk 3]]
-- [[_COMMUNITY_Minified JS Chunk 4|Minified JS Chunk 4]]
-- [[_COMMUNITY_Vite Asset Core|Vite Asset Core]]
-- [[_COMMUNITY_NPM Package Config|NPM Package Config]]
-- [[_COMMUNITY_Minified JS Chunk 5|Minified JS Chunk 5]]
-- [[_COMMUNITY_Minified JS Chunk 6|Minified JS Chunk 6]]
-- [[_COMMUNITY_Minified JS Chunk 7|Minified JS Chunk 7]]
-- [[_COMMUNITY_Minified JS Chunk 8|Minified JS Chunk 8]]
-- [[_COMMUNITY_Minified JS Chunk 9|Minified JS Chunk 9]]
-- [[_COMMUNITY_Minified JS Chunk 10|Minified JS Chunk 10]]
-- [[_COMMUNITY_Minified JS Chunk 11|Minified JS Chunk 11]]
-- [[_COMMUNITY_Android Instrumented Test|Android Instrumented Test]]
-- [[_COMMUNITY_Android Unit Test|Android Unit Test]]
-- [[_COMMUNITY_Minified JS Chunk 12|Minified JS Chunk 12]]
-- [[_COMMUNITY_Android App Activity|Android App Activity]]
+- [[_COMMUNITY_Vite JS Assets Block 1|Vite JS Assets Block 1]]
+- [[_COMMUNITY_React App & Utilities|React App & Utilities]]
+- [[_COMMUNITY_Vite JS Assets Block 2|Vite JS Assets Block 2]]
+- [[_COMMUNITY_Vite JS Assets Block 3|Vite JS Assets Block 3]]
+- [[_COMMUNITY_Vite JS Assets Block 4|Vite JS Assets Block 4]]
+- [[_COMMUNITY_Vite JS Assets Block 5|Vite JS Assets Block 5]]
+- [[_COMMUNITY_Vite JS Assets Block 6|Vite JS Assets Block 6]]
+- [[_COMMUNITY_NPM Dependencies|NPM Dependencies]]
+- [[_COMMUNITY_Vite JS Assets Block 8|Vite JS Assets Block 8]]
+- [[_COMMUNITY_Vite JS Assets Block 9|Vite JS Assets Block 9]]
+- [[_COMMUNITY_Vite JS Assets Block 10|Vite JS Assets Block 10]]
+- [[_COMMUNITY_Vite JS Assets Block 11|Vite JS Assets Block 11]]
+- [[_COMMUNITY_Vite JS Assets Block 13|Vite JS Assets Block 13]]
+- [[_COMMUNITY_Vite JS Assets Block 14|Vite JS Assets Block 14]]
+- [[_COMMUNITY_Android UI Tests|Android UI Tests]]
+- [[_COMMUNITY_Android Unit Tests|Android Unit Tests]]
+- [[_COMMUNITY_Android Main Activity|Android Main Activity]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `$()` - 370 edges
@@ -48,93 +46,85 @@
   src/components/DailyLesson.jsx → src/hooks/useGemini.js
 - `DailyLesson()` --calls--> `t()`  [EXTRACTED]
   src/components/DailyLesson.jsx → src/i18n.js
-- `MistakeMemory()` --calls--> `useGemini()`  [EXTRACTED]
-  src/components/MistakeMemory.jsx → src/hooks/useGemini.js
-- `MistakeMemory()` --calls--> `t()`  [EXTRACTED]
-  src/components/MistakeMemory.jsx → src/i18n.js
+- `ExerciseResults()` --calls--> `useExerciseStore`  [EXTRACTED]
+  src/components/ExerciseResults.jsx → src/store/useExerciseStore.js
+- `ExerciseSession()` --calls--> `useExerciseStore`  [EXTRACTED]
+  src/components/ExerciseSession.jsx → src/store/useExerciseStore.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (32 total, 3 thin omitted)
+## Communities (30 total, 3 thin omitted)
 
-### Community 0 - "Minified Assets Bundle"
-Cohesion: 0.06
-Nodes (70): ap(), Au(), bd(), bu(), cd(), ci(), cp(), ct() (+62 more)
-
-### Community 1 - "Minified JS Chunk 1"
-Cohesion: 0.09
-Nodes (60): $a(), aa(), Ac(), ao(), as(), bc(), be(), c() (+52 more)
-
-### Community 2 - "React App & Components"
-Cohesion: 0.11
-Nodes (38): ApiKeyBar(), DailyLesson(), ExerciseRow(), MistakeMemory(), Onboarding(), QuickTranslator(), Tutor(), Vocabulary() (+30 more)
-
-### Community 3 - "Minified JS Chunk 2"
-Cohesion: 0.12
-Nodes (44): bl(), Bo(), cl(), dl(), el(), f(), fl(), gc() (+36 more)
-
-### Community 4 - "Minified JS Chunk 3"
-Cohesion: 0.14
-Nodes (41): af(), Bt(), cf(), df(), ef(), en(), et(), ff() (+33 more)
-
-### Community 5 - "Minified JS Chunk 4"
-Cohesion: 0.09
-Nodes (40): b(), bs(), cs(), dd(), ds(), es(), fs(), Fu() (+32 more)
-
-### Community 6 - "Vite Asset Core"
+### Community 0 - "Vite JS Assets Block 1"
 Cohesion: 0.08
-Nodes (19): $(), addListener(), addWindowListener(), clearAllCookies(), clearCookies(), hide(), hl(), jl() (+11 more)
+Nodes (74): $a(), aa(), Ac(), ao(), as(), bc(), be(), bi() (+66 more)
 
-### Community 7 - "NPM Package Config"
+### Community 1 - "React App & Utilities"
+Cohesion: 0.09
+Nodes (48): ApiKeyBar(), DailyLesson(), ExerciseList(), ExerciseResults(), ExerciseRow(), ExerciseSession(), MistakeMemory(), Onboarding() (+40 more)
+
+### Community 2 - "Vite JS Assets Block 2"
 Cohesion: 0.07
-Nodes (28): dependencies, @capacitor/android, @capacitor/app, @capacitor/cli, @capacitor/core, lucide-react, react, react-dom (+20 more)
+Nodes (58): ap(), at(), Au(), bd(), bu(), cd(), cp(), ct() (+50 more)
 
-### Community 8 - "Minified JS Chunk 5"
+### Community 3 - "Vite JS Assets Block 3"
+Cohesion: 0.11
+Nodes (47): bl(), cl(), dc(), dl(), ec(), el(), fl(), gc() (+39 more)
+
+### Community 4 - "Vite JS Assets Block 4"
+Cohesion: 0.09
+Nodes (44): b(), Bo(), bs(), cs(), dd(), ds(), es(), fs() (+36 more)
+
+### Community 5 - "Vite JS Assets Block 5"
+Cohesion: 0.15
+Nodes (38): af(), cf(), df(), ef(), en(), et(), fd(), ff() (+30 more)
+
+### Community 6 - "Vite JS Assets Block 6"
+Cohesion: 0.08
+Nodes (22): $(), addListener(), addWindowListener(), clearAllCookies(), clearCookies(), hide(), jr(), Mr() (+14 more)
+
+### Community 7 - "NPM Dependencies"
+Cohesion: 0.06
+Nodes (30): dependencies, @capacitor/android, @capacitor/app, @capacitor/cli, @capacitor/core, caveman, lucide-react, react (+22 more)
+
+### Community 8 - "Vite JS Assets Block 8"
 Cohesion: 0.19
 Nodes (19): ad(), ar(), Cn(), cr(), Ed(), fr(), Gd(), hn() (+11 more)
 
-### Community 9 - "Minified JS Chunk 6"
-Cohesion: 0.16
-Nodes (15): ae(), ce(), ie(), le(), ne(), patch(), post(), put() (+7 more)
+### Community 9 - "Vite JS Assets Block 9"
+Cohesion: 0.17
+Nodes (15): ae(), ce(), De(), Ee(), ie(), le(), ne(), Oe() (+7 more)
 
-### Community 10 - "Minified JS Chunk 7"
-Cohesion: 0.21
-Nodes (14): bi(), dc(), ec(), Ha(), hi(), i(), ic(), rc() (+6 more)
+### Community 10 - "Vite JS Assets Block 10"
+Cohesion: 0.17
+Nodes (13): f(), fe(), hl(), jl(), l(), m(), ml(), mp() (+5 more)
 
-### Community 11 - "Minified JS Chunk 8"
+### Community 11 - "Vite JS Assets Block 11"
 Cohesion: 0.20
-Nodes (10): at(), fd(), it(), jd(), Jt(), kt(), md(), ni() (+2 more)
+Nodes (10): Bt(), dr(), Er(), gr(), Ht(), Tr(), ue(), Vt() (+2 more)
 
-### Community 13 - "Minified JS Chunk 9"
-Cohesion: 0.33
-Nodes (6): dr(), Er(), gr(), Ht(), Tr(), wt()
+### Community 13 - "Vite JS Assets Block 13"
+Cohesion: 0.29
+Nodes (7): dt(), i(), rc(), Ro(), sf(), t(), vs()
 
-### Community 14 - "Minified JS Chunk 10"
+### Community 14 - "Vite JS Assets Block 14"
 Cohesion: 0.33
 Nodes (6): hr(), Ki(), qi(), ud(), uf(), yd()
 
-### Community 15 - "Minified JS Chunk 11"
-Cohesion: 0.40
-Nodes (5): jr(), Mr(), Nr(), Pr(), Ru()
-
-### Community 18 - "Minified JS Chunk 12"
-Cohesion: 0.67
-Nodes (4): De(), Ee(), Oe(), we()
-
 ## Knowledge Gaps
-- **28 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+23 more)
+- **30 isolated node(s):** `name`, `private`, `version`, `type`, `dev` (+25 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `$()` connect `Vite Asset Core` to `Minified Assets Bundle`, `Minified JS Chunk 1`, `Minified JS Chunk 2`, `Minified JS Chunk 3`, `Minified JS Chunk 4`, `Minified JS Chunk 5`, `Minified JS Chunk 6`, `Minified JS Chunk 7`, `Minified JS Chunk 8`, `Capacitor App Core`, `Minified JS Chunk 9`, `Minified JS Chunk 10`, `Minified JS Chunk 11`, `Minified JS Chunk 12`?**
-  _High betweenness centrality (0.549) - this node is a cross-community bridge._
-- **Why does `S()` connect `Minified JS Chunk 2` to `Minified Assets Bundle`, `Minified JS Chunk 1`, `Minified JS Chunk 3`, `Minified JS Chunk 4`, `Vite Asset Core`, `Minified JS Chunk 5`, `Minified JS Chunk 6`, `Minified JS Chunk 7`, `Minified JS Chunk 8`, `Minified JS Chunk 9`, `Minified JS Chunk 10`?**
+- **Why does `$()` connect `Vite JS Assets Block 6` to `Vite JS Assets Block 1`, `Vite JS Assets Block 2`, `Vite JS Assets Block 3`, `Vite JS Assets Block 4`, `Vite JS Assets Block 5`, `Vite JS Assets Block 8`, `Vite JS Assets Block 9`, `Vite JS Assets Block 10`, `Vite JS Assets Block 11`, `Capacitor Web JS`, `Vite JS Assets Block 13`, `Vite JS Assets Block 14`?**
+  _High betweenness centrality (0.510) - this node is a cross-community bridge._
+- **Why does `S()` connect `Vite JS Assets Block 1` to `Vite JS Assets Block 2`, `Vite JS Assets Block 3`, `Vite JS Assets Block 4`, `Vite JS Assets Block 5`, `Vite JS Assets Block 6`, `Vite JS Assets Block 8`, `Vite JS Assets Block 10`, `Vite JS Assets Block 11`, `Vite JS Assets Block 14`?**
   _High betweenness centrality (0.006) - this node is a cross-community bridge._
-- **Why does `pc()` connect `Minified JS Chunk 1` to `Minified Assets Bundle`, `Minified JS Chunk 2`, `Minified JS Chunk 3`, `Minified JS Chunk 4`, `Vite Asset Core`, `Minified JS Chunk 6`, `Minified JS Chunk 7`, `Minified JS Chunk 10`?**
+- **Why does `pc()` connect `Vite JS Assets Block 1` to `Vite JS Assets Block 2`, `Vite JS Assets Block 3`, `Vite JS Assets Block 4`, `Vite JS Assets Block 5`, `Vite JS Assets Block 6`, `Vite JS Assets Block 9`, `Vite JS Assets Block 14`?**
   _High betweenness centrality (0.004) - this node is a cross-community bridge._
 - **Are the 55 inferred relationships involving `S()` (e.g. with `Au()` and `b()`) actually correct?**
   _`S()` has 55 INFERRED edges - model-reasoned connections that need verification._

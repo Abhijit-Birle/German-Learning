@@ -100,9 +100,9 @@
     "semantic_hash": "3aa4b57d7f08181d86bde52a4dcb7f22"
   },
   "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/package.json": {
-    "mtime": 1781980492.9989843,
-    "ast_hash": "9327d8304fdc2425cb13dd0e215f5d55",
-    "semantic_hash": "9327d8304fdc2425cb13dd0e215f5d55"
+    "mtime": 1781987115.765366,
+    "ast_hash": "5308e48e9fb6ca1bbd41bccd38dfdbd4",
+    "semantic_hash": "5308e48e9fb6ca1bbd41bccd38dfdbd4"
   },
   "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/App.jsx": {
     "mtime": 1781981731.5633512,
@@ -115,9 +115,9 @@
     "semantic_hash": "86561667a1aedee303db62754eb6fc65"
   },
   "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/DailyLesson.jsx": {
-    "mtime": 1781978499.9139678,
-    "ast_hash": "c5b1d72f407c156df67e2f7f4f56ce6d",
-    "semantic_hash": "c5b1d72f407c156df67e2f7f4f56ce6d"
+    "mtime": 1781984327.1078334,
+    "ast_hash": "6ea2b09fbd8316296524316cf3e3f5b5",
+    "semantic_hash": "6ea2b09fbd8316296524316cf3e3f5b5"
   },
   "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/ExerciseRow.jsx": {
     "mtime": 1781964728.542591,
@@ -125,9 +125,9 @@
     "semantic_hash": "dcf6961f815804696ce101344263a266"
   },
   "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/MistakeMemory.jsx": {
-    "mtime": 1781978262.5367346,
-    "ast_hash": "090953276c23c251267c438c8e171ea8",
-    "semantic_hash": "090953276c23c251267c438c8e171ea8"
+    "mtime": 1781984345.5653124,
+    "ast_hash": "032c273590f5c897c33c7c5594b79e65",
+    "semantic_hash": "032c273590f5c897c33c7c5594b79e65"
   },
   "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/Onboarding.jsx": {
     "mtime": 1781977801.94185,
@@ -140,19 +140,19 @@
     "semantic_hash": "a73b6b7f6c96afd9c919b34895541e9c"
   },
   "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/Tutor.jsx": {
-    "mtime": 1781983794.2894127,
-    "ast_hash": "b552f4ce78970e20d582812c559cbc9f",
-    "semantic_hash": "b552f4ce78970e20d582812c559cbc9f"
+    "mtime": 1781987524.991138,
+    "ast_hash": "da94b57681b437a845750e710020f02d",
+    "semantic_hash": "da94b57681b437a845750e710020f02d"
   },
   "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/Vocabulary.jsx": {
-    "mtime": 1781982199.2312565,
-    "ast_hash": "0ddbe5ccb864bfde2ad6c933642134a6",
-    "semantic_hash": "0ddbe5ccb864bfde2ad6c933642134a6"
+    "mtime": 1781984352.1383872,
+    "ast_hash": "fc4b590df994db2f69a745c213de3c51",
+    "semantic_hash": "fc4b590df994db2f69a745c213de3c51"
   },
   "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/WritingCoach.jsx": {
-    "mtime": 1781983077.6558065,
-    "ast_hash": "47769e9fb93407906f9c579d727ba30a",
-    "semantic_hash": "47769e9fb93407906f9c579d727ba30a"
+    "mtime": 1781984332.9668286,
+    "ast_hash": "c1f84d56a9ab39daaad9ff9bc8cb09b3",
+    "semantic_hash": "c1f84d56a9ab39daaad9ff9bc8cb09b3"
   },
   "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/ui/Atoms.jsx": {
     "mtime": 1781983676.6584423,
@@ -165,9 +165,9 @@
     "semantic_hash": "b5a1b25ae3bd06b981cf69cc352a806e"
   },
   "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/constants.js": {
-    "mtime": 1781977164.6836765,
-    "ast_hash": "4496db2bcab91eedc2307a8b8fcdefdf",
-    "semantic_hash": "4496db2bcab91eedc2307a8b8fcdefdf"
+    "mtime": 1781985784.7678666,
+    "ast_hash": "f20b1a1bf5f3f5c82dc692e3a1a621e8",
+    "semantic_hash": "f20b1a1bf5f3f5c82dc692e3a1a621e8"
   },
   "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/hooks/useGemini.js": {
     "mtime": 1781964667.1389892,
@@ -383,5 +383,35 @@
     "mtime": 1781964571.5301895,
     "ast_hash": "9960a24288958394ac50e57ff638b036",
     "semantic_hash": "9960a24288958394ac50e57ff638b036"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/ExerciseList.jsx": {
+    "mtime": 1781987155.9267867,
+    "ast_hash": "7d31177cec77527c450da02a6f6e8774",
+    "semantic_hash": "7d31177cec77527c450da02a6f6e8774"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/ExerciseResults.jsx": {
+    "mtime": 1781987170.3229356,
+    "ast_hash": "6328fea13d9eac8417a5732360c8613e",
+    "semantic_hash": "6328fea13d9eac8417a5732360c8613e"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/components/ExerciseSession.jsx": {
+    "mtime": 1781987694.2547436,
+    "ast_hash": "6dc8b6f3787b6f1e2873f3140fe8cd6e",
+    "semantic_hash": "6dc8b6f3787b6f1e2873f3140fe8cd6e"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/data/mockExercises.js": {
+    "mtime": 1781987865.8054724,
+    "ast_hash": "6294e94c4a7d2af9f90933c3e52abb20",
+    "semantic_hash": "6294e94c4a7d2af9f90933c3e52abb20"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/store/useExerciseStore.js": {
+    "mtime": 1781987497.2323906,
+    "ast_hash": "c615edaae9d2b8066f46ca1504d38d96",
+    "semantic_hash": "c615edaae9d2b8066f46ca1504d38d96"
+  },
+  "/Users/abhijitbirle/Documents/Learning Library/Agentic AI/Projects/German AI Tutor/deutsch-werkstatt/src/utils/prompts.js": {
+    "mtime": 1781985581.7059226,
+    "ast_hash": "43191bb40e5d4f91a71567d19622e516",
+    "semantic_hash": "43191bb40e5d4f91a71567d19622e516"
   }
 }

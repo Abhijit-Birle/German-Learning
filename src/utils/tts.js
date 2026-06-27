@@ -2,7 +2,7 @@
 // Text-to-Speech utilities (Gemini TTS + browser fallback)
 // ============================================================
 
-import { LS } from './storage.js';
+import { LS, AudioCache } from './storage.js';
 
 // ---- PCM (base64) → playable WAV blob URL -----------------------
 export function pcmBase64ToWavUrl(base64, sampleRate, numChannels, bitsPerSample) {
@@ -77,11 +77,21 @@ const _ttsCache = {};
 export async function speakHumanGerman(text, voiceName, rate) {
   const cacheKey = voiceName + '::' + text;
   let url = _ttsCache[cacheKey];
+  
   if (!url) {
-    const { base64, sampleRate } = await callGeminiTTS(text, voiceName);
-    url = pcmBase64ToWavUrl(base64, sampleRate);
-    _ttsCache[cacheKey] = url;
+    // Try IndexedDB first
+    const idbData = await AudioCache.get(cacheKey);
+    if (idbData) {
+      url = pcmBase64ToWavUrl(idbData.base64, idbData.sampleRate);
+      _ttsCache[cacheKey] = url;
+    } else {
+      const { base64, sampleRate } = await callGeminiTTS(text, voiceName);
+      url = pcmBase64ToWavUrl(base64, sampleRate);
+      _ttsCache[cacheKey] = url;
+      await AudioCache.set(cacheKey, { base64, sampleRate });
+    }
   }
+  
   const audio = new Audio(url);
   audio.playbackRate = rate || 1.0;
   await audio.play();
