@@ -6,11 +6,21 @@ export function getTutorPrompt(level, scenario, sessionTopic) {
   let scTxt;
   if (scenario) {
     let topicClause = '';
+    let difficultyClause = '';
+    let toneClause = '';
     if (sessionTopic) {
       const descClause = sessionTopic.desc ? ` (${sessionTopic.desc})` : '';
       topicClause = ` The scenario is specifically focused on the topic: "${sessionTopic.label}"${descClause}. Keep the conversation relevant to this topic — do not deviate to other domains.`;
+      
+      if (sessionTopic.difficulty) {
+        const diffString = sessionTopic.difficulty === 1 ? 'easy and forgiving' : (sessionTopic.difficulty === 2 ? 'moderately challenging' : 'hard, probing and highly rigorous');
+        difficultyClause = ` The difficulty level of the conversation should be ${diffString}.`;
+      }
+      if (sessionTopic.tone) {
+        toneClause = ` Your demeanor and tone should be strictly ${sessionTopic.tone.toLowerCase()}.`;
+      }
     }
-    scTxt = `The roleplay scenario is: ${scenario.prompt}.${topicClause} Stay in character as the other person in this scenario (e.g. interviewer, waiter, doctor, official) — do not break character.`;
+    scTxt = `The roleplay scenario is: ${scenario.prompt}.${topicClause}${difficultyClause}${toneClause} Stay in character as the other person in this scenario (e.g. interviewer, waiter, doctor, official) — do not break character.`;
   } else {
     scTxt = 'This is an open, free-form conversation practice session about everyday topics.';
   }

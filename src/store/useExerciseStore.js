@@ -47,7 +47,64 @@ export const useExerciseStore = create((set, get) => ({
     });
   },
   
-  // Stubs for New Features
+
+  // Interview Feature State
+  interviewSession: {
+    topic: null,
+    germanLevel: 'B1',
+    difficulty: 'Mid-Level',
+    questionCount: 8,
+    messages: [],
+    sessionComplete: false,
+    startedAt: null
+  },
+
+  setInterviewTopic: (topic) => set((state) => ({ interviewSession: { ...state.interviewSession, topic } })),
+
+    startInterviewSession: (topic, germanLevel, difficulty, questionCount) => {
+    set({
+      interviewSession: {
+        topic,
+        germanLevel,
+        difficulty,
+        questionCount,
+        messages: [],
+        sessionComplete: false,
+        startedAt: Date.now()
+      }
+    });
+  },
+
+  appendInterviewMessage: (role, text) => {
+    set((state) => ({
+      interviewSession: {
+        ...state.interviewSession,
+        messages: [...state.interviewSession.messages, { role, text }]
+      }
+    }));
+  },
+
+  endInterviewSession: () => {
+    set((state) => ({
+      interviewSession: { ...state.interviewSession, sessionComplete: true }
+    }));
+  },
+
+  resetInterviewSession: () => {
+    set({
+      interviewSession: {
+        topic: null,
+        germanLevel: 'B1',
+        difficulty: 'Mid-Level',
+        questionCount: 8,
+        messages: [],
+        sessionComplete: false,
+        startedAt: null
+      }
+    });
+  },
+
+    // Stubs for New Features
   scorePronunciation: async (audioBlob, referenceText) => {
     // Stub: Backend audio analysis
     return {

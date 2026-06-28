@@ -45,7 +45,7 @@ export function Dictionary({ appLang }) {
     try {
       const prompt = getDictionaryPrompt(query);
       const res = await gemini.call(prompt, [{ role: 'user', parts: [{ text: query }] }], true);
-      
+
       if (!res || !res.word) {
         throw new Error('Invalid response format');
       }
@@ -64,7 +64,7 @@ export function Dictionary({ appLang }) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', position: 'relative' }}>
-      
+
       {/* Loading / Error States - Show globally if applicable */}
       {isLoading && (
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', background: 'var(--app-bg)', zIndex: 10 }}>
@@ -77,7 +77,7 @@ export function Dictionary({ appLang }) {
 
       {/* Main Content Area */}
       <div style={{ flex: 1, overflowY: 'auto', padding: '16px' }}>
-        
+
         {errorMsg && (
           <div style={{ textAlign: 'center', padding: '16px', color: '#E53E3E', background: '#FED7D7', borderRadius: '12px', marginBottom: '16px' }}>
             {errorMsg}
@@ -113,7 +113,7 @@ export function Dictionary({ appLang }) {
                 <Icon name="ArrowLeft" size={20} />
                 Back to History
               </button>
-              
+
               <DictionaryWordDetail wordData={activeWordData} appLang={appLang} />
             </motion.div>
           ) : (
@@ -129,7 +129,7 @@ export function Dictionary({ appLang }) {
               <h3 style={{ fontSize: '18px', fontWeight: 'bold', color: 'var(--ink-soft)', marginBottom: '16px' }}>
                 {t('dict_history', appLang)}
               </h3>
-              
+
               {history.length === 0 ? (
                 <p style={{ color: 'var(--ink-soft)', fontStyle: 'italic' }}>
                   {t('dict_history_empty', appLang)}
@@ -171,11 +171,11 @@ export function Dictionary({ appLang }) {
 
       {/* Fixed Bottom Search Bar (Only shown in History View) */}
       {!activeWordData && (
-        <div style={{ 
-          position: 'absolute', 
-          bottom: 0, left: 0, right: 0, 
-          padding: '16px', 
-          background: 'linear-gradient(to top, var(--bg) 80%, transparent)' 
+        <div style={{
+          position: 'absolute',
+          bottom: 0, left: 0, right: 0,
+          padding: '16px',
+          background: 'linear-gradient(to top, var(--bg) 80%, transparent)'
         }}>
           <div className="neu-panel" style={{ display: 'flex', alignItems: 'center', padding: '8px', borderRadius: '24px' }}>
             <input
@@ -184,12 +184,12 @@ export function Dictionary({ appLang }) {
               onChange={(e) => setSearchInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSearch(searchInput)}
               placeholder={t('dict_placeholder', appLang)}
-              style={{ 
-                flex: 1, 
-                border: 'none', 
-                background: 'transparent', 
-                padding: '8px 16px', 
-                fontSize: '16px', 
+              style={{
+                flex: 1,
+                border: 'none',
+                background: 'transparent',
+                padding: '8px 16px',
+                fontSize: '16px',
                 color: 'var(--ink)',
                 outline: 'none'
               }}

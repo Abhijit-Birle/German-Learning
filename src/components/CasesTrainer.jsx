@@ -6,6 +6,7 @@ import { useExerciseStore } from '../store/useExerciseStore.js';
 import { addMistakes } from '../utils/storage.js';
 import { t } from '../i18n.js';
 import { ProgressRing } from './ui/Atoms.jsx';
+import { SessionComplete } from './SessionComplete.jsx';
 import { ArticleTrainer } from './ArticleTrainer.jsx';
 
 // Tier definitions
@@ -48,19 +49,20 @@ const extractArticleFromSentence = (sentenceDe) => {
 
 export function CasesTrainer({ onBack, appLang }) {
   const { casesHighestTierUnlocked, setCasesHighestTierUnlocked } = useExerciseStore();
-  
+
   const [view, setView] = useState('main_menu'); // 'main_menu', 'menu', 'tier1', 'tier2', 'tier3', 'results'
   const [sessionQueue, setSessionQueue] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const [finished, setFinished] = useState(false);
   const [wrongVerbs, setWrongVerbs] = useState([]);
-  
+
   // Interaction states for questions
   const [showResult, setShowResult] = useState(null); // null | 'correct' | 'wrong'
   const [selectedOption, setSelectedOption] = useState(null);
   const [textInput, setTextInput] = useState('');
   const [tier2Data, setTier2Data] = useState(null);
-  
+
   // Filter states
   const [selectedCasesFilter, setSelectedCasesFilter] = useState(['dativ', 'akkusativ', 'wechsel']);
 
@@ -76,12 +78,12 @@ export function CasesTrainer({ onBack, appLang }) {
       alert("Please select at least 2 cases to practice.");
       return;
     }
-    
+
     // Filter and Pick up to 10 random verbs
     let filtered = VERB_CASE_DATA.filter(v => selectedCasesFilter.includes(v.case));
     if (filtered.length === 0) filtered = VERB_CASE_DATA; // Fallback
     const shuffled = filtered.sort(() => 0.5 - Math.random()).slice(0, 10);
-    
+
     setSessionQueue(shuffled);
     setCurrentIndex(0);
     setScore(0);
@@ -90,7 +92,7 @@ export function CasesTrainer({ onBack, appLang }) {
     setSelectedOption(null);
     setTextInput('');
     setView(`tier${tierId}`);
-    
+
     if (tierId === 2) {
       setupTier2(shuffled[0]);
     }
@@ -119,7 +121,7 @@ export function CasesTrainer({ onBack, appLang }) {
     setSelectedOption(selectedCase);
     const verbData = sessionQueue[currentIndex];
     const isCorrect = verbData.case === selectedCase;
-    
+
     processAnswer(verbData, isCorrect);
   };
 
@@ -128,18 +130,18 @@ export function CasesTrainer({ onBack, appLang }) {
     setSelectedOption(selectedArt);
     const verbData = sessionQueue[currentIndex];
     const isCorrect = tier2Data && tier2Data.correct.toLowerCase() === selectedArt.toLowerCase();
-    
+
     processAnswer(verbData, isCorrect);
   };
 
   const handleSubmitTier3 = () => {
     if (showResult || !textInput.trim()) return;
     const verbData = sessionQueue[currentIndex];
-    
+
     // Naive string compare
     const normalize = (str) => str.toLowerCase().replace(/[^a-zäöüß]/g, '');
     const isCorrect = normalize(textInput) === normalize(verbData.exampleDe);
-    
+
     processAnswer(verbData, isCorrect);
   };
 
@@ -162,7 +164,7 @@ export function CasesTrainer({ onBack, appLang }) {
     setShowResult(null);
     setSelectedOption(null);
     setTextInput('');
-    
+
     if (currentIndex < sessionQueue.length - 1) {
       const nextVerb = sessionQueue[currentIndex + 1];
       if (view === 'tier2') setupTier2(nextVerb);
@@ -179,7 +181,7 @@ export function CasesTrainer({ onBack, appLang }) {
       if (currentTier === 1 && casesHighestTierUnlocked < 2) setCasesHighestTierUnlocked(2);
       if (currentTier === 2 && casesHighestTierUnlocked < 3) setCasesHighestTierUnlocked(3);
     }
-    
+
     // Push mistakes
     if (wrongVerbs.length > 0) {
       const mistakeEntries = wrongVerbs.map(v => ({
@@ -191,7 +193,7 @@ export function CasesTrainer({ onBack, appLang }) {
       }));
       addMistakes(mistakeEntries);
     }
-    
+
     setView('results');
   };
 
@@ -202,9 +204,9 @@ export function CasesTrainer({ onBack, appLang }) {
     return (
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: 'var(--app-bg)', overflow: 'hidden' }}>
         <header style={{ padding: '16px', display: 'flex', alignItems: 'center', gap: 12 }}>
-          <button className="neu-small" onClick={onBack} style={{ padding: '6px', color: 'var(--ink)' }}>
+          <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={onBack} style={{ padding: '6px', color: 'var(--ink)' }}>
             <Icon name="ChevronLeft" size={20} />
-          </button>
+          </motion.button>
           <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)', flex: 1, textAlign: 'center' }}>
             Fälle üben
           </div>
@@ -212,7 +214,7 @@ export function CasesTrainer({ onBack, appLang }) {
         </header>
 
         <div style={{ padding: '24px 16px', flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 24, justifyContent: 'center' }}>
-          <button
+          <motion.button whileTap={{ scale: 0.95 }}
             className="neu-panel"
             onClick={() => setView('menu')}
             style={{
@@ -234,9 +236,9 @@ export function CasesTrainer({ onBack, appLang }) {
               <div style={{ fontSize: 20, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>Practice Verb</div>
               <div style={{ fontSize: 14, color: 'var(--ink-soft)' }}>Identify the case governed by the verb and translate sentences.</div>
             </div>
-          </button>
+          </motion.button>
 
-          <button
+          <motion.button whileTap={{ scale: 0.95 }}
             className="neu-panel"
             onClick={() => setView('practice_articles')}
             style={{
@@ -258,7 +260,7 @@ export function CasesTrainer({ onBack, appLang }) {
               <div style={{ fontSize: 20, fontWeight: 800, color: 'var(--ink)', marginBottom: 8 }}>Practice Articles</div>
               <div style={{ fontSize: 14, color: 'var(--ink-soft)' }}>Fill in the correct definite article for sentences according to the verb.</div>
             </div>
-          </button>
+          </motion.button>
         </div>
       </div>
     );
@@ -276,11 +278,11 @@ export function CasesTrainer({ onBack, appLang }) {
   // ------------------------------------------------------------------
   if (view === 'menu') {
     return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: 'var(--app-bg)', overflow: 'hidden' }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: 'var(--app-bg)', overflow: 'hidden' }}>
         <header style={{ padding: '16px', display: 'flex', alignItems: 'center', gap: 12 }}>
-          <button className="neu-small" onClick={() => setView('main_menu')} style={{ padding: '6px', color: 'var(--ink)' }}>
+          <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => setView('main_menu')} style={{ padding: '6px', color: 'var(--ink)' }}>
             <Icon name="ChevronLeft" size={20} />
-          </button>
+          </motion.button>
           <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)' }}>
             Fälle üben
           </div>
@@ -301,13 +303,13 @@ export function CasesTrainer({ onBack, appLang }) {
               {['dativ', 'akkusativ', 'wechsel'].map(c => {
                 const isSelected = selectedCasesFilter.includes(c);
                 return (
-                  <button
+                  <motion.button whileTap={{ scale: 0.95 }}
                     key={c}
                     onClick={() => toggleCaseFilter(c)}
                     className={isSelected ? "neu-tile-primary" : "neu-small"}
-                    style={{ 
-                      padding: '8px 16px', 
-                      fontSize: 14, 
+                    style={{
+                      padding: '8px 16px',
+                      fontSize: 14,
                       fontWeight: 700,
                       color: isSelected ? '#fff' : 'var(--ink)',
                       border: 'none',
@@ -315,7 +317,7 @@ export function CasesTrainer({ onBack, appLang }) {
                     }}
                   >
                     {c === 'wechsel' ? 'Wechselverb' : c}
-                  </button>
+                  </motion.button>
                 )
               })}
             </div>
@@ -326,7 +328,7 @@ export function CasesTrainer({ onBack, appLang }) {
               // Keeping all tiers unlocked for now based on user request
               const isUnlocked = true; // tier.id <= casesHighestTierUnlocked;
               return (
-                <button
+                <motion.button whileTap={{ scale: 0.95 }}
                   key={tier.id}
                   onClick={() => isUnlocked && startSession(tier.id)}
                   disabled={!isUnlocked}
@@ -352,7 +354,7 @@ export function CasesTrainer({ onBack, appLang }) {
                   {isUnlocked && (
                     <Icon name="ChevronRight" size={20} color="var(--ink-soft)" />
                   )}
-                </button>
+                </motion.button>
               );
             })}
           </div>
@@ -368,7 +370,7 @@ export function CasesTrainer({ onBack, appLang }) {
     const currentTier = parseInt(view.replace('tier', '')); // Need to extract this correctly, wait, view is 'results' here.
     // actually we can just rely on state or pass it. Let's just show general results.
     return (
-    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: 'var(--app-bg)', overflow: 'hidden' }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: 'var(--app-bg)', overflow: 'hidden' }}>
         <header style={{ padding: '16px', display: 'flex', alignItems: 'center', gap: 12 }}>
           <div style={{ fontSize: 16, fontWeight: 700, color: 'var(--ink)', flex: 1, textAlign: 'center' }}>
             Ergebnisse
@@ -376,7 +378,7 @@ export function CasesTrainer({ onBack, appLang }) {
         </header>
 
         <div style={{ padding: '24px 16px', flex: 1, overflowY: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          
+
           <div style={{ position: 'relative', width: 140, height: 140, marginBottom: 24 }}>
             <ProgressRing progress={(score / 10) * 100} size={140} strokeWidth={12} color={score >= 7 ? "var(--color-teal)" : "var(--color-copper)"} />
             <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
@@ -410,12 +412,12 @@ export function CasesTrainer({ onBack, appLang }) {
           )}
 
           <div style={{ display: 'flex', gap: 16, width: '100%' }}>
-            <button className="neu-small" onClick={() => setView('menu')} style={{ flex: 1, padding: 16, fontWeight: 700, color: 'var(--ink)', border: 'none' }}>
+            <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => setView('menu')} style={{ flex: 1, padding: 16, fontWeight: 700, color: 'var(--ink)', border: 'none' }}>
               Beenden
-            </button>
-            <button className="neu-btn" onClick={() => setView('menu')} style={{ flex: 1, padding: 16, fontWeight: 700 }}>
+            </motion.button>
+            <motion.button whileTap={{ scale: 0.95 }} className="neu-btn" onClick={() => setView('menu')} style={{ flex: 1, padding: 16, fontWeight: 700 }}>
               Weiter
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
@@ -432,9 +434,9 @@ export function CasesTrainer({ onBack, appLang }) {
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', background: 'var(--app-bg)', overflow: 'hidden' }}>
       {/* Header & Progress */}
       <header style={{ padding: '16px', display: 'flex', alignItems: 'center', gap: 16 }}>
-        <button className="neu-small" onClick={() => setView('main_menu')} style={{ padding: '6px', color: 'var(--ink)' }}>
+        <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => setView('main_menu')} style={{ padding: '6px', color: 'var(--ink)' }}>
           <Icon name="X" size={20} />
-        </button>
+        </motion.button>
         <div className="neu-inset" style={{ flex: 1, height: 12, borderRadius: 6, overflow: 'hidden' }}>
           <div style={{ width: `${(currentIndex / 10) * 100}%`, height: '100%', background: 'var(--color-teal)', transition: 'width 0.3s' }} />
         </div>
@@ -444,7 +446,7 @@ export function CasesTrainer({ onBack, appLang }) {
       </header>
 
       <div style={{ padding: '24px 16px', flex: 1, display: 'flex', flexDirection: 'column', overflowY: 'auto' }}>
-        
+
         {/* Tier 1: Identify Case */}
         {view === 'tier1' && (
           <>
@@ -474,15 +476,15 @@ export function CasesTrainer({ onBack, appLang }) {
                 }
 
                 return (
-                  <button
+                  <motion.button whileTap={{ scale: 0.95 }}
                     key={c}
                     onClick={() => handleAnswerTier1(c)}
                     disabled={!!showResult}
                     className={bgClass}
-                    style={{ 
-                      padding: 20, 
-                      fontSize: 16, 
-                      fontWeight: 700, 
+                    style={{
+                      padding: 20,
+                      fontSize: 16,
+                      fontWeight: 700,
                       border: 'none',
                       color: textColor,
                       textTransform: 'capitalize',
@@ -491,7 +493,7 @@ export function CasesTrainer({ onBack, appLang }) {
                     }}
                   >
                     {c === 'wechsel' ? 'Wechselverb' : c}
-                  </button>
+                  </motion.button>
                 )
               })}
             </div>
@@ -503,7 +505,7 @@ export function CasesTrainer({ onBack, appLang }) {
           <>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginBottom: 32 }}>
               <div style={{ fontSize: 14, color: 'var(--ink-soft)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 16 }}>Select the article</div>
-              
+
               {tier2Data.correct === 'fallback' ? (
                 // Fallback rendering
                 <div style={{ fontSize: 24, fontWeight: 700, color: 'var(--ink)', textAlign: 'center' }}>
@@ -512,9 +514,9 @@ export function CasesTrainer({ onBack, appLang }) {
               ) : (
                 <div style={{ fontSize: 24, fontWeight: 700, color: 'var(--ink)', textAlign: 'center', lineHeight: 1.5 }}>
                   {tier2Data.parts[0]}
-                  <span style={{ 
-                    display: 'inline-block', 
-                    minWidth: 60, 
+                  <span style={{
+                    display: 'inline-block',
+                    minWidth: 60,
                     borderBottom: `3px solid ${showResult ? (showResult === 'correct' ? 'var(--color-teal)' : 'var(--color-copper)') : 'var(--ink-soft)'}`,
                     margin: '0 8px',
                     padding: '0 4px',
@@ -543,34 +545,39 @@ export function CasesTrainer({ onBack, appLang }) {
                       color = '#fff';
                     }
                   }
-                  
+
                   return (
-                    <button
+                    <motion.button
                       key={idx}
+                      whileTap={{ scale: 0.95 }}
                       onClick={() => handleAnswerTier2(opt)}
                       disabled={!!showResult}
-                      className={bg ? "" : "neu-small"}
-                      style={{ 
-                        padding: 20, 
-                        fontSize: 16, 
-                        fontWeight: 700, 
+                      className="neu-small"
+                      animate={{
+                        backgroundColor: bg || 'var(--paper)',
+                        color: color || 'var(--ink)',
+                        x: bg === 'var(--color-copper)' ? [0, -6, 6, -4, 4, 0] : 0
+                      }}
+                      transition={{ x: { duration: 0.3 } }}
+                      style={{
+                        padding: 20,
+                        fontSize: 16,
+                        fontWeight: 700,
                         border: 'none',
-                        background: bg,
-                        color,
                         borderRadius: 16,
                         textTransform: 'lowercase'
                       }}
                     >
                       {opt}
-                    </button>
+                    </motion.button>
                   );
                 })}
               </div>
             ) : (
               // Fallback advance button
-              <button className="neu-btn" onClick={() => handleAnswerTier2('fallback')} style={{ padding: 16, width: '100%' }}>
+              <motion.button whileTap={{ scale: 0.95 }} className="neu-btn" onClick={() => handleAnswerTier2('fallback')} style={{ padding: 16, width: '100%' }}>
                 Weiter
-              </button>
+              </motion.button>
             )}
           </>
         )}
@@ -595,25 +602,25 @@ export function CasesTrainer({ onBack, appLang }) {
                 value={textInput}
                 onChange={e => setTextInput(e.target.value)}
                 disabled={!!showResult}
-                style={{ 
-                  padding: 16, 
-                  fontSize: 16, 
-                  border: 'none', 
-                  outline: 'none', 
-                  borderRadius: 16, 
+                style={{
+                  padding: 16,
+                  fontSize: 16,
+                  border: 'none',
+                  outline: 'none',
+                  borderRadius: 16,
                   minHeight: 100,
                   resize: 'none',
                   color: 'var(--ink)'
                 }}
               />
-              <button 
-                className="neu-btn" 
-                onClick={handleSubmitTier3} 
+              <motion.button whileTap={{ scale: 0.95 }}
+                className="neu-btn"
+                onClick={handleSubmitTier3}
                 disabled={!!showResult || !textInput.trim()}
                 style={{ padding: 16, fontWeight: 700 }}
               >
                 Prüfen
-              </button>
+              </motion.button>
             </div>
           </>
         )}
@@ -644,13 +651,13 @@ export function CasesTrainer({ onBack, appLang }) {
               <div style={{ fontSize: 13, color: 'var(--ink-soft)', marginBottom: 16 }}>
                 {currentVerb.english} • <span style={{ textTransform: 'uppercase', fontWeight: 700 }}>{currentVerb.case}</span>
               </div>
-              <button 
-                className="neu-btn" 
+              <motion.button whileTap={{ scale: 0.95 }}
+                className="neu-btn"
                 onClick={handleNext}
                 style={{ width: '100%', padding: '12px', fontSize: 15, fontWeight: 700 }}
               >
                 Weiter
-              </button>
+              </motion.button>
             </motion.div>
           )}
         </AnimatePresence>

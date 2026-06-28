@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { InterviewSession } from './InterviewSession.jsx';
+import { InterviewScorecard } from './InterviewScorecard.jsx';
 import { useGemini } from '../hooks/useGemini.js';
 import { LS, addMistakes } from '../utils/storage.js';
 import { speakHumanGerman, speakBrowserFallback } from '../utils/tts.js';
@@ -30,7 +32,7 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
 
   const [appView, setAppView] = useState('home'); // 'home' | 'exercise_list' | 'exercise_session' | 'exercise_results'
   const { fetchExercises } = useExerciseStore();
-  
+
   const [sessions, setSessions] = useState(() => {
     const s = LS.get('gt_interview_sessions', []);
     return s.map(session => session.scenarioId ? session : { ...session, scenarioId: 'interview' });
@@ -48,7 +50,7 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
 
   const activeLessonBlock = useMemo(() => {
     if (!lessonsData || lessonsData.length === 0) return null;
-    
+
     // Find the first main lesson that is not fully completed
     let currentLesson = lessonsData.find(lesson => {
       const sublessons = lesson.items?.filter(i => i.type === 'sublesson' || i.type === 'revision') || [];
@@ -76,6 +78,8 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
   const [modalCustomLabel, setModalCustomLabel] = useState('');
   const [modalCustomDesc, setModalCustomDesc] = useState('');
   const [modalLevel, setModalLevel] = useState(level);
+  const [modalDifficulty, setModalDifficulty] = useState(2); // 1=Easy, 2=Medium, 3=Hard
+  const [modalTone, setModalTone] = useState('Professional');
 
   const scenarioKey = scenario
     ? scenario.id !== 'free' && activeSessionId
@@ -279,7 +283,7 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
   ];
 
   const currentTopics = scenario ? SCENARIO_TOPICS[scenario.id] || [] : [];
-  
+
   const setupModalElement = showSetupModal && (
     <div
       style={{
@@ -385,10 +389,10 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
           </>
         )}
 
-        {/* Difficulty Level */}
+        {/* Language Level */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
           <label style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)' }}>
-            {appLang === 'de' ? 'Schwierigkeitsgrad' : 'Difficulty Level'}
+            {appLang === 'de' ? 'Sprachniveau' : 'Language Level'}
           </label>
           <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
             {LEVELS.map((lvl) => {
@@ -408,6 +412,57 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
                   }}
                 >
                   {lvl}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Interview Difficulty (Slider) */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+            <label style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)' }}>
+              {appLang === 'de' ? 'Schwierigkeitsgrad' : 'Interview Difficulty'}
+            </label>
+            <span style={{ fontSize: 11, color: 'var(--ink-soft)', fontWeight: 600 }}>
+              {modalDifficulty === 1 ? 'Leicht' : modalDifficulty === 2 ? 'Mittel' : 'Schwer'}
+            </span>
+          </div>
+          <input
+            type="range"
+            min="1"
+            max="3"
+            step="1"
+            value={modalDifficulty}
+            onChange={(e) => setModalDifficulty(parseInt(e.target.value))}
+            style={{ width: '100%', accentColor: 'var(--color-copper)' }}
+          />
+        </div>
+
+        {/* Interviewer Tone */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+          <label style={{ fontSize: 12, fontWeight: 700, color: 'var(--ink)' }}>
+            {appLang === 'de' ? 'Tonfall des Interviewers' : 'Interviewer Tone'}
+          </label>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            {['Friendly', 'Professional', 'Strict'].map((tone) => {
+              const isSel = modalTone === tone;
+              const displayTone = appLang === 'de' ? (tone === 'Friendly' ? 'Freundlich' : tone === 'Professional' ? 'Professionell' : 'Streng') : tone;
+              return (
+                <button
+                  key={tone}
+                  type="button"
+                  onClick={() => setModalTone(tone)}
+                  className={isSel ? "neu-tile-primary" : "neu-small"}
+                  style={{
+                    padding: '6px 12px',
+                    fontSize: 12,
+                    fontWeight: 700,
+                    color: isSel ? '#fff' : 'var(--ink)',
+                    border: 'none',
+                  }}
+                >
+                  {displayTone}
                 </button>
               );
             })}
@@ -451,11 +506,13 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
                 topicLabel,
                 topicDesc,
                 level: modalLevel,
+                difficulty: modalDifficulty,
+                tone: modalTone,
                 timestamp: Date.now(),
               };
 
               setSessions((prev) => [newSession, ...prev]);
-              setSessionTopic({ id: modalTopicId, label: topicLabel, desc: topicDesc });
+              setSessionTopic({ id: modalTopicId, label: topicLabel, desc: topicDesc, difficulty: modalDifficulty, tone: modalTone });
               setActiveSessionId(newSessionId);
               onLevelChange && onLevelChange(modalLevel);
               setShowSetupModal(false);
@@ -478,11 +535,11 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
   if (appView === 'daily_lesson') {
     content = (
       <motion.div key="daily_lesson" initial={{ opacity: 0, scale: 0.8, borderRadius: '50px' }} animate={{ opacity: 1, scale: 1, borderRadius: '0px' }} exit={{ opacity: 0, scale: 0.8, borderRadius: '50px' }} transition={{ type: 'spring', stiffness: 300, damping: 20 }} style={{ flex: 1, overflowY: 'auto' }}>
-        <DailyLesson 
-          level={level} 
-          appLang={appLang} 
-          onBack={() => setAppView('home')} 
-          onComplete={handleLessonComplete} 
+        <DailyLesson
+          level={level}
+          appLang={appLang}
+          onBack={() => setAppView('home')}
+          onComplete={handleLessonComplete}
           completedSublessons={completedSublessons}
         />
       </motion.div>
@@ -511,6 +568,18 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
         <ExerciseResults onBack={() => setAppView('home')} onRetryMistakes={() => { fetchExercises('mistakes'); setAppView('exercise_session'); }} />
       </motion.div>
     );
+  } else if (appView === 'interview_session') {
+    content = (
+      <motion.div key="int_session" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} style={{ flex: 1, display: 'flex' }}>
+        <InterviewSession onBack={() => setAppView('home')} onComplete={() => setAppView('interview_scorecard')} appLang={appLang} />
+      </motion.div>
+    );
+  } else if (appView === 'interview_scorecard') {
+    content = (
+      <motion.div key="int_scorecard" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} style={{ flex: 1, display: 'flex' }}>
+        <InterviewScorecard onBack={() => setAppView('home')} appLang={appLang} />
+      </motion.div>
+    );
   } else if (!isTaskActive) {
     content = (
       <motion.div key="home" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.95 }} transition={{ type: 'spring', stiffness: 300, damping: 25 }} className="scrollbar" style={{ paddingBottom: 0, background: 'transparent', flex: 1, overflowY: 'auto' }}>
@@ -523,8 +592,8 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
             </div>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <CustomSelect 
-              value={appLang} 
+            <CustomSelect
+              value={appLang}
               onChange={(val) => onLangChange && onLangChange(val)}
               options={[
                 { value: 'en', label: '🇺🇸 EN' },
@@ -532,8 +601,8 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
               ]}
               style={{ padding: '6px 12px' }}
             />
-            <CustomSelect 
-              value={level} 
+            <CustomSelect
+              value={level}
               onChange={(val) => onLevelChange && onLevelChange(val)}
               options={LEVELS.map(lvl => ({ value: lvl, label: lvl }))}
               style={{ padding: '6px 12px' }}
@@ -568,9 +637,9 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
             <div style={{ flex: 1 }}>
               <div style={{ fontSize: 12, color: '#8A8678', fontWeight: 600, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 4 }}>{appLang === 'de' ? 'Aktuelle Lektion' : 'Current Lesson'}</div>
               <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 12 }}>{activeLessonBlock ? `Lesson: ${activeLessonBlock.name}` : 'No lessons yet'}</div>
-              <button 
-                className="neu-btn" 
-                onClick={() => { if(activeLessonBlock) { setAppView('daily_lesson'); } }}
+              <button
+                className="neu-btn"
+                onClick={() => { if (activeLessonBlock) { setAppView('daily_lesson'); } }}
                 style={{ padding: '10px 20px', fontSize: 14 }}
                 disabled={!activeLessonBlock}
               >
@@ -587,24 +656,24 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
         <div style={{ padding: '0 16px', marginBottom: 24 }}>
           <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 12, color: 'var(--ink)' }}>Quick Drill</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10 }}>
-            <button className="neu-small" onClick={() => { fetchExercises('random', '', level); setAppView('exercise_session'); }} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+            <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => { fetchExercises('random', '', level); setAppView('exercise_session'); }} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
               <div className="neu-inset" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>🎲</div>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink)' }}>Random</div>
-            </button>
-            <button className="neu-small" onClick={() => { fetchExercises('mistakes', '', level); setAppView('exercise_session'); }} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+            </motion.button>
+            <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => { fetchExercises('mistakes', '', level); setAppView('exercise_session'); }} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
               <div className="neu-inset" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>🔁</div>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink)' }}>Mistakes</div>
-            </button>
-            <button className="neu-small" onClick={() => { fetchExercises('articles', '', level); setAppView('exercise_session'); }} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+            </motion.button>
+            <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => { fetchExercises('articles', '', level); setAppView('exercise_session'); }} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
               <div className="neu-inset" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>📚</div>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink)' }}>{appLang === 'de' ? 'Artikel' : 'Articles'}</div>
-            </button>
-            <button className="neu-small" onClick={() => setAppView('cases_trainer')} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+            </motion.button>
+            <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => setAppView('cases_trainer')} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
               <div className="neu-inset" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name="ArrowsRightLeft" size={20} color="var(--ink)" />
               </div>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink)' }}>Fälle</div>
-            </button>
+            </motion.button>
           </div>
         </div>
 
@@ -643,15 +712,36 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
             {pathNodes.filter(n => n.id !== 'free').map((node) => {
               const hasMessages = convos[node.id] && convos[node.id].length > 0;
               return (
-                <button key={node.id} onClick={() => { setScenario(SCENARIOS.find(s => s.id === node.id)); onTaskStart && onTaskStart(); }} className="neu-small" style={{ width: 140, padding: '20px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, border: 'none', flexShrink: 0 }}>
+                <motion.button whileTap={{ scale: 0.97 }} key={node.id} onClick={() => { setScenario(SCENARIOS.find(s => s.id === node.id)); onTaskStart && onTaskStart(); }} className="neu-small" style={{ width: 140, padding: '20px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, border: 'none', flexShrink: 0 }}>
                   <div className="neu-inset" style={{ width: 48, height: 48, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <Icon name={node.icon} size={24} color={'var(--color-teal)'} />
                   </div>
                   <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--ink)', textAlign: 'center', lineHeight: 1.2 }}>{node.title}</div>
                   {hasMessages && <div style={{ fontSize: 10, color: 'var(--color-copper)', fontWeight: 700, marginTop: -4 }}>Weiter</div>}
-                </button>
+                </motion.button>
               );
             })}
+          </div>
+        </div>
+
+        {/* Interview Prep (Horizontal Scroll) */}
+        <div style={{ padding: '0 0 24px 0' }}>
+          <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 12, color: 'var(--ink)', padding: '0 16px' }}>Interview-Prep</div>
+          <div className="mobile-scroll-x" style={{ gap: 16, padding: '4px 16px 16px 16px' }}>
+            {[
+              { id: 'agentic_ai', title: 'Agentic AI', icon: 'Cpu' },
+              { id: 'backend', title: 'Backend', icon: 'Database' },
+              { id: 'frontend', title: 'Frontend', icon: 'Layout' },
+              { id: 'system_design', title: 'System Design', icon: 'Server' },
+              { id: 'behavioural', title: 'Behavioural', icon: 'Users' }
+            ].map(topic => (
+              <motion.button whileTap={{ scale: 0.97 }} key={topic.id} onClick={() => { useExerciseStore.getState().resetInterviewSession(); useExerciseStore.getState().setInterviewTopic(topic.id); setAppView('interview_session'); }} className="neu-small" style={{ width: 140, padding: '20px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, border: 'none', flexShrink: 0 }}>
+                <div className="neu-inset" style={{ width: 48, height: 48, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                  <Icon name={topic.icon} size={24} color={'var(--color-copper)'} />
+                </div>
+                <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--ink)', textAlign: 'center', lineHeight: 1.2 }}>{topic.title}</div>
+              </motion.button>
+            ))}
           </div>
         </div>
 
@@ -721,8 +811,8 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
             ) : (
               scenarioSessions.map((s) => (
                 <div key={s.id} className="neu-raised" style={{ padding: 16, display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, borderRadius: 12 }}>
-                  <div 
-                    style={{ flex: 1, minWidth: 0, cursor: 'pointer' }} 
+                  <div
+                    style={{ flex: 1, minWidth: 0, cursor: 'pointer' }}
                     onClick={() => {
                       setSessionTopic({ id: s.topicId, label: s.topicLabel, desc: s.topicDesc });
                       setActiveSessionId(s.id);
@@ -765,238 +855,247 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
   } else {
     content = (
       <motion.div key="chat" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 50 }} transition={{ type: 'spring', stiffness: 300, damping: 25 }} style={{ flex: 1, display: 'flex', flexDirection: 'column', height: '100%' }}>
-      <div style={{ padding: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--app-bg)' }}>
-        <button 
-          className="neu-small" 
-          onClick={() => {
-            setActiveSessionId(null);
-            if (scenario?.id === 'free') {
-              setScenario(null);
-              onTaskEnd && onTaskEnd();
-            }
-          }} 
-          style={{ padding: '6px', color: 'var(--ink)' }}
-        >
-          <Icon name="ChevronLeft" size={20} />
-        </button>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <div className="neu-small" style={{ width: 40, height: 40, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><Icon name={scenario ? scenario.icon : 'MessageCircle'} size={20} color="var(--color-teal)" /></div>
-          <div>
-            <div style={{ fontWeight: 600, fontSize: 15 }}>{scenario ? t(`scen_${scenario.id}`, appLang) : t('scen_free', appLang)}</div>
-            <div style={{ fontSize: 12, color: 'var(--ink-soft)' }}>
-              {scenario 
-                ? (sessionTopic ? `${sessionTopic.label} • Level ${level}` : scenario.title) 
-                : t('scen_free_desc', appLang)}
+        <div style={{ padding: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--app-bg)' }}>
+          <button
+            className="neu-small"
+            onClick={() => {
+              setActiveSessionId(null);
+              if (scenario?.id === 'free') {
+                setScenario(null);
+                onTaskEnd && onTaskEnd();
+              }
+            }}
+            style={{ padding: '6px', color: 'var(--ink)' }}
+          >
+            <Icon name="ChevronLeft" size={20} />
+          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div className="neu-small" style={{ width: 40, height: 40, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}><Icon name={scenario ? scenario.icon : 'MessageCircle'} size={20} color="var(--color-teal)" /></div>
+            <div>
+              <div style={{ fontWeight: 600, fontSize: 15 }}>{scenario ? t(`scen_${scenario.id}`, appLang) : t('scen_free', appLang)}</div>
+              <div style={{ fontSize: 12, color: 'var(--ink-soft)' }}>
+                {scenario
+                  ? (sessionTopic ? `${sessionTopic.label} • Level ${level}` : scenario.title)
+                  : t('scen_free_desc', appLang)}
+              </div>
             </div>
           </div>
+          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+            <CustomSelect
+              value={level}
+              onChange={(val) => onLevelChange && onLevelChange(val)}
+              options={LEVELS.map(lvl => ({ value: lvl, label: lvl }))}
+              style={{ padding: '6px 8px' }}
+            />
+            <button onClick={() => onOpenApiKey && onOpenApiKey()} className="neu-small" style={{ padding: '6px', color: 'var(--ink)', display: 'flex', alignItems: 'center' }}><Icon name="Key" size={16} /></button>
+          </div>
         </div>
-        <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          <CustomSelect 
-            value={level} 
-            onChange={(val) => onLevelChange && onLevelChange(val)}
-            options={LEVELS.map(lvl => ({ value: lvl, label: lvl }))}
-            style={{ padding: '6px 8px' }}
-          />
-          <button onClick={() => onOpenApiKey && onOpenApiKey()} className="neu-small" style={{ padding: '6px', color: 'var(--ink)', display: 'flex', alignItems: 'center' }}><Icon name="Key" size={16} /></button>
-        </div>
-      </div>
 
 
-      {/* STAR Scaffolding for Behavioural Interview */}
-      {sessionTopic?.id === 'behavioural' && (
-        <div style={{ padding: '8px 16px', display: 'flex', gap: 8, borderBottom: '1px solid var(--shadow-light)' }}>
-          {['S: Situation', 'T: Task', 'A: Action', 'R: Result'].map((star, i) => (
-            <div key={i} className={messages.length > i * 2 ? "neu-badge" : "neu-inset"} style={{ flex: 1, padding: '6px', textAlign: 'center', fontSize: 10, fontWeight: 700, background: messages.length > i * 2 ? 'var(--grad-teal)' : 'var(--card-bg)', color: messages.length > i * 2 ? '#fff' : 'var(--ink-soft)' }}>
-              {star}
-            </div>
-          ))}
-        </div>
-      )}
+        {/* STAR Scaffolding for Behavioural Interview */}
+        {sessionTopic?.id === 'behavioural' && (
+          <div style={{ padding: '8px 16px', display: 'flex', gap: 8, borderBottom: '1px solid var(--shadow-light)' }}>
+            {['S: Situation', 'T: Task', 'A: Action', 'R: Result'].map((star, i) => (
+              <div key={i} className={messages.length > i * 2 ? "neu-badge" : "neu-inset"} style={{ flex: 1, padding: '6px', textAlign: 'center', fontSize: 10, fontWeight: 700, background: messages.length > i * 2 ? 'var(--grad-teal)' : 'var(--card-bg)', color: messages.length > i * 2 ? '#fff' : 'var(--ink-soft)' }}>
+                {star}
+              </div>
+            ))}
+          </div>
+        )}
 
-      <div ref={scrollRef} className="scrollbar" style={{ flex: 1, overflowY: 'auto', padding: '16px 0', display: 'flex', flexDirection: 'column', gap: 12 }}>
-        {messages.length === 0 && <EmptyState title={t('empty_hello', appLang)} body={t('empty_body', appLang)} />}
-        {messages.map((m, i) => (
-          <div key={i} className="fadein" style={{ alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start', maxWidth: '85%' }}>
-            <div style={{ display: 'flex', gap: 8, alignItems: 'flex-start', flexDirection: m.role === 'user' ? 'row-reverse' : 'row' }}>
+        <div ref={scrollRef} className="scrollbar" style={{ flex: 1, overflowY: 'auto', padding: '16px 0', display: 'flex', flexDirection: 'column', gap: 12 }}>
+          {messages.length === 0 && <EmptyState title={t('empty_hello', appLang)} body={t('empty_body', appLang)} />}
+          {messages.map((m, i) => (
+            <div key={i} className="fadein" style={{ alignSelf: m.role === 'user' ? 'flex-end' : 'flex-start', maxWidth: '85%' }}>
+              <div style={{ display: 'flex', gap: 8, alignItems: 'flex-start', flexDirection: m.role === 'user' ? 'row-reverse' : 'row' }}>
 
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: m.role === 'user' ? 'flex-end' : 'flex-start' }}>
-                <div className={m.role === 'user' ? 'neu-bubble-user' : 'neu-bubble-tutor'}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
-                    <div onDoubleClick={() => { navigator.clipboard.writeText(m.text); showToast(t('copy', appLang) + '!'); }} style={{ cursor: 'pointer', flex: 1 }}>{m.text}</div>
-                    {m.role === 'model' && !m.error && (
-                      <button onClick={() => speak(m.text, i)} disabled={ttsBusyId === i} style={{ border: 'none', background: 'transparent', color: 'var(--ink-soft)', padding: 0, flexShrink: 0 }}><Icon name="Volume2" size={16} /></button>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: m.role === 'user' ? 'flex-end' : 'flex-start' }}>
+                  <div className={m.role === 'user' ? 'neu-bubble-user' : 'neu-bubble-tutor'}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
+                      <div onDoubleClick={() => { navigator.clipboard.writeText(m.text); showToast(t('copy', appLang) + '!'); }} style={{ cursor: 'pointer', flex: 1 }}>{m.text}</div>
+                      {m.role === 'model' && !m.error && (
+                        <button onClick={() => speak(m.text, i)} disabled={ttsBusyId === i} style={{ border: 'none', background: 'transparent', color: 'var(--ink-soft)', padding: 0, flexShrink: 0 }}><Icon name="Volume2" size={16} /></button>
+                      )}
+                      {m.role === 'user' && (
+                        <button onClick={() => speakBrowserFallback(m.text, 1.0, messages[i + 1]?.corrections?.some(c => c.category === 'other') ? 'en-US' : 'de-DE')} style={{ border: 'none', background: 'transparent', color: 'rgba(255,255,255,0.8)', padding: 0, flexShrink: 0 }}><Icon name="Volume2" size={16} /></button>
+                      )}
+                    </div>
+                    {m.role === 'model' && m.translation && showTranslation && (
+                      <div style={{ marginTop: 6, fontSize: 13, color: 'var(--ink-soft)', fontStyle: 'italic', borderTop: '1px solid var(--shadow-dark)', paddingTop: 6, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
+                        <div onDoubleClick={() => { navigator.clipboard.writeText(m.translation); showToast(t('copy', appLang) + '!'); }} style={{ cursor: 'pointer', flex: 1 }}>{m.translation}</div>
+                        <button onClick={() => speakBrowserFallback(m.translation, 1.0, 'en-US')} style={{ border: 'none', background: 'transparent', color: 'var(--ink-soft)', padding: 0, flexShrink: 0 }}><Icon name="Volume2" size={12} /></button>
+                      </div>
+                    )}
+                    {m.role === 'user' && messages[i + 1] && messages[i + 1].role === 'model' && messages[i + 1].corrections && messages[i + 1].corrections.some(c => c.category === 'other') && (
+                      <div style={{ marginTop: 6, fontSize: 13, color: 'rgba(255,255,255,0.8)', fontStyle: 'italic', borderTop: '1px solid rgba(255,255,255,0.2)', paddingTop: 6, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
+                        <div onDoubleClick={() => { navigator.clipboard.writeText(messages[i + 1].corrections.find(c => c.category === 'other').correction); showToast(t('copy', appLang) + '!'); }} style={{ cursor: 'pointer', flex: 1 }}>
+                          {messages[i + 1].corrections.find(c => c.category === 'other').correction}
+                        </div>
+                        <button onClick={() => speak(messages[i + 1].corrections.find(c => c.category === 'other').correction, i + '_trans')} style={{ border: 'none', background: 'transparent', color: 'rgba(255,255,255,0.8)', padding: 0, flexShrink: 0 }}><Icon name="Volume2" size={12} /></button>
+                      </div>
                     )}
                   </div>
-                  {m.role === 'model' && m.translation && showTranslation && (
-                    <div style={{ marginTop: 6, fontSize: 13, color: 'var(--ink-soft)', fontStyle: 'italic', borderTop: '1px solid var(--shadow-dark)', paddingTop: 6, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
-                      <div onDoubleClick={() => { navigator.clipboard.writeText(m.translation); showToast(t('copy', appLang) + '!'); }} style={{ cursor: 'pointer', flex: 1 }}>{m.translation}</div>
-                      <button onClick={() => speakBrowserFallback(m.translation, 1.0, 'en-US')} style={{ border: 'none', background: 'transparent', color: 'var(--ink-soft)', padding: 0, flexShrink: 0 }}><Icon name="Volume2" size={12} /></button>
+                  {m.role === 'user' && messages[i + 1] && messages[i + 1].role === 'model' && messages[i + 1].corrections && messages[i + 1].corrections.filter(c => c.category !== 'other').length > 0 && (
+                    <div style={{ marginTop: 8, display: 'flex', flexDirection: 'column', gap: 4, width: '100%' }}>
+                      {messages[i + 1].corrections.filter(c => c.category !== 'other').map((c, ci) => (
+                        <div key={ci} className="neu-bubble-correction">
+                          <div style={{ display: 'flex', alignItems: 'flex-start', gap: 6 }}>
+                            <Icon name="PenTool" size={14} style={{ marginTop: 2, flexShrink: 0 }} />
+                            <div>Besser: <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>{c.original}</span> → <strong>{c.correction}</strong></div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   )}
                 </div>
-                {m.corrections && m.corrections.length > 0 && (
-                  <div style={{ marginTop: 8, display: 'flex', flexDirection: 'column', gap: 4, width: '100%' }}>
-                    {m.corrections.map((c, ci) => (
-                      <div key={ci} className="neu-bubble-correction">
-                        <div style={{ display: 'flex', alignItems: 'flex-start', gap: 6 }}>
-                          <Icon name="PenTool" size={14} style={{ marginTop: 2, flexShrink: 0 }} /> 
-                          <div>Besser: <span style={{ textDecoration: 'line-through', opacity: 0.7 }}>{c.original}</span> → <strong>{c.correction}</strong></div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {/* Pronunciation Stub UI */}
-                {m.role === 'user' && i === messages.length - 2 && (
-                  <div className="neu-small" style={{ marginTop: 8, padding: '8px 12px', display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <ProgressRing progress={85} size={28} strokeWidth={3} />
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink)' }}>Aussprache: Gut</div>
-                      <div style={{ fontSize: 10, color: 'var(--color-copper)' }}>"Beispiel" (vowel error)</div>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
-          </div>
-        ))}
-        {loading && <Loading label={t('tutor_typing', appLang)} />}
-      </div>
+          ))}
+          {loading && <Loading label={t('tutor_typing', appLang)} />}
+        </div>
 
-      {/* Input row */}
-      <div style={{ padding: '16px', background: 'var(--app-bg)', display: 'flex', flexDirection: 'column', gap: 16, borderTop: '1px solid var(--shadow-light)' }}>
-        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-          <button
-            className={showTranslation ? 'neu-btn' : 'neu-small'}
-            onClick={() => setShowTranslation(!showTranslation)}
-            style={{
-              padding: '8px 16px',
-              fontSize: 12,
-              display: 'flex', alignItems: 'center', gap: 8, flex: 1, justifyContent: 'center'
-            }}
-          >
-            <Icon name="Globe" size={14} color={showTranslation ? '#fff' : 'var(--color-teal)'} /> {t('btn_translate', appLang)}
-          </button>
-          <button
-            className={voiceOn ? 'neu-btn' : 'neu-small'}
-            onClick={() => setVoiceOn(!voiceOn)}
-            style={{
-              padding: '8px 16px',
-              fontSize: 12,
-              display: 'flex', alignItems: 'center', gap: 8, flex: 1, justifyContent: 'center'
-            }}
-          >
-            <Icon name={voiceOn ? "Volume2" : "VolumeX"} size={14} color={voiceOn ? '#fff' : 'var(--color-teal)'} /> {voiceOn ? t('btn_voice_on', appLang) : t('btn_voice_off', appLang)}
-          </button>
-          <button 
-            className="neu-small" 
-            onClick={clearCurrent} 
-            style={{ 
-              padding: '8px 16px', color: 'var(--color-copper)', fontSize: 12, 
-              display: 'flex', alignItems: 'center', gap: 8, flex: 1, justifyContent: 'center', fontWeight: 600 
-            }}>
-            <Icon name="Trash2" size={14} /> {t('btn_clear_chat', appLang)}
-          </button>
-          {scenario?.id === 'interview' && (
-            <button 
-              className="neu-small" 
-              onClick={() => {
-                // Mock ending interview and loading scorecard
-                setScorecardData({
-                  clarity: 85, grammar: 78, vocabulary: 92, confidence: 80,
-                  strengths: ["Guter Fachwortschatz", "Flüssiges Sprechen"],
-                  improvements: ["Satzbau bei Nebensätzen", "Weniger 'ähm' sagen"]
-                });
-                setShowScorecard(true);
-              }} 
-              style={{ 
-                padding: '8px 16px', color: 'var(--color-teal)', fontSize: 12, 
-                display: 'flex', alignItems: 'center', gap: 8, flex: 1, justifyContent: 'center', fontWeight: 700 
+        {/* Input row */}
+        <div style={{ padding: '16px', background: 'var(--app-bg)', display: 'flex', flexDirection: 'column', gap: 16, borderTop: '1px solid var(--shadow-light)' }}>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <button
+              className={showTranslation ? 'neu-btn' : 'neu-small'}
+              onClick={() => setShowTranslation(!showTranslation)}
+              style={{
+                padding: '8px 16px',
+                fontSize: 12,
+                display: 'flex', alignItems: 'center', gap: 8, flex: 1, justifyContent: 'center'
+              }}
+            >
+              <Icon name="Globe" size={14} color={showTranslation ? '#fff' : 'var(--color-teal)'} /> {t('btn_translate', appLang)}
+            </button>
+            <button
+              className={voiceOn ? 'neu-btn' : 'neu-small'}
+              onClick={() => setVoiceOn(!voiceOn)}
+              style={{
+                padding: '8px 16px',
+                fontSize: 12,
+                display: 'flex', alignItems: 'center', gap: 8, flex: 1, justifyContent: 'center'
+              }}
+            >
+              <Icon name={voiceOn ? "Volume2" : "VolumeX"} size={14} color={voiceOn ? '#fff' : 'var(--color-teal)'} /> {voiceOn ? t('btn_voice_on', appLang) : t('btn_voice_off', appLang)}
+            </button>
+            <button
+              className="neu-small"
+              onClick={clearCurrent}
+              style={{
+                padding: '8px 16px', color: 'var(--color-copper)', fontSize: 12,
+                display: 'flex', alignItems: 'center', gap: 8, flex: 1, justifyContent: 'center', fontWeight: 600
               }}>
-              <Icon name="Flag" size={14} /> {appLang === 'de' ? 'Beenden' : 'End Interview'}
+              <Icon name="Trash2" size={14} /> {t('btn_clear_chat', appLang)}
             </button>
-          )}
-        </div>
-        <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-          <button
-            onClick={listening ? stopListening : startListening}
-            disabled={transcribing}
-            className={listening ? "neu-btn-copper" : "neu-small"}
-            style={{
-              width: 44, height: 44, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexShrink: 0
-            }}
-          >
-            {listening ? <span className="pulse-dot" style={{ width: 10, height: 10, borderRadius: '50%', background: '#fff' }} /> : <Icon name="Mic" size={20} color="var(--color-copper)" />}
-          </button>
+            {scenario?.id === 'interview' && (
+              <button
+                className="neu-small"
+                onClick={() => {
+                  // Mock ending interview and loading scorecard
+                  setScorecardData({
+                    clarity: 85, grammar: 78, vocabulary: 92, confidence: 80,
+                    strengths: ["Guter Fachwortschatz", "Flüssiges Sprechen"],
+                    improvements: ["Satzbau bei Nebensätzen", "Weniger 'ähm' sagen"]
+                  });
+                  setShowScorecard(true);
+                }}
+                style={{
+                  padding: '8px 16px', color: 'var(--color-teal)', fontSize: 12,
+                  display: 'flex', alignItems: 'center', gap: 8, flex: 1, justifyContent: 'center', fontWeight: 700
+                }}>
+                <Icon name="Flag" size={14} /> {appLang === 'de' ? 'Beenden' : 'End Interview'}
+              </button>
+            )}
+          </div>
+          <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+            <button
+              onClick={listening ? stopListening : startListening}
+              disabled={transcribing}
+              className={listening ? "neu-btn-copper" : "neu-small"}
+              style={{
+                width: 44, height: 44, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexShrink: 0
+              }}
+            >
+              {listening ? <span className="pulse-dot" style={{ width: 10, height: 10, borderRadius: '50%', background: '#fff' }} /> : <Icon name="Mic" size={20} color="var(--color-copper)" />}
+            </button>
 
-          <input
-            className="neu-inset"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && !transcribing && send()}
-            placeholder={t('input_placeholder', appLang)}
-            disabled={transcribing}
-            style={{
-              flex: 1, padding: '12px 16px',
-              opacity: transcribing ? 0.6 : 1, fontSize: 14, color: 'var(--ink)'
-            }}
-          />
-          <button 
-            onClick={() => send()} 
-            disabled={loading || transcribing || !input.trim()} 
-            className="neu-btn"
-            style={{ width: 44, height: 44, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexShrink: 0 }}
-          >
-            <Icon name="ArrowRight" size={20} color="#fff" />
-          </button>
-        </div>
-        </div>
-
-      {/* Mock Interview Scorecard Modal */}
-      {showScorecard && scorecardData && (
-        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.5)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
-          <div className="neu-raised" style={{ width: '100%', maxWidth: 400, padding: 24, display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <div style={{ textAlign: 'center', fontSize: 20, fontWeight: 700, color: 'var(--ink)' }}>Interview Feedback</div>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 8 }}>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
-                <ProgressRing progress={scorecardData.clarity} size={64} strokeWidth={6} color="#11978C" />
-                <div style={{ fontSize: 12, fontWeight: 600 }}>Klarheit</div>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
-                <ProgressRing progress={scorecardData.grammar} size={64} strokeWidth={6} color="#C97B4A" />
-                <div style={{ fontSize: 12, fontWeight: 600 }}>Grammatik</div>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
-                <ProgressRing progress={scorecardData.vocabulary} size={64} strokeWidth={6} color="#11978C" />
-                <div style={{ fontSize: 12, fontWeight: 600 }}>Wortschatz</div>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
-                <ProgressRing progress={scorecardData.confidence} size={64} strokeWidth={6} color="#11978C" />
-                <div style={{ fontSize: 12, fontWeight: 600 }}>Sicherheit</div>
-              </div>
-            </div>
-
-            <div style={{ marginTop: 16 }}>
-              <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-teal)', marginBottom: 8 }}>Stärken</div>
-              <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: 'var(--ink)' }}>
-                {scorecardData.strengths.map((s, i) => <li key={i}>{s}</li>)}
-              </ul>
-            </div>
-            
-            <div style={{ marginTop: 8 }}>
-              <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-copper)', marginBottom: 8 }}>Verbesserungspotenzial</div>
-              <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: 'var(--ink)' }}>
-                {scorecardData.improvements.map((s, i) => <li key={i}>{s}</li>)}
-              </ul>
-            </div>
-
-            <button className="neu-btn" onClick={() => setShowScorecard(false)} style={{ marginTop: 16, padding: '12px' }}>
-              Schließen
+            <textarea
+              className="neu-inset scrollbar"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                  e.preventDefault();
+                  if (!transcribing && !loading && input.trim()) send();
+                }
+              }}
+              placeholder={t('input_placeholder', appLang)}
+              disabled={transcribing}
+              rows={1}
+              style={{
+                flex: 1, padding: '12px 16px',
+                opacity: transcribing ? 0.6 : 1, fontSize: 14, color: 'var(--ink)',
+                resize: 'vertical', minHeight: '48px', maxHeight: '200px', fontFamily: 'inherit',
+                lineHeight: '1.4'
+              }}
+            />
+            <button
+              onClick={() => send()}
+              disabled={loading || transcribing || !input.trim()}
+              className="neu-btn"
+              style={{ width: 44, height: 44, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', flexShrink: 0 }}
+            >
+              <Icon name="ArrowRight" size={20} color="#fff" />
             </button>
           </div>
         </div>
-      )}
+
+        {/* Mock Interview Scorecard Modal */}
+        {showScorecard && scorecardData && (
+          <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.5)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 20 }}>
+            <div className="neu-raised" style={{ width: '100%', maxWidth: 400, padding: 24, display: 'flex', flexDirection: 'column', gap: 16 }}>
+              <div style={{ textAlign: 'center', fontSize: 20, fontWeight: 700, color: 'var(--ink)' }}>Interview Feedback</div>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginTop: 8 }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+                  <ProgressRing progress={scorecardData.clarity} size={64} strokeWidth={6} color="#11978C" />
+                  <div style={{ fontSize: 12, fontWeight: 600 }}>Klarheit</div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+                  <ProgressRing progress={scorecardData.grammar} size={64} strokeWidth={6} color="#C97B4A" />
+                  <div style={{ fontSize: 12, fontWeight: 600 }}>Grammatik</div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+                  <ProgressRing progress={scorecardData.vocabulary} size={64} strokeWidth={6} color="#11978C" />
+                  <div style={{ fontSize: 12, fontWeight: 600 }}>Wortschatz</div>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+                  <ProgressRing progress={scorecardData.confidence} size={64} strokeWidth={6} color="#11978C" />
+                  <div style={{ fontSize: 12, fontWeight: 600 }}>Sicherheit</div>
+                </div>
+              </div>
+
+              <div style={{ marginTop: 16 }}>
+                <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-teal)', marginBottom: 8 }}>Stärken</div>
+                <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: 'var(--ink)' }}>
+                  {scorecardData.strengths.map((s, i) => <li key={i}>{s}</li>)}
+                </ul>
+              </div>
+
+              <div style={{ marginTop: 8 }}>
+                <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--color-copper)', marginBottom: 8 }}>Verbesserungspotenzial</div>
+                <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: 'var(--ink)' }}>
+                  {scorecardData.improvements.map((s, i) => <li key={i}>{s}</li>)}
+                </ul>
+              </div>
+
+              <button className="neu-btn" onClick={() => { setShowScorecard(false); setActiveSessionId(null); }} style={{ marginTop: 16, padding: '12px' }}>
+                Schließen
+              </button>
+            </div>
+          </div>
+        )}
       </motion.div>
     );
   }

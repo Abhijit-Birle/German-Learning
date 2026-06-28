@@ -16,7 +16,7 @@ const AudioButton = ({ text, appLang, size = 24 }) => {
       audio.onerror = () => setIsPlaying(false);
     } catch (e) {
       console.error('Audio play error:', e);
-      speakBrowserFallback(text, 1.0, appLang === 'de' ? 'en-US' : 'de-DE');
+      speakBrowserFallback(text, 1.0, 'de-DE');
       setIsPlaying(false);
     }
   };
@@ -59,6 +59,7 @@ export function DictionaryWordDetail({ wordData, appLang }) {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+            <AudioButton text={wordData.word} appLang={appLang} size={24} />
             <h2 style={{ fontSize: '32px', fontWeight: 'bold', margin: 0, color: 'var(--ink)' }}>
               {wordData.article ? `${wordData.article} ` : ''}{wordData.word}
             </h2>
