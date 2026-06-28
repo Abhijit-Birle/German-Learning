@@ -18,6 +18,7 @@ import { ExerciseSession } from './ExerciseSession.jsx';
 import { ExerciseResults } from './ExerciseResults.jsx';
 import { DailyLesson } from './DailyLesson.jsx';
 import { CasesTrainer } from './CasesTrainer.jsx';
+import { ArticleTrainer } from './ArticleTrainer.jsx';
 import { MOCK_EXERCISES } from '../data/mockExercises.js';
 import { useLessons } from '../hooks/useLessons.js';
 
@@ -131,6 +132,7 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
       setScenario(null);
       setSessionTopic(null);
       setActiveSessionId(null);
+      setAppView('home');
     }
   }, [isTaskActive]);
 
@@ -538,7 +540,7 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
         <DailyLesson
           level={level}
           appLang={appLang}
-          onBack={() => setAppView('home')}
+          onBack={() => { setAppView('home'); onTaskEnd && onTaskEnd(); }}
           onComplete={handleLessonComplete}
           completedSublessons={completedSublessons}
         />
@@ -547,37 +549,43 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
   } else if (appView === 'cases_trainer') {
     content = (
       <motion.div key="cases_trainer" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }} transition={{ type: 'spring', stiffness: 300, damping: 20 }} style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', minHeight: 0 }}>
-        <CasesTrainer onBack={() => setAppView('home')} appLang={appLang} />
+        <CasesTrainer onBack={() => { setAppView('home'); onTaskEnd && onTaskEnd(); }} appLang={appLang} />
+      </motion.div>
+    );
+  } else if (appView === 'article_trainer') {
+    content = (
+      <motion.div key="article_trainer" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }} transition={{ type: 'spring', stiffness: 300, damping: 20 }} style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden', minHeight: 0 }}>
+        <ArticleTrainer onBack={() => { setAppView('home'); onTaskEnd && onTaskEnd(); }} appLang={appLang} />
       </motion.div>
     );
   } else if (appView === 'exercise_list') {
     content = (
       <motion.div key="ex_list" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} style={{ flex: 1, display: 'flex' }}>
-        <ExerciseList onBack={() => setAppView('home')} onSelectLesson={(id) => { fetchExercises('lesson', id); setAppView('exercise_session'); }} appLang={appLang} />
+        <ExerciseList onBack={() => { setAppView('home'); onTaskEnd && onTaskEnd(); }} onSelectLesson={(id) => { fetchExercises('lesson', id); setAppView('exercise_session'); }} appLang={appLang} />
       </motion.div>
     );
   } else if (appView === 'exercise_session') {
     content = (
       <motion.div key="ex_session" initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -50 }} style={{ flex: 1, display: 'flex' }}>
-        <ExerciseSession onBack={() => setAppView('home')} onComplete={() => setAppView('exercise_results')} />
+        <ExerciseSession onBack={() => { setAppView('home'); onTaskEnd && onTaskEnd(); }} onComplete={() => setAppView('exercise_results')} />
       </motion.div>
     );
   } else if (appView === 'exercise_results') {
     content = (
       <motion.div key="ex_results" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} style={{ flex: 1, display: 'flex' }}>
-        <ExerciseResults onBack={() => setAppView('home')} onRetryMistakes={() => { fetchExercises('mistakes'); setAppView('exercise_session'); }} />
+        <ExerciseResults onBack={() => { setAppView('home'); onTaskEnd && onTaskEnd(); }} onRetryMistakes={() => { fetchExercises('mistakes'); setAppView('exercise_session'); }} />
       </motion.div>
     );
   } else if (appView === 'interview_session') {
     content = (
       <motion.div key="int_session" initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }} style={{ flex: 1, display: 'flex' }}>
-        <InterviewSession onBack={() => setAppView('home')} onComplete={() => setAppView('interview_scorecard')} appLang={appLang} />
+        <InterviewSession onBack={() => { setAppView('home'); onTaskEnd && onTaskEnd(); }} onComplete={() => setAppView('interview_scorecard')} appLang={appLang} />
       </motion.div>
     );
   } else if (appView === 'interview_scorecard') {
     content = (
       <motion.div key="int_scorecard" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }} style={{ flex: 1, display: 'flex' }}>
-        <InterviewScorecard onBack={() => setAppView('home')} appLang={appLang} />
+        <InterviewScorecard onBack={() => { setAppView('home'); onTaskEnd && onTaskEnd(); }} appLang={appLang} />
       </motion.div>
     );
   } else if (!isTaskActive) {
@@ -639,7 +647,7 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
               <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 12 }}>{activeLessonBlock ? `Lesson: ${activeLessonBlock.name}` : 'No lessons yet'}</div>
               <button
                 className="neu-btn"
-                onClick={() => { if (activeLessonBlock) { setAppView('daily_lesson'); } }}
+                onClick={() => { if (activeLessonBlock) { setAppView('daily_lesson'); onTaskStart && onTaskStart(); } }}
                 style={{ padding: '10px 20px', fontSize: 14 }}
                 disabled={!activeLessonBlock}
               >
@@ -656,19 +664,19 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
         <div style={{ padding: '0 16px', marginBottom: 24 }}>
           <div style={{ fontSize: 15, fontWeight: 700, marginBottom: 12, color: 'var(--ink)' }}>Quick Drill</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 10 }}>
-            <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => { fetchExercises('random', '', level); setAppView('exercise_session'); }} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+            <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => { fetchExercises('random', '', level); setAppView('exercise_session'); onTaskStart && onTaskStart(); }} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
               <div className="neu-inset" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>🎲</div>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink)' }}>Random</div>
             </motion.button>
-            <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => { fetchExercises('mistakes', '', level); setAppView('exercise_session'); }} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+            <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => { fetchExercises('mistakes', '', level); setAppView('exercise_session'); onTaskStart && onTaskStart(); }} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
               <div className="neu-inset" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>🔁</div>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink)' }}>Mistakes</div>
             </motion.button>
-            <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => { fetchExercises('articles', '', level); setAppView('exercise_session'); }} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+            <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => { setAppView('article_trainer'); onTaskStart && onTaskStart(); }} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
               <div className="neu-inset" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>📚</div>
               <div style={{ fontSize: 11, fontWeight: 700, color: 'var(--ink)' }}>{appLang === 'de' ? 'Artikel' : 'Articles'}</div>
             </motion.button>
-            <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => setAppView('cases_trainer')} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
+            <motion.button whileTap={{ scale: 0.95 }} className="neu-small" onClick={() => { setAppView('cases_trainer'); onTaskStart && onTaskStart(); }} style={{ padding: '12px 4px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}>
               <div className="neu-inset" style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <Icon name="ArrowsRightLeft" size={20} color="var(--ink)" />
               </div>
@@ -735,7 +743,7 @@ export function Tutor({ level, onLevelChange, onOpenApiKey, appLang, onLangChang
               { id: 'system_design', title: 'System Design', icon: 'Server' },
               { id: 'behavioural', title: 'Behavioural', icon: 'Users' }
             ].map(topic => (
-              <motion.button whileTap={{ scale: 0.97 }} key={topic.id} onClick={() => { useExerciseStore.getState().resetInterviewSession(); useExerciseStore.getState().setInterviewTopic(topic.id); setAppView('interview_session'); }} className="neu-small" style={{ width: 140, padding: '20px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, border: 'none', flexShrink: 0 }}>
+              <motion.button whileTap={{ scale: 0.97 }} key={topic.id} onClick={() => { useExerciseStore.getState().resetInterviewSession(); useExerciseStore.getState().setInterviewTopic(topic.id); setAppView('interview_session'); onTaskStart && onTaskStart(); }} className="neu-small" style={{ width: 140, padding: '20px 16px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, border: 'none', flexShrink: 0 }}>
                 <div className="neu-inset" style={{ width: 48, height: 48, borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                   <Icon name={topic.icon} size={24} color={'var(--color-copper)'} />
                 </div>
