@@ -1,84 +1,157 @@
-# German Workshop
+<div align="center">
 
-A personal AI language studio for learning German: daily drills, role-play conversations, vocabulary, and writing practice, all in one soft, teal-and-cream app.
+# 🇩🇪 Deutsch Werkstatt
 
-Built for fun while learning German myself. I wanted practice that fits my own situations (job interviews, offices, bureaucracy) instead of generic phrasebook lessons.
+**AI-powered German practice for tech professionals**
 
-<p align="center">
-  <img src="docs/screenshots/home.jpg" width="160" alt="Home" />
-  <img src="docs/screenshots/interview.jpg" width="160" alt="Job interview chat" />
-  <img src="docs/screenshots/quiz.jpg" width="160" alt="Quiz" />
-  <img src="docs/screenshots/vocabulary.jpg" width="160" alt="Vocabulary" />
-  <img src="docs/screenshots/writing.jpg" width="160" alt="Writing" />
+<a href="https://github.com/Abhijit-Birle/deutsch-werkstatt">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1200&color=3D8B83&center=true&vCenter=true&width=520&lines=Practice+German+like+you+will+speak+it;Role-play+job+interviews+with+AI;Get+corrected+as+you+go;Learn+the+words+developers+actually+use" alt="Typing animation" />
+</a>
+
+<br />
+
+![Status](https://img.shields.io/badge/status-hobby%20project-3D8B83?style=for-the-badge)
+![Levels](https://img.shields.io/badge/CEFR-A1%20→%20C2-C47F5A?style=for-the-badge)
+![AI](https://img.shields.io/badge/AI-powered-6C5CE7?style=for-the-badge)
+![Platform](https://img.shields.io/badge/platform-Android-2D2D2D?style=for-the-badge&logo=android&logoColor=white)
+
+<br />
+
+<p>
+  <a href="#-highlights">Highlights</a> ·
+  <a href="#-screenshots">Screenshots</a> ·
+  <a href="#-everything-inside">Everything inside</a> ·
+  <a href="#-run-it">Run it</a>
 </p>
+
+</div>
+
+---
+
+## 👋 Why I built this
+
+I'm learning German and wanted daily practice built around **my own situations**: job interviews, office talk, and tech vocabulary. A side project with no deadlines, so it's also a playground for AI features.
+
+> 🛠️ Hobby project. Rough edges included, and it changes whenever I feel like tinkering.
+
+## ✨ Highlights
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🎭 AI role-play</h3>
+      Practice a <b>Job Interview</b>, <b>Office Meeting</b>, or <b>Restaurant</b> chat. Pick a topic like <i>Backend Engineer</i> and any level from A1 to C2. Type or speak.
+    </td>
+    <td width="50%" valign="top">
+      <h3>🛠️ Instant corrections</h3>
+      Every message gets a <b>"Besser:"</b> fix, a <b>pronunciation score</b>, and an English translation under each German reply.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>💻 Developer vocabulary</h3>
+      Industry packs for <b>Agentic AI</b>, <b>Backend</b>, <b>System Design</b>, and <b>Frontend</b>. Words you will actually use at work.
+    </td>
+    <td width="50%" valign="top">
+      <h3>🗺️ A daily path</h3>
+      Streaks, a weekly goal, quick drills (Random, Mistakes, Articles, Hören), a word of the day, and a goal tracker.
+    </td>
+  </tr>
+</table>
+
+## 📸 Screenshots
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="docs/screenshots/home.jpg" width="150" alt="Home" /><br /><sub><b>Path</b></sub></td>
+    <td align="center"><img src="docs/screenshots/interview.jpg" width="150" alt="Job interview chat" /><br /><sub><b>Interview</b></sub></td>
+    <td align="center"><img src="docs/screenshots/quiz.jpg" width="150" alt="Quiz" /><br /><sub><b>Quiz</b></sub></td>
+    <td align="center"><img src="docs/screenshots/vocabulary.jpg" width="150" alt="Vocabulary" /><br /><sub><b>Vocabulary</b></sub></td>
+    <td align="center"><img src="docs/screenshots/writing.jpg" width="150" alt="Writing" /><br /><sub><b>Writing</b></sub></td>
+  </tr>
+</table>
 
 <details>
-<summary>More screenshots</summary>
+<summary><b>More screens, including dark mode</b></summary>
 <br />
-<p align="center">
-  <img src="docs/screenshots/new-scenario.jpg" width="140" alt="New scenario" />
-  <img src="docs/screenshots/translate.jpg" width="140" alt="Translate exercise" />
-  <img src="docs/screenshots/home-dark.jpg" width="140" alt="Dark mode home" />
-  <img src="docs/screenshots/profile.jpg" width="140" alt="Profile" />
-</p>
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="docs/screenshots/new-scenario.jpg" width="150" alt="New scenario" /><br /><sub><b>New scenario</b></sub></td>
+    <td align="center"><img src="docs/screenshots/translate.jpg" width="150" alt="Translate exercise" /><br /><sub><b>Translate</b></sub></td>
+    <td align="center"><img src="docs/screenshots/home-dark.jpg" width="150" alt="Dark mode" /><br /><sub><b>Dark mode</b></sub></td>
+    <td align="center"><img src="docs/screenshots/profile.jpg" width="150" alt="Profile" /><br /><sub><b>Profile</b></sub></td>
+  </tr>
+</table>
+
 </details>
 
-## Why I built this
+## 📦 Everything inside
 
-I'm learning German and wanted one place to practice daily, aimed at real situations. It's also a playground for AI features like role-play partners that correct me as I go. A side project with no deadlines, so I tinker whenever I feel like it.
+<details>
+<summary><b>Path (home)</b></summary>
 
-> Hobby project. Things may be rough, and features change whenever I feel like tinkering.
+- Day streak, weekly goal, words to practice
+- Current lesson card with progress
+- Quick drills: Random, Mistakes, Articles, Hören
+- Weekly activity chart and goal tracker
+- Word of the day and last mistake
+</details>
 
-## What's inside
+<details>
+<summary><b>Scenarios</b></summary>
 
-**Path (home)**
-- Day streak, weekly goal, and words to practice
-- Current lesson card (like "Articles & Cases") with progress
-- Quick drills: Random, Mistakes, Articles, Hören (listening)
-- Weekly activity chart, a goal tracker, word of the day, and last mistake
-
-**Scenarios: AI role-play**
-- Practice conversations: Job Interview, Office Meeting, At the Restaurant
-- Pick a topic (for example Backend Engineer) and a level from A1 to C2
-- Type or speak in German
-- AI replies in German with an English translation underneath
-- Corrections under each of your messages ("Besser: ...")
-- Pronunciation score with a note on what to fix
+- Job Interview, Office Meeting, At the Restaurant
+- Topic and difficulty picker (A1–C2)
 - Voice on/off, translate toggle, clear chat, end interview
+</details>
 
-**Quiz**
-- Fill-in-the-article questions (der / die / das)
-- Translation exercises with the correct answer shown
-- Questions tagged by situation, such as Office Meeting or Immigration Office
+<details>
+<summary><b>Quiz, Vocabulary, Writing</b></summary>
 
-**Vocabulary**
-- Total, mastered, and due-for-review counts
-- Industry packs: Agentic AI, Backend, System Design, Frontend
-- Add your own words
+- Fill-in-the-article (der / die / das) and translation exercises
+- Situation tags like Office Meeting and Immigration Office
+- Mastered and due-for-review word counts, plus your own words
+- Daily writing task with history
+</details>
 
-**Writing**
-- A daily writing task with a history of past entries
+<details>
+<summary><b>Profile</b></summary>
 
-**Profile**
-- Streak, exercise count, accuracy, and achievements
+- Streak, exercises, accuracy, achievements
 - Target level, app language, light/dark mode, data export
 - Bring your own API key for the AI features
+</details>
 
-## Run it
+<!--
+## 🧰 Built with
+Add a badge row here once you confirm the stack from package.json, for example:
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+-->
+
+## 🚀 Run it
 
 ```bash
-git clone https://github.com/Abhijit-Birle/German-Learning.git
-cd German-Learning
+git clone https://github.com/Abhijit-Birle/deutsch-werkstatt.git
+cd deutsch-werkstatt
 npm install
 npm run dev
 ```
 
-Open the Profile tab and add your API key to turn on the AI features.
+Open the **Profile** tab and add your API key to turn on the AI features.
 
-## What's next (maybe)
+## 🗓️ What's next (maybe)
 
-More scenarios, spaced repetition for vocabulary, listening drills. No promises.
+- [ ] More scenarios
+- [ ] Spaced repetition for vocabulary
+- [ ] Listening drills
 
-## Author
+## 🙋 Author
 
 **Abhijit Birle** · [GitHub](https://github.com/Abhijit-Birle)
+
+<div align="center">
+  <sub>Made for fun, one Wort at a time. ⭐ a star is always welcome.</sub>
+</div>
